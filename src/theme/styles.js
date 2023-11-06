@@ -3,6 +3,7 @@ const styles = {
     body: {
       bgColor: "backgroundGreen",
       fontWeight: 500,
+      color: "white",
     },
   },
 };

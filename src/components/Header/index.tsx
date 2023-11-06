@@ -167,7 +167,7 @@ const DesktopNav = () => {
 
 const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   return (
-    <Box as="a" href={href} display={"block"} p={2} rounded={"md"} _hover={{ color: "green.400" }}>
+    <Box display={"block"} p={2} rounded={"md"} _hover={{ color: "green.400" }}>
       <Stack direction={"row"} align={"center"}>
         <Box>
           <Text transition={"all .3s ease"} fontWeight={500}>

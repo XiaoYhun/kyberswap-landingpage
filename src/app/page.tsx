@@ -1,5 +1,6 @@
-import { ArrowForwardIcon } from "@chakra-ui/icons";
-import { Button, Card, Box, Container, Center, Stack, Flex, Heading, Text, Spacer } from "@chakra-ui/react";
+import { ArrowLeftIcon } from "@chakra-ui/icons";
+import { Button, Box, Container, Center, Stack, Flex, Heading, Text, Spacer } from "@chakra-ui/react";
+import { BannerCarousel } from "components/Home/Banner";
 import Image from "next/image";
 import { ReactNode } from "react";
 export default function Home() {
@@ -101,6 +102,11 @@ export default function Home() {
             </Flex>
           </Flex>
         </Stack>
+        <Spacer height="60px" />
+        <Center>
+          <BannerCarousel />
+        </Center>
+        <Spacer height="300px" />
       </Container>
     </Box>
   );
