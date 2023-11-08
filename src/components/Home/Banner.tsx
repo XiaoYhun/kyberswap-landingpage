@@ -3,7 +3,7 @@
 import { Box, Button, Flex } from "@chakra-ui/react";
 import { MotionDiv } from "components/motion";
 import Image from "next/image";
-import { ReactNode, useState } from "react";
+import { ReactNode, useState, useEffect } from "react";
 const BannerWrapper = ({ children, ...rest }: { children: ReactNode } & any) => {
   const variants = {
     left: {
@@ -36,7 +36,7 @@ const BannerWrapper = ({ children, ...rest }: { children: ReactNode } & any) => 
       zIndex={1}
       initial={{ x: 0, opacity: 0, scale: 0.5 }}
       variants={variants}
-      transition={{ type: "spring", damping: 30, stiffness: 400 }}
+      transition={{ type: "spring", damping: 60, stiffness: 400 }}
       style={{ width: "600px", height: "280px", position: "absolute", borderRadius: "20px", overflow: "hidden" }}
       {...rest}
     >
@@ -48,6 +48,18 @@ const BannerWrapper = ({ children, ...rest }: { children: ReactNode } & any) => 
 export function BannerCarousel() {
   const [count, setCount] = useState(9999);
   const list = ["center", "right", "left"];
+  useEffect(() => {
+    const nextStep = () => {
+      setCount((prev) => ++prev);
+    };
+    const timeout = setTimeout(() => {
+      nextStep();
+    }, 10_000);
+    return () => {
+      timeout && clearTimeout(timeout);
+    };
+  }, [count]);
+
   return (
     <Flex position="relative" justify="center" align="center" height="300px">
       <BannerWrapper animate={list[count % 3]}>

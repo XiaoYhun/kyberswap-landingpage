@@ -55,6 +55,9 @@ export default function Home() {
                 w="fit-content"
                 h="fit-content"
                 p="16px 24px"
+                as="a"
+                href="https://kyberswap.com/swap/ethereum"
+                target="_blank"
               >
                 Start Now <ArrowUpRight size="24px" />
               </Button>

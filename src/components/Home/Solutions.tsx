@@ -10,7 +10,7 @@ const FEATURES = [
     title: "DEX Aggregator",
     desc: "Trade with excellent rates using our high performance, gas-efficient aggregator.",
     btns: [
-      { type: "secondary", text: "Trade Now", href: "#" },
+      { type: "secondary", text: "Trade Now", href: "https://kyberswap.com/swap/ethereum", target: "_blank" },
       { type: "outline", text: "Learn More", href: "#" },
     ],
   },
@@ -19,7 +19,7 @@ const FEATURES = [
     title: "Liquidity Protocols",
     desc: "Earn more as a liquidity provider with real yield from capital efficient Elastic & Classic protocols.",
     btns: [
-      { type: "secondary", text: "Add Liquidity", href: "#" },
+      { type: "secondary", text: "Add Liquidity", href: "https://kyberswap.com/pools/", target: "_blank" },
       { type: "outline", text: "Learn More", href: "#" },
     ],
   },
@@ -28,8 +28,51 @@ const FEATURES = [
     title: "KyberAI",
     desc: "Get alpha before it happens on 4000 tokens in real time, powered by our machine learning algorithm",
     btns: [
-      { type: "secondary", text: "Get Started", href: "#" },
+      { type: "secondary", text: "Get Started", href: "https://kyberswap.com/KyberAI/About", target: "_blank" },
       { type: "outline", text: "Learn More", href: "#" },
+    ],
+  },
+  {
+    imageUrl: "/assets/images/feature2.png",
+    title: "Limit Orders",
+    desc: "Buy low, sell high, with gasless and slippage free limit orders",
+    btns: [
+      { type: "secondary", text: "Trade Now", href: "https://kyberswap.com/limit/ethereum", target: "_blank" },
+      { type: "outline", text: "Learn More", href: "#" },
+    ],
+  },
+  {
+    imageUrl: "/assets/images/feature2.png",
+    title: "Farming Rewards",
+    desc: "Enjoy boosted yields powered by KyberSwap & participating protocols",
+    btns: [
+      { type: "secondary", text: "Add Liquidity", href: "https://kyberswap.com/farms/ethereum", target: "_blank" },
+    ],
+  },
+  {
+    imageUrl: "/assets/images/feature2.png",
+    title: "Cross-Chain Swaps",
+    desc: "Bridge across chains fast, seamlessly on X chains",
+    btns: [{ type: "secondary", text: "Trade Now", href: "https://kyberswap.com/cross-chain", target: "_blank" }],
+  },
+  {
+    imageUrl: "/assets/images/feature2.png",
+    title: "Onramp",
+    desc: "Convert fiat to crypto immediately with card, Google or Apple Pay",
+    btns: [{ type: "secondary", text: "Buy Crypto", href: "https://kyberswap.com/buy-crypto", target: "_blank" }],
+  },
+  {
+    imageUrl: "/assets/images/feature2.png",
+    title: "Campaigns",
+    desc: "Join exciting trading, onchain, referral and community campaigns for extra rewards",
+    btns: [{ type: "secondary", text: "Join Now", href: "https://kyberswap.com/campaigns", target: "_blank" }],
+  },
+  {
+    imageUrl: "/assets/images/feature2.png",
+    title: "Gas Refunds",
+    desc: "Stake KNC in KyberDAO and enjoy up to X% gas refund",
+    btns: [
+      { type: "secondary", text: "Stake Now", href: "https://kyberswap.com/kyberdao/knc-utility", target: "_blank" },
     ],
   },
 ];
@@ -101,7 +144,8 @@ const FeatureCard = ({ item, index }: { item: (typeof FEATURES)[number]; index: 
                     <Button
                       variant={btn.type}
                       as="a"
-                      href={btn.href}
+                      href={btn.href ?? "#"}
+                      target={btn.target ?? "_self"}
                       fontSize="lg"
                       p="10px 16px"
                       rounded="2xl"

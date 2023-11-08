@@ -13,7 +13,15 @@ export default function Security() {
           KyberSwap security fund, smart contract audits, bug bounty programs and other best practices are in place to
           ensure the highest security levels.
         </Text>
-        <Button variant="outline" rounded="2xl" fontSize="lg" p="16px 24px">
+        <Button
+          variant="outline"
+          rounded="2xl"
+          fontSize="lg"
+          p="16px 24px"
+          as="a"
+          href="https://docs.kyberswap.com/reference/audits"
+          target="_blank"
+        >
           Learn More <ArrowUpRight />
         </Button>
       </Flex>

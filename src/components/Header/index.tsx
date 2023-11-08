@@ -24,6 +24,7 @@ interface NavItem {
   subLabel?: string;
   children?: Array<NavItem>;
   href?: string;
+  target?: string;
 }
 
 const NAV_ITEMS: Array<NavItem> = [
@@ -77,11 +78,13 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Blog",
-    href: "#",
+    href: "https://blog.kyberswap.com/",
+    target: "_blank",
   },
   {
     label: "Help Center",
-    href: "#",
+    href: "https://support.kyberswap.com/hc/en-us",
+    target: "_blank",
   },
 ];
 
@@ -98,7 +101,7 @@ export default function Header() {
           <DesktopNav />
         </Container>
         <Flex grow={1} shrink={0} justify="start" direction={"row"}>
-          <Button variant="solid" colorScheme="green" as="a" href="https://www.kyberswap.com/swap/">
+          <Button variant="solid" colorScheme="green" as="a" href="https://kyberswap.com/swap/ethereum" target="_blank">
             Launch App
           </Button>
         </Flex>
@@ -181,7 +184,7 @@ const MobileNav = () => {
   );
 };
 
-const MobileNavItem = ({ label, children, href }: NavItem) => {
+const MobileNavItem = ({ label, children, href, target }: NavItem) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -190,6 +193,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         py={2}
         as="a"
         href={href ?? "#"}
+        target={target ?? "_self"}
         justifyContent="space-between"
         alignItems="center"
         _hover={{

@@ -20,7 +20,14 @@ export default function Support() {
             technical issues you might encounter.
           </Text>
           <Stack direction="row" gap="16px" mt="16px">
-            <Button variant="outline" rounded="2xl" padding="16px 24px">
+            <Button
+              variant="outline"
+              rounded="2xl"
+              padding="16px 24px"
+              as="a"
+              href="https://kyberswap.com/swap/ethereum"
+              target="_blank"
+            >
               Contact Support
               <ArrowUpRight />
             </Button>
