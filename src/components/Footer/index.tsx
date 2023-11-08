@@ -1,8 +1,18 @@
-"use client";
-
 import { ReactNode } from "react";
-import { Box, Container, Stack, SimpleGrid, Text, VisuallyHidden, chakra, Image } from "@chakra-ui/react";
-import { Foldit } from "next/font/google";
+import {
+  Box,
+  Container,
+  Stack,
+  SimpleGrid,
+  Text,
+  VisuallyHidden,
+  chakra,
+  Image,
+  Flex,
+  Divider,
+  Tooltip,
+  Button,
+} from "@chakra-ui/react";
 
 const ListHeader = ({ children }: { children: ReactNode }) => {
   return (
@@ -104,11 +114,21 @@ export default function LargeWithAppLinksAndSocial() {
               direction="row"
               sx={{ image: { height: "24px", width: "24px", _hover: { fill: "whiteAlpha.600" } }, cursor: "pointer" }}
             >
-              <Image src="/assets/svg/community/mono/discord.svg" />
-              <Image src="/assets/svg/community/mono/telegram.svg" />
-              <Image src="/assets/svg/community/mono/twitter.svg" />
-              <Image src="/assets/svg/community/mono/blog.svg" />
-              <Image src="/assets/svg/community/mono/debank.svg" />
+              <Box as="a" href="https://discord.com/invite/NB3vc8J9uv" target="_blank">
+                <Image src="/assets/svg/community/mono/discord.svg" />
+              </Box>
+              <Box as="a" href="https://t.me/kybernetwork" target="_blank">
+                <Image src="/assets/svg/community/mono/telegram.svg" />
+              </Box>
+              <Box as="a" href="https://twitter.com/KyberNetwork" target="_blank">
+                <Image src="/assets/svg/community/mono/twitter.svg" />
+              </Box>
+              <Box as="a" href="https://blog.kyberswap.com/" target="_blank">
+                <Image src="/assets/svg/community/mono/blog.svg" />
+              </Box>
+              <Box as="a" href="https://debank.com/official-account/110644/stream" target="_blank">
+                <Image src="/assets/svg/community/mono/debank.svg" />
+              </Box>
             </Stack>
           </Stack>
         </SimpleGrid>
@@ -118,14 +138,52 @@ export default function LargeWithAppLinksAndSocial() {
         <Container
           as={Stack}
           maxW={"6xl"}
-          py={4}
+          py={3}
           direction={{ base: "column", md: "row" }}
           spacing={4}
           justify={{ md: "space-between" }}
           align={{ md: "center" }}
         >
-          <Text>© 2022 Chakra Templates. All rights reserved</Text>
-          <Stack direction={"row"} spacing={6}></Stack>
+          <Flex align="center" gap="12px" fontSize="12px" color="greyAlpha.500" fontWeight="light">
+            <Flex align="center" gap="6px" color="greyAlpha.500">
+              <div>Powered By</div>
+              <a target="_blank" rel="noopener noreferrer" href="https://kyber.network">
+                <img src="/assets/svg/footer-kybernetwork.svg" alt="chain-security" width="40px" />
+              </a>
+            </Flex>
+            <Divider orientation="vertical" height="16px" borderColor="greyAlpha.500" />
+            <Flex align="center" gap="6px">
+              <div>Audited By</div>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://chainsecurity.com/security-audit/kyberswap-elastic"
+              >
+                <img src="/assets/svg/chain-security.svg" alt="chain-security" width="98px" />
+              </a>
+              <span>
+                <div>
+                  <Tooltip label="Covers smart-contracts" hasArrow arrowSize={5}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentcolor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="12" y1="16" x2="12" y2="12"></line>
+                      <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                  </Tooltip>
+                </div>
+              </span>
+            </Flex>
+          </Flex>
         </Container>
       </Box>
     </Box>

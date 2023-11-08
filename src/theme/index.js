@@ -36,6 +36,14 @@ const theme = extendTheme({
         },
       },
     },
+    Tooltip: {
+      baseStyle: {
+        p: "6px 12px",
+        bg: "grey.800",
+        rounded: "lg",
+        "--popper-arrow-bg": "var(--chakra-colors-grey-800)",
+      },
+    },
   },
 });
 export default theme;
