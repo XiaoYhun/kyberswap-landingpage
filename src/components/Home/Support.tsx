@@ -1,5 +1,6 @@
 import { Box, Button, Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import Image from "next/image";
+import { ArrowUpRight } from "react-feather";
 
 export default function Support() {
   return (
@@ -20,10 +21,12 @@ export default function Support() {
           </Text>
           <Stack direction="row" gap="16px" mt="16px">
             <Button variant="outline" rounded="2xl" padding="16px 24px">
-              Contact Suppport
+              Contact Support
+              <ArrowUpRight />
             </Button>
             <Button variant="outline" rounded="2xl" padding="16px 24px">
               View Docs
+              <ArrowUpRight />
             </Button>
           </Stack>
         </Flex>

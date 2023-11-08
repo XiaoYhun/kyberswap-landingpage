@@ -18,7 +18,7 @@ export default function FirstToKnow() {
       <Text color="whiteAlpha.600" fontSize="lg">
         Get alpha from our channels & community
       </Text>
-      <Stack direction="row" gap="24px">
+      <Stack direction="row" gap="20px">
         <>
           {COMMUNITIES.map((c) => {
             return <CommunityIcon community={c} />;

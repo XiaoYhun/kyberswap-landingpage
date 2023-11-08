@@ -1,4 +1,4 @@
-import { ArrowRightIcon } from "@chakra-ui/icons";
+import { ArrowUpRight } from "react-feather";
 import { Box, Button, Center, Divider, Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import Image from "next/image";
 
@@ -136,7 +136,9 @@ export default function Platform() {
       </Stack>
       <Center>
         <Button variant="outline" p="16px 24px" h="fit-content" rounded="2xl" lineHeight="24px" fontSize="18px">
-          Explore our Ecosystem =&gt;
+          <Flex gap="12px">
+            Explore our Ecosystem <ArrowUpRight />
+          </Flex>
         </Button>
       </Center>
     </Stack>

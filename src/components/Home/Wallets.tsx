@@ -1,5 +1,6 @@
 import { Badge, Box, Button, Flex, Heading, Link, Text } from "@chakra-ui/react";
 import Image from "next/image";
+import { ArrowUpRight, ChevronDown } from "react-feather";
 
 const WALLETS = [
   {
@@ -37,8 +38,9 @@ export default function Wallets() {
           })}
         </>
       </Flex>
-      <Button variant="outline" p="16px 24px">
+      <Button variant="outline" rounded="3xl" p="16px 24px">
         View More
+        <ChevronDown />
       </Button>
     </Flex>
   );

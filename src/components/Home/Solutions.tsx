@@ -3,6 +3,7 @@ import { useAnimationControls } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight, ArrowUpRight } from "react-feather";
 const FEATURES = [
   {
     imageUrl: "/assets/images/feature.png",
@@ -53,10 +54,10 @@ export default function Solutions() {
         <Heading size="2xl">A Solution For Your Every Need</Heading>
         <Stack direction="row">
           <Button variant="secondary" p="0.5rem">
-            &lt;
+            <ChevronLeft />
           </Button>
           <Button variant="secondary" p="0.5rem">
-            &gt;
+            <ChevronRight />
           </Button>
         </Stack>
       </Flex>
@@ -106,7 +107,7 @@ const FeatureCard = ({ item, index }: { item: (typeof FEATURES)[number]; index: 
                       rounded="2xl"
                       w="fit-content"
                     >
-                      {btn.text}
+                      {btn.text} <ArrowUpRight />
                     </Button>
                   );
                 })}

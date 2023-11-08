@@ -1,4 +1,3 @@
-import { ArrowLeftIcon } from "@chakra-ui/icons";
 import { Button, Box, Container, Center, Stack, Flex, Heading, Text, Spacer, Divider } from "@chakra-ui/react";
 import { BannerCarousel } from "components/Home/Banner";
 import FirstToKnow from "components/Home/FirstToKnow";
@@ -10,6 +9,7 @@ import Support from "components/Home/Support";
 import Wallets from "components/Home/Wallets";
 import Image from "next/image";
 import { ReactNode } from "react";
+import { ArrowUpRight } from "react-feather";
 export default function Home() {
   return (
     <Box as="main" minH="100vh" position="relative" zIndex={1}>
@@ -47,30 +47,16 @@ export default function Home() {
                 </Text>{" "}
               </Heading>
               <Button
-                rounded="xl"
+                rounded="3xl"
                 color="grey.900"
                 colorScheme="green"
-                fontWeight="medium"
-                fontSize={18}
-                lineHeight={24}
-                width="fit-content"
-                padding="16px 24px"
+                fontSize="lg"
+                lineHeight="normal"
+                w="fit-content"
+                h="fit-content"
+                p="16px 24px"
               >
-                Start Now{" "}
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M17.7071 6.29289C18.0976 6.68342 18.0976 7.31658 17.7071 7.70711L7.70711 17.7071C7.31658 18.0976 6.68342 18.0976 6.29289 17.7071C5.90237 17.3166 5.90237 16.6834 6.29289 16.2929L16.2929 6.29289C16.6834 5.90237 17.3166 5.90237 17.7071 6.29289Z"
-                    fill="#0F0F0F"
-                  />
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M6 7C6 6.44772 6.44772 6 7 6H17C17.5523 6 18 6.44772 18 7V17C18 17.5523 17.5523 18 17 18C16.4477 18 16 17.5523 16 17V8H7C6.44772 8 6 7.55228 6 7Z"
-                    fill="#0F0F0F"
-                  />
-                </svg>
+                Start Now <ArrowUpRight size="24px" />
               </Button>
             </Stack>
           </Flex>

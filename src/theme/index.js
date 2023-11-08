@@ -13,6 +13,11 @@ const theme = extendTheme({
         padding: "0",
       },
     },
+    Flex: {
+      baseStyle: {
+        alignItems: "center",
+      },
+    },
     Link: {
       baseStyle: { color: "green.400", _hover: { color: "green.600", textDecoration: "none" } },
     },

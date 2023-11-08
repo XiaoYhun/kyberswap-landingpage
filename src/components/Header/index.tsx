@@ -15,9 +15,10 @@ import {
   useDisclosure,
   Container,
 } from "@chakra-ui/react";
-import { HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import DropdownIcon from "components/SVG/DropdownIcon";
 interface NavItem {
   label: string;
   subLabel?: string;
@@ -87,16 +88,7 @@ const NAV_ITEMS: Array<NavItem> = [
 export default function Header() {
   return (
     <Box as="header" backdropFilter="blur(32px)" bgColor="blackAlpha.50" position="fixed" width="100%" zIndex={2}>
-      <Flex
-        color="whiteAlpha.600"
-        minH="60px"
-        py={{ base: 2 }}
-        px={{ base: 4 }}
-        borderBottom={1}
-        borderStyle="solid"
-        borderColor="gray.900"
-        justify="space-between"
-      >
+      <Flex color="whiteAlpha.600" minH="60px" py={{ base: 2 }} px={{ base: 4 }} justify="space-between">
         <Flex grow={1} shrink={0} justify={{ base: "end" }} cursor="pointer">
           <motion.div whileHover={{ rotate: "-4deg" }}>
             <Image src="/assets/images/logo-dark.svg" alt="Kyberswap logo" width={140} height={46} />
@@ -106,7 +98,7 @@ export default function Header() {
           <DesktopNav />
         </Container>
         <Flex grow={1} shrink={0} justify="start" direction={"row"}>
-          <Button variant="solid" colorScheme="green">
+          <Button variant="solid" colorScheme="green" as="a" href="https://www.kyberswap.com/swap/">
             Launch App
           </Button>
         </Flex>
@@ -144,7 +136,7 @@ const DesktopNav = () => {
                     _groupHover={{ transform: "rotate(0deg)", color: linkHoverColor }}
                     transition="all .3s ease"
                   >
-                    <ChevronDownIcon />
+                    <DropdownIcon />
                   </Flex>
                 )}
                 {navItem.children && (

@@ -1,5 +1,8 @@
 const Button = {
   baseStyle: {
+    display: "flex",
+    alignItems: "center",
+    gap: "6px",
     fontWeight: "medium",
     color: "black",
     borderRadius: "99px",
@@ -23,8 +26,8 @@ const Button = {
       borderWidth: "1px",
       borderColor: "greyAlpha.200",
       h: "fit-content",
-      _hover: { bg: "greyAlpha.200" },
-      _active: { bg: "greyAlpha.300" },
+      _hover: { bg: "greyAlpha.100" },
+      _active: { bg: "greyAlpha.200" },
     },
   },
 };

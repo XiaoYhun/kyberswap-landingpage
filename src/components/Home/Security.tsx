@@ -1,5 +1,6 @@
 import { Box, Button, Center, Flex, Heading, Text } from "@chakra-ui/react";
 import Image from "next/image";
+import { ArrowUpRight } from "react-feather";
 
 export default function Security() {
   return (
@@ -13,7 +14,7 @@ export default function Security() {
           ensure the highest security levels.
         </Text>
         <Button variant="outline" rounded="2xl" fontSize="lg" p="16px 24px">
-          Learn More
+          Learn More <ArrowUpRight />
         </Button>
       </Flex>
       <Center flex={4}>

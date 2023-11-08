@@ -1,5 +1,6 @@
 import { Box, Button, Center, Flex, Heading, Text } from "@chakra-ui/react";
 import Image from "next/image";
+import { ArrowUpRight } from "react-feather";
 
 export default function KyberDAO() {
   return (
@@ -18,6 +19,7 @@ export default function KyberDAO() {
         </Text>
         <Button variant="outline" rounded="2xl" fontSize="lg" p="16px 24px">
           Learn More
+          <ArrowUpRight />
         </Button>
       </Flex>
     </Flex>
