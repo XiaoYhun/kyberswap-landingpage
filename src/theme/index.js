@@ -10,11 +10,25 @@ const theme = extendTheme({
     Container: {
       baseStyle: {
         maxW: "1024px",
+        padding: "0",
       },
     },
-    Flex: {
+    Link: {
+      baseStyle: { color: "green.400", _hover: { color: "green.600", textDecoration: "none" } },
+    },
+    Badge: {
       baseStyle: {
-        align: "center",
+        rounded: "full",
+        textTransform: "none",
+        p: "4px 8px",
+        fontSize: "xs",
+        fontWeight: "normal",
+      },
+      variants: {
+        secondary: {
+          color: "green.400",
+          bg: "greenAlpha.200",
+        },
       },
     },
   },

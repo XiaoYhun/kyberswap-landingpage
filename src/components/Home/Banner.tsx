@@ -19,7 +19,6 @@ const BannerWrapper = ({ children, ...rest }: { children: ReactNode } & any) => 
       opacity: 1,
       zIndex: 2,
       boxShadow: "0 0 10px 2px #00000040",
-      transition: { zIndex: { delay: 0.1 } },
     },
     right: {
       x: 200,
@@ -37,7 +36,7 @@ const BannerWrapper = ({ children, ...rest }: { children: ReactNode } & any) => 
       zIndex={1}
       initial={{ x: 0, opacity: 0, scale: 0.5 }}
       variants={variants}
-      transition={{ type: "spring", damping: 20, stiffness: 200 }}
+      transition={{ type: "spring", damping: 30, stiffness: 400 }}
       style={{ width: "600px", height: "280px", position: "absolute", borderRadius: "20px", overflow: "hidden" }}
       {...rest}
     >

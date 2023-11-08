@@ -1,6 +1,13 @@
 import { ArrowLeftIcon } from "@chakra-ui/icons";
-import { Button, Box, Container, Center, Stack, Flex, Heading, Text, Spacer } from "@chakra-ui/react";
+import { Button, Box, Container, Center, Stack, Flex, Heading, Text, Spacer, Divider } from "@chakra-ui/react";
 import { BannerCarousel } from "components/Home/Banner";
+import FirstToKnow from "components/Home/FirstToKnow";
+import KyberDAO from "components/Home/KyberDAO";
+import Platform from "components/Home/Platforms";
+import Security from "components/Home/Security";
+import Solutions from "components/Home/Solutions";
+import Support from "components/Home/Support";
+import Wallets from "components/Home/Wallets";
 import Image from "next/image";
 import { ReactNode } from "react";
 export default function Home() {
@@ -103,10 +110,28 @@ export default function Home() {
           </Flex>
         </Stack>
         <Spacer height="60px" />
+
         <Center>
           <BannerCarousel />
         </Center>
-        <Spacer height="300px" />
+
+        <Spacer height="100px" />
+
+        <Platform />
+        <Spacer height="100px" />
+        <Solutions />
+
+        <Spacer height="100px" />
+        <KyberDAO />
+        <Spacer height="100px" />
+        <Security />
+        <Spacer height="100px" />
+        <Wallets />
+        <Spacer height="100px" />
+        <Support />
+        <Spacer height="100px" />
+        <FirstToKnow />
+        <Spacer height="100px" />
       </Container>
     </Box>
   );

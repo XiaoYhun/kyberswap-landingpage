@@ -6,6 +6,9 @@ const styles = {
       color: "white",
     },
   },
+  a: {
+    color: "green.400",
+  },
 };
 
 export default styles;
