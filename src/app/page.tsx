@@ -109,29 +109,29 @@ export default function Home() {
             </Flex>
           </Flex>
         </Stack>
-        <Spacer height="60px" />
+        <Spacer height="100px" />
 
         <Center>
           <BannerCarousel />
         </Center>
 
-        <Spacer height="100px" />
+        <Spacer height="200px" />
 
         <Platform />
-        <Spacer height="100px" />
+        <Spacer height="200px" />
         <Solutions />
 
-        <Spacer height="100px" />
+        <Spacer height="200px" />
         <KyberDAO />
-        <Spacer height="100px" />
+        <Spacer height="200px" />
         <Security />
-        <Spacer height="100px" />
+        <Spacer height="200px" />
         <Wallets />
-        <Spacer height="100px" />
+        <Spacer height="200px" />
         <Support />
-        <Spacer height="100px" />
+        <Spacer height="200px" />
         <FirstToKnow />
-        <Spacer height="100px" />
+        <Spacer height="200px" />
       </Container>
     </Box>
   );
