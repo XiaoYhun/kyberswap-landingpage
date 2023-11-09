@@ -94,8 +94,14 @@ export default function Solutions() {
   return (
     <Flex gap="48px" direction="column">
       <Flex justify="space-between" align="center">
-        <Heading size="2xl">A Solution For Your Every Need</Heading>
-        <Stack direction="row">
+        <Heading
+          fontSize={{ base: "24px", md: "48px" }}
+          textAlign={{ base: "center", md: "left" }}
+          px={{ base: "12px", md: "0" }}
+        >
+          A Solution For Your Every Need
+        </Heading>
+        <Stack direction="row" display={{ base: "none", md: "flex" }}>
           <Button variant="secondary" p="0.5rem">
             <ChevronLeft />
           </Button>
@@ -106,7 +112,10 @@ export default function Solutions() {
       </Flex>
       <Box width="100%" overflowX="hidden">
         {/* <motion.div transition={{ type: "spring", damping: 100, stiffness: 1000 }} animate={animationControls}> */}
-        <Flex gap={`${gap}px`} sx={{ ">div": { width: `calc(33.33% - (2 * ${gap}px / 3))`, flexShrink: 0 } }}>
+        <Flex
+          gap={`${gap}px`}
+          sx={{ ">div": { width: { base: "90%", md: `calc(33.33% - (2 * ${gap}px / 3))` }, flexShrink: 0 } }}
+        >
           <>
             {FEATURES.map((item, index) => {
               return <FeatureCard item={item} key={index} index={index} />;

@@ -1,8 +1,8 @@
 "use client";
 
-import { Center, Flex } from "@chakra-ui/react";
+import { Box, Center, Flex } from "@chakra-ui/react";
 import DropdownIcon from "components/SVG/DropdownIcon";
-import { motion } from "framer-motion";
+import { MotionBox } from "components/motion";
 import Image from "next/image";
 import { ReactNode, useState, useEffect } from "react";
 const BannerWrapper = ({ children, ...rest }: { children: ReactNode } & any) => {
@@ -12,11 +12,11 @@ const BannerWrapper = ({ children, ...rest }: { children: ReactNode } & any) => 
       filter: "brightness(0.6)",
       zIndex: 1,
       opacity: 0.9,
-      scale: 1,
+      scale: 0.7,
       boxShadow: "0 0 0 0 #00000040",
     },
     center: {
-      scale: 1.2,
+      scale: 1,
       opacity: 1,
       zIndex: 2,
       boxShadow: "0 0 10px 2px #00000040",
@@ -26,22 +26,28 @@ const BannerWrapper = ({ children, ...rest }: { children: ReactNode } & any) => 
       filter: "brightness(0.6)",
       zIndex: 1,
       opacity: 0.9,
-      scale: 1,
+      scale: 0.7,
       boxShadow: "0 0 0 0 #00000040",
     },
   };
   return (
-    <motion.div
-      rounded="md"
-      overflow="hidden"
+    <MotionBox
       zIndex={1}
       variants={variants}
       transition={{ type: "spring", damping: 60, stiffness: 400 }}
-      style={{ width: "600px", height: "280px", position: "absolute", borderRadius: "20px", overflow: "hidden" }}
+      rounded={{ base: "none", md: "2xl" }}
+      overflow="hidden"
+      w={{ base: "100%", md: "600px" }}
+      aspectRatio={60 / 34}
+      h={{
+        base: "auto",
+        md: "280px",
+      }}
+      style={{ position: "absolute", overflow: "hidden" }}
       {...rest}
     >
-      {children}
-    </motion.div>
+      <Box>{children}</Box>
+    </MotionBox>
   );
 };
 
@@ -62,7 +68,14 @@ export function BannerCarousel() {
   }, [count]);
 
   return (
-    <Flex position="relative" justify="center" align="center" height="300px">
+    <Flex
+      position="relative"
+      justify="center"
+      align="center"
+      height="auto"
+      aspectRatio={60 / 34}
+      w={{ base: "100%", md: "600px" }}
+    >
       <BannerWrapper animate={list[count % 3]}>
         <Image
           src="/assets/images/banner.png"
@@ -105,7 +118,7 @@ export function BannerCarousel() {
         h="35px"
         p="0"
         rounded="full"
-        left="-330px"
+        left="10px"
         cursor="pointer"
         _hover={{ bg: "blackAlpha.900" }}
         sx={{ transform: "rotate(90deg)", transition: "0.2s all" }}
@@ -122,7 +135,7 @@ export function BannerCarousel() {
         h="35px"
         p="0"
         rounded="full"
-        right="-330px"
+        right="10px"
         cursor="pointer"
         _hover={{ bg: "blackAlpha.900" }}
         sx={{ transform: "rotate(-90deg)", transition: "0.2s all" }}

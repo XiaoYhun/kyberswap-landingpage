@@ -22,16 +22,30 @@ const WALLETS = [
 export default function Wallets() {
   return (
     <Flex direction="column" align="center" justify="center" w="100%" gap="32px">
-      <Flex direction="column" gap="24px" align="center">
+      <Flex
+        direction="column"
+        gap="24px"
+        align="center"
+        p={{ base: "12px", md: "0" }}
+        textAlign={{ base: "center", md: "left" }}
+      >
         <Heading size="2xl">Connect with Your Favorite Wallets</Heading>
-        <Text color="whiteAlpha.600">
+        <Text color="whiteAlpha.600" fontWeight="normal">
           Plug and play your preferred Web3 wallets and get access to DeFi’s trading toolbox of choice.{" "}
           <Link color="green.400" href="">
             Get started!
           </Link>
         </Text>
       </Flex>
-      <Flex sx={{ ">div": { width: "27%" } }} alignSelf="stretch" mt="20px" gap="48px" justify="center">
+      <Flex
+        sx={{ ">div": { width: { base: "280px", md: "27%" } } }}
+        alignSelf="stretch"
+        mt="20px"
+        gap="48px"
+        justify="center"
+        align="center"
+        direction={{ base: "column", md: "row" }}
+      >
         <>
           {WALLETS.map((wallet) => {
             return <WalletCard wallet={wallet} />;

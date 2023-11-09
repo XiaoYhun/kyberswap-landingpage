@@ -2,9 +2,16 @@ import { extendTheme } from "@chakra-ui/react";
 import styles from "./styles";
 import colors from "./foundations/colors";
 import Button from "./components/button";
+import { Work_Sans } from "next/font/google";
+const workSans = Work_Sans({ subsets: ["latin"] });
+
 const theme = extendTheme({
   styles: styles,
   colors: colors,
+  fonts: {
+    heading: workSans.style.fontFamily,
+    body: workSans.style.fontFamily,
+  },
   components: {
     Button: Button,
     Container: {
@@ -42,6 +49,16 @@ const theme = extendTheme({
         bg: "grey.800",
         rounded: "lg",
         "--popper-arrow-bg": "var(--chakra-colors-grey-800)",
+      },
+    },
+    Heading: {
+      baseStyle: {
+        fontWeight: "semibold",
+      },
+      sizes: {
+        "2xl": {
+          fontSize: ["28px", "36px", "48px"],
+        },
       },
     },
   },

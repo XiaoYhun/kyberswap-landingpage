@@ -33,28 +33,28 @@ export default function Home() {
       >
         <source src="/assets/videos/-0a3e-454e-8eed-471f6f5f18fd.mp4" type="video/webm"></source>
       </Box>
-      <Spacer height="160px" />
+      <Spacer height={{ base: "100px", md: "160px" }} />
       <Container>
         <Hero />
-        <Spacer height="100px" />
+        <Spacer height={{ base: "50px", md: "100px" }} />
         <Center>
           <BannerCarousel />
         </Center>
-        <Spacer height="200px" />
+        <Spacer height={{ base: "60px", md: "200px" }} />
         <Platform />
-        <Spacer height="200px" />
+        <Spacer height={{ base: "60px", md: "200px" }} />
         <Solutions />
-        <Spacer height="200px" />
+        <Spacer height={{ base: "60px", md: "200px" }} />
         <KyberDAO />
-        <Spacer height="200px" />
+        <Spacer height={{ base: "60px", md: "200px" }} />
         <Security />
-        <Spacer height="200px" />
+        <Spacer height={{ base: "60px", md: "200px" }} />
         <Wallets />
-        <Spacer height="200px" />
+        <Spacer height={{ base: "60px", md: "200px" }} />
         <Support />
-        <Spacer height="200px" />
+        <Spacer height={{ base: "60px", md: "200px" }} />
         <FirstToKnow />
-        <Spacer height="200px" />
+        <Spacer height={{ base: "60px", md: "200px" }} />
       </Container>
     </Box>
   );

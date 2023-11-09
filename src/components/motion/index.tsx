@@ -1,5 +1,7 @@
 "use client";
-// framer-motion has issue with server side rendering, need to wrap all files using motion.xxx in "use client" as above, this is a know bug and being fixed by them
-import { motion } from "framer-motion";
+import { chakra, shouldForwardProp } from "@chakra-ui/react";
+import { motion, isValidMotionProp } from "framer-motion";
 
-export const MotionDiv = motion.div;
+export const MotionBox = chakra(motion.div, {
+  shouldForwardProp: (prop) => isValidMotionProp(prop) || shouldForwardProp(prop),
+});

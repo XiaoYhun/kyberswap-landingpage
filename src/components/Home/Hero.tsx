@@ -4,11 +4,11 @@ import { ArrowUpRight } from "react-feather";
 
 export default function Hero() {
   return (
-    <Stack direction="row">
+    <Stack direction={{ base: "column", md: "row" }}>
       <Flex p={8} flex={4} align={"center"} justify={"center"}>
         <Stack spacing="48px" w={"full"} maxW={"lg"}>
           <Image alt="Kyberswap" src="/assets/images/logo-dark.svg" width={170} height={60} />
-          <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }} fontWeight="extrabold">
+          <Heading fontSize="4xl" fontWeight="extrabold">
             <Text as={"span"} position={"relative"} color="green.400">
               Limitless Access
             </Text>
@@ -35,11 +35,11 @@ export default function Hero() {
         </Stack>
       </Flex>
       <Flex flex={5} direction="column" gap="24px">
-        <Flex direction="column">
-          <Text fontSize="2xl" color="white">
+        <Flex direction="column" gap={{ base: "12px", md: "0px" }}>
+          <Text fontSize="2xl" px={{ base: "16px", md: "0px" }} color="white">
             Top Traded Tokens
           </Text>
-          <Box as="div" width="100%" height="220px" position="relative">
+          <Box as="div" width="100%" height={{ base: "150px", md: "220px" }} position="relative">
             <Image
               src="/assets/images/table1.png"
               alt="top traded tokens"
@@ -51,11 +51,11 @@ export default function Hero() {
             />
           </Box>
         </Flex>
-        <Flex direction="column">
-          <Text fontSize="2xl" color="white">
+        <Flex direction="column" gap={{ base: "12px", md: "0px" }}>
+          <Text fontSize="2xl" px={{ base: "16px", md: "0px" }} color="white">
             Top Pool Returns
           </Text>
-          <Box as="div" width="100%" height="220px" position="relative">
+          <Box as="div" width="100%" height={{ base: "150px", md: "220px" }} position="relative">
             <Image
               src="/assets/images/table2.png"
               alt="top pool returns"
