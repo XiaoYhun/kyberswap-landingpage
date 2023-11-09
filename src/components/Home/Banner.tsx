@@ -1,7 +1,8 @@
 "use client";
 
-import { Box, Button, Flex } from "@chakra-ui/react";
-import { MotionDiv } from "components/motion";
+import { Center, Flex } from "@chakra-ui/react";
+import DropdownIcon from "components/SVG/DropdownIcon";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { ReactNode, useState, useEffect } from "react";
 const BannerWrapper = ({ children, ...rest }: { children: ReactNode } & any) => {
@@ -30,24 +31,24 @@ const BannerWrapper = ({ children, ...rest }: { children: ReactNode } & any) => 
     },
   };
   return (
-    <MotionDiv
+    <motion.div
       rounded="md"
       overflow="hidden"
       zIndex={1}
-      initial={{ x: 0, opacity: 0, scale: 0.5 }}
       variants={variants}
       transition={{ type: "spring", damping: 60, stiffness: 400 }}
       style={{ width: "600px", height: "280px", position: "absolute", borderRadius: "20px", overflow: "hidden" }}
       {...rest}
     >
       {children}
-    </MotionDiv>
+    </motion.div>
   );
 };
 
 export function BannerCarousel() {
-  const [count, setCount] = useState(9999);
+  const [count, setCount] = useState(99999);
   const list = ["center", "right", "left"];
+
   useEffect(() => {
     const nextStep = () => {
       setCount((prev) => ++prev);
@@ -95,28 +96,40 @@ export function BannerCarousel() {
           quality={100}
         />
       </BannerWrapper>
-      <Button
+      <Center
         zIndex={4}
-        variant="solid"
-        colorScheme="green"
-        left="-300px"
-        opacity={0.5}
-        _hover={{ opacity: 1 }}
+        position="absolute"
+        color="white"
+        bg="blackAlpha.600"
+        w="35px"
+        h="35px"
+        p="0"
+        rounded="full"
+        left="-330px"
+        cursor="pointer"
+        _hover={{ bg: "blackAlpha.900" }}
+        sx={{ transform: "rotate(90deg)", transition: "0.2s all" }}
         onClick={() => setCount((prev) => prev - 1)}
       >
-        &lt;
-      </Button>
-      <Button
+        <DropdownIcon size={30} />
+      </Center>
+      <Center
         zIndex={4}
-        variant="solid"
-        colorScheme="green"
-        right="-300px"
-        opacity={0.5}
-        _hover={{ opacity: 1 }}
+        position="absolute"
+        color="white"
+        bg="blackAlpha.600"
+        w="35px"
+        h="35px"
+        p="0"
+        rounded="full"
+        right="-330px"
+        cursor="pointer"
+        _hover={{ bg: "blackAlpha.900" }}
+        sx={{ transform: "rotate(-90deg)", transition: "0.2s all" }}
         onClick={() => setCount((prev) => prev + 1)}
       >
-        &gt;
-      </Button>
+        <DropdownIcon size={30} />
+      </Center>
     </Flex>
   );
 }

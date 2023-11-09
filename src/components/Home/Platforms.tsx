@@ -1,8 +1,11 @@
 import { ArrowUpRight } from "react-feather";
 import { Box, Button, Center, Divider, Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import Image from "next/image";
+import { getChainsConfig } from "hooks/services/index";
 
-export default function Platform() {
+export default async function Platform() {
+  const chains = await getChainsConfig();
+
   const CHAINS = [
     {
       iconSrc:
@@ -75,6 +78,7 @@ export default function Platform() {
       title: "Ethereum",
     },
   ];
+
   return (
     <Stack gap="32px" align="center">
       <Heading as="h1" fontSize={48}>
@@ -122,13 +126,13 @@ export default function Platform() {
       </Stack>
       <Stack direction="row" wrap="wrap" justify="center" rowGap="24px" columnGap="8px">
         <>
-          {CHAINS.map((chain) => {
+          {chains.map((chain: any) => {
             return (
               <Flex direction="column" align="center" width="120px" height="80px" justify="space-between">
                 <Box rounded="full" h="48px" w="48px" position="relative">
-                  <Image src={chain.iconSrc} fill alt="token" />
+                  <Image src={chain.logoUrl} fill alt="token" />
                 </Box>
-                <Text color="whiteAlpha.600">{chain.title}</Text>
+                <Text color="whiteAlpha.600">{chain.displayName}</Text>
               </Flex>
             );
           })}
