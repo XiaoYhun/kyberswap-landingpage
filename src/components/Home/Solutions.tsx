@@ -1,12 +1,12 @@
 import { Box, Button, Card, CardBody, Flex, Heading, Stack, Text } from "@chakra-ui/react";
-import { useAnimationControls } from "framer-motion";
-import { useEffect, useState } from "react";
+import { MotionBox } from "components/motion";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "react-feather";
+import Slider from "./components/Slider";
+import { HighlightGroup, HighlighterItem } from "components/motion/Highlighter";
 const FEATURES = [
   {
-    imageUrl: "/assets/images/feature.png",
+    imageUrl: "/assets/images/features/dex.png",
     title: "DEX Aggregator",
     desc: "Trade with excellent rates using our high performance, gas-efficient aggregator.",
     btns: [
@@ -15,7 +15,7 @@ const FEATURES = [
     ],
   },
   {
-    imageUrl: "/assets/images/feature2.png",
+    imageUrl: "/assets/images/features/liquidity-protocols.png",
     title: "Liquidity Protocols",
     desc: "Earn more as a liquidity provider with real yield from capital efficient Elastic & Classic protocols.",
     btns: [
@@ -24,7 +24,7 @@ const FEATURES = [
     ],
   },
   {
-    imageUrl: "/assets/images/feature2.png",
+    imageUrl: "/assets/images/features/kyberai.png",
     title: "KyberAI",
     desc: "Get alpha before it happens on 4000 tokens in real time, powered by our machine learning algorithm",
     btns: [
@@ -33,7 +33,7 @@ const FEATURES = [
     ],
   },
   {
-    imageUrl: "/assets/images/feature2.png",
+    imageUrl: "/assets/images/features/limit-order.png",
     title: "Limit Orders",
     desc: "Buy low, sell high, with gasless and slippage free limit orders",
     btns: [
@@ -42,7 +42,7 @@ const FEATURES = [
     ],
   },
   {
-    imageUrl: "/assets/images/feature2.png",
+    imageUrl: "/assets/images/features/farming-rewards.png",
     title: "Farming Rewards",
     desc: "Enjoy boosted yields powered by KyberSwap & participating protocols",
     btns: [
@@ -50,25 +50,25 @@ const FEATURES = [
     ],
   },
   {
-    imageUrl: "/assets/images/feature2.png",
+    imageUrl: "/assets/images/features/cross-chain.png",
     title: "Cross-Chain Swaps",
     desc: "Bridge across chains fast, seamlessly on X chains",
     btns: [{ type: "secondary", text: "Trade Now", href: "https://kyberswap.com/cross-chain", target: "_blank" }],
   },
   {
-    imageUrl: "/assets/images/feature2.png",
+    imageUrl: "/assets/images/features/onramp.png",
     title: "Onramp",
     desc: "Convert fiat to crypto immediately with card, Google or Apple Pay",
     btns: [{ type: "secondary", text: "Buy Crypto", href: "https://kyberswap.com/buy-crypto", target: "_blank" }],
   },
   {
-    imageUrl: "/assets/images/feature2.png",
+    imageUrl: "/assets/images/features/campaigns.png",
     title: "Campaigns",
     desc: "Join exciting trading, onchain, referral and community campaigns for extra rewards",
     btns: [{ type: "secondary", text: "Join Now", href: "https://kyberswap.com/campaigns", target: "_blank" }],
   },
   {
-    imageUrl: "/assets/images/feature2.png",
+    imageUrl: "/assets/images/features/gas-refund.png",
     title: "Gas Refunds",
     desc: "Stake KNC in KyberDAO and enjoy up to X% gas refund",
     btns: [
@@ -111,18 +111,18 @@ export default function Solutions() {
         </Stack>
       </Flex>
       <Box width="100%" overflowX="hidden">
-        {/* <motion.div transition={{ type: "spring", damping: 100, stiffness: 1000 }} animate={animationControls}> */}
-        <Flex
-          gap={`${gap}px`}
-          sx={{ ">div": { width: { base: "90%", md: `calc(33.33% - (2 * ${gap}px / 3))` }, flexShrink: 0 } }}
-        >
-          <>
+        <MotionBox drag="x" dragSnapToOrigin>
+          <HighlightGroup
+            display="flex"
+            gap={`${gap}px`}
+            sx={{ ">div": { width: { base: "90%", md: `calc(33.33% - (2 * ${gap}px / 3))` }, flexShrink: 0 } }}
+          >
             {FEATURES.map((item, index) => {
               return <FeatureCard item={item} key={index} index={index} />;
             })}
-          </>
-        </Flex>
-        {/* </motion.div> */}
+          </HighlightGroup>
+        </MotionBox>
+        <Slider />
       </Box>
     </Flex>
   );
@@ -130,45 +130,52 @@ export default function Solutions() {
 
 const FeatureCard = ({ item, index }: { item: (typeof FEATURES)[number]; index: number }) => {
   return (
-    <Card rounded="2xl" bg="whiteAlpha.100" color="white" id={`feature-card-${index}`}>
-      <CardBody>
-        <Flex direction="column" height="100%">
-          <Box w="calc(100% + 40px)" height="210px" position="relative" mt="-20px" ml="-20px" mr="-20px">
-            <Image
-              src="/assets/images/feature.png"
-              alt="Green double couch with wooden legs"
-              fill
-              style={{ objectFit: "cover" }}
-            />
-          </Box>
-          <Stack mt="6" spacing="4" flex={1}>
-            <Heading size="lg">{item.title}</Heading>
-            <Text color="whiteAlpha.600" mb="1" flex={1}>
-              {item.desc}
-            </Text>
-            <Flex direction="column" gap="4">
-              <>
-                {item.btns.map((btn) => {
-                  return (
-                    <Button
-                      variant={btn.type}
-                      as="a"
-                      href={btn.href ?? "#"}
-                      target={btn.target ?? "_self"}
-                      fontSize="lg"
-                      p="10px 16px"
-                      rounded="2xl"
-                      w="fit-content"
-                    >
-                      {btn.text} <ArrowUpRight />
-                    </Button>
-                  );
-                })}
-              </>
-            </Flex>
-          </Stack>
-        </Flex>
-      </CardBody>
-    </Card>
+    <HighlighterItem opacity={0.6}>
+      <Card rounded="2xl" bg="whiteAlpha.100" color="white" id={`feature-card-${index}`}>
+        <CardBody>
+          <Flex direction="column" height="100%">
+            <Box
+              w="calc(100% + 40px)"
+              height="210px"
+              position="relative"
+              mt="-20px"
+              ml="-20px"
+              mr="-20px"
+              userSelect="none"
+            >
+              <Image src={item.imageUrl} alt="Dex aggregator" fill style={{ objectFit: "cover" }} draggable={false} />
+            </Box>
+            <Stack mt="6" spacing="4" flex={1}>
+              <Heading size="lg">{item.title}</Heading>
+              <Text color="whiteAlpha.600" mb="1" flex={1}>
+                {item.desc}
+              </Text>
+              <Flex direction="column" gap="4">
+                <>
+                  {item.btns.map((btn, index) => {
+                    return (
+                      <Button
+                        key={index}
+                        variant={btn.type}
+                        as="a"
+                        href={btn.href ?? "#"}
+                        target={btn.target ?? "_self"}
+                        fontSize="lg"
+                        p="10px 16px"
+                        rounded="2xl"
+                        w="fit-content"
+                        _hover={{ transform: "translateY(-2px)", boxShadow: "0 2px 3px 3px #00000015" }}
+                      >
+                        {btn.text} <ArrowUpRight />
+                      </Button>
+                    );
+                  })}
+                </>
+              </Flex>
+            </Stack>
+          </Flex>
+        </CardBody>
+      </Card>
+    </HighlighterItem>
   );
 };

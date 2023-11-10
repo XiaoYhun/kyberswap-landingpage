@@ -40,9 +40,10 @@ export default function Stars() {
       <Box position="relative" h="100%" w="100%" ref={ref}>
         {!!width &&
           !!height &&
-          starsWithPosition.map(({ url, x, y, rotate }) => {
+          starsWithPosition.map(({ url, x, y, rotate }, index) => {
             return (
               <motion.div
+                key={index}
                 style={{
                   x: x * width,
                   y: y * height,

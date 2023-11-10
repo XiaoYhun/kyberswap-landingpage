@@ -2,6 +2,7 @@ import { ArrowUpRight } from "react-feather";
 import { Box, Button, Center, Divider, Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { getChainsConfig } from "hooks/services/index";
+import { HighlightGroup, HighlighterItem } from "components/motion/Highlighter";
 
 export default async function Platform() {
   const chains = await getChainsConfig();
@@ -15,53 +16,58 @@ export default async function Platform() {
       >
         1 Platform, {chains.length} Chains, All DeFi
       </Heading>
-      <Stack
-        bg="whiteAlpha.50"
-        backdropFilter="blur(16px)"
-        width="100%"
-        p="24px 8px"
-        rounded="2xl"
-        direction="row"
-        align="center"
-        justify="center"
-        gap={{ base: "16px", md: "8px" }}
-        sx={{ ">div": { flexGrow: { base: 0, md: 1 }, flexBasis: { base: "43%", md: "unset" } } }}
-        wrap={{ base: "wrap", md: "nowrap" }}
-      >
-        <Flex direction="column" align="center">
-          <Text fontSize={36}>$2.13B</Text>
-          <Text fontSize={14} color="whiteAlpha.600" textAlign="center">
-            Total Trading Volume
-          </Text>
-        </Flex>
-        <Divider orientation="vertical" h="24px" color="whiteAlpha.400" />
-        <Flex direction="column" align="center">
-          <Text fontSize={36}>$2.13B</Text>
-          <Text fontSize={14} color="whiteAlpha.600" textAlign="center">
-            Total Transactions
-          </Text>
-        </Flex>
-        <Divider orientation="vertical" h="24px" color="whiteAlpha.400" display={{ base: "none", md: "block" }} />
-        <Flex direction="column" align="center">
-          <Text fontSize={36}>$2.13B</Text>
-          <Text fontSize={14} color="whiteAlpha.600" textAlign="center">
-            Total Value Locked
-          </Text>
-        </Flex>
-        <Divider orientation="vertical" h="24px" color="whiteAlpha.400" />
+      <HighlightGroup w="100%">
+        <HighlighterItem>
+          <Stack
+            bg="whiteAlpha.50"
+            backdropFilter="blur(16px)"
+            width="100%"
+            p="24px 8px"
+            rounded="2xl"
+            direction="row"
+            align="center"
+            justify="center"
+            gap={{ base: "16px", md: "8px" }}
+            sx={{ ">div": { flexGrow: { base: 0, md: 1 }, flexBasis: { base: "43%", md: "unset" } } }}
+            wrap={{ base: "wrap", md: "nowrap" }}
+          >
+            <Flex direction="column" align="center">
+              <Text fontSize={36}>$2.13B</Text>
+              <Text fontSize={14} color="whiteAlpha.600" textAlign="center">
+                Total Trading Volume
+              </Text>
+            </Flex>
+            <Divider orientation="vertical" h="24px" color="whiteAlpha.400" />
+            <Flex direction="column" align="center">
+              <Text fontSize={36}>$2.13B</Text>
+              <Text fontSize={14} color="whiteAlpha.600" textAlign="center">
+                Total Transactions
+              </Text>
+            </Flex>
+            <Divider orientation="vertical" h="24px" color="whiteAlpha.400" display={{ base: "none", md: "block" }} />
+            <Flex direction="column" align="center">
+              <Text fontSize={36}>$2.13B</Text>
+              <Text fontSize={14} color="whiteAlpha.600" textAlign="center">
+                Total Value Locked
+              </Text>
+            </Flex>
+            <Divider orientation="vertical" h="24px" color="whiteAlpha.400" />
 
-        <Flex direction="column" align="center">
-          <Text fontSize={36}>$2.13B</Text>
-          <Text fontSize={14} color="whiteAlpha.600" textAlign="center">
-            Rewards Distributed
-          </Text>
-        </Flex>
-      </Stack>
+            <Flex direction="column" align="center">
+              <Text fontSize={36}>$2.13B</Text>
+              <Text fontSize={14} color="whiteAlpha.600" textAlign="center">
+                Rewards Distributed
+              </Text>
+            </Flex>
+          </Stack>
+        </HighlighterItem>
+      </HighlightGroup>
       <Stack direction="row" wrap="wrap" justify="space-evenly" rowGap="24px" columnGap="8px">
         <>
           {chains.map((chain: any) => {
             return (
               <Flex
+                key={chain.displayName}
                 direction="column"
                 align="center"
                 width={{ base: "100px", md: "120px" }}

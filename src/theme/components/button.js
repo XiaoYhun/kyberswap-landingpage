@@ -26,6 +26,7 @@ const Button = {
       borderWidth: "1px",
       borderColor: "greyAlpha.200",
       h: "fit-content",
+      backdropFilter: "blur(12px)",
       _hover: { bg: "greyAlpha.100" },
       _active: { bg: "greyAlpha.200" },
     },

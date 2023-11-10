@@ -1,6 +1,7 @@
 import { Badge, Box, Button, Flex, Heading, Link, Text } from "@chakra-ui/react";
+import { HighlightGroup, HighlighterItem } from "components/motion/Highlighter";
 import Image from "next/image";
-import { ArrowUpRight, ChevronDown } from "react-feather";
+import { ChevronDown } from "react-feather";
 
 const WALLETS = [
   {
@@ -32,7 +33,7 @@ export default function Wallets() {
         <Heading size="2xl">Connect with Your Favorite Wallets</Heading>
         <Text color="whiteAlpha.600" fontWeight="normal">
           Plug and play your preferred Web3 wallets and get access to DeFi’s trading toolbox of choice.{" "}
-          <Link color="green.400" href="">
+          <Link color="green.400" href="https://kyberswap.com/buy-crypto">
             Get started!
           </Link>
         </Text>
@@ -42,13 +43,13 @@ export default function Wallets() {
         alignSelf="stretch"
         mt="20px"
         gap="48px"
-        justify="center"
-        align="center"
-        direction={{ base: "column", md: "row" }}
+        justifyContent="center"
+        alignItems="center"
+        flexDirection={{ base: "column", md: "row" }}
       >
         <>
           {WALLETS.map((wallet) => {
-            return <WalletCard wallet={wallet} />;
+            return <WalletCard key={wallet.title} wallet={wallet} />;
           })}
         </>
       </Flex>
@@ -68,7 +69,7 @@ const WalletCard = ({ wallet }: { wallet: (typeof WALLETS)[number] }) => {
       rounded="3xl"
       borderWidth={1}
       borderColor="greyAlpha.200"
-      bg="greyAlpha.100"
+      bg="greyAlpha.50"
       p="40px 24px 24px 24px"
       position="relative"
     >

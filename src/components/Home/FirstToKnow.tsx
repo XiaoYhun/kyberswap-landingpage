@@ -25,7 +25,7 @@ export default function FirstToKnow() {
       <Stack direction="row" gap="20px">
         <>
           {COMMUNITIES.map((c) => {
-            return <CommunityIcon community={c} />;
+            return <CommunityIcon key={c.alt} community={c} />;
           })}
         </>
       </Stack>
