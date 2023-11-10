@@ -8,10 +8,10 @@ import { ReactNode, useState, useEffect } from "react";
 const BannerWrapper = ({ children, ...rest }: { children: ReactNode } & any) => {
   const variants = {
     left: {
-      x: -200,
-      filter: "brightness(0.6)",
+      x: -300,
+      filter: "brightness(0.4)",
       zIndex: 1,
-      opacity: 0.9,
+      opacity: 0.8,
       scale: 0.7,
       boxShadow: "0 0 0 0 #00000040",
     },
@@ -22,10 +22,10 @@ const BannerWrapper = ({ children, ...rest }: { children: ReactNode } & any) => 
       boxShadow: "0 0 10px 2px #00000040",
     },
     right: {
-      x: 200,
-      filter: "brightness(0.6)",
+      x: 300,
+      filter: "brightness(0.4)",
       zIndex: 1,
-      opacity: 0.9,
+      opacity: 0.8,
       scale: 0.7,
       boxShadow: "0 0 0 0 #00000040",
     },
@@ -41,7 +41,7 @@ const BannerWrapper = ({ children, ...rest }: { children: ReactNode } & any) => 
       aspectRatio={60 / 34}
       h={{
         base: "auto",
-        md: "280px",
+        md: "340px",
       }}
       style={{ position: "absolute", overflow: "hidden" }}
       {...rest}
@@ -78,7 +78,7 @@ export function BannerCarousel() {
     >
       <BannerWrapper animate={list[count % 3]}>
         <Image
-          src="/assets/images/banner.png"
+          src="/assets/images/banner1.jpg"
           alt="banner"
           fill
           style={{
@@ -89,7 +89,7 @@ export function BannerCarousel() {
       </BannerWrapper>
       <BannerWrapper animate={list[(count + 1) % 3]}>
         <Image
-          src="/assets/images/banner.png"
+          src="/assets/images/banner2.jpg"
           alt="banner"
           fill
           style={{
@@ -100,7 +100,7 @@ export function BannerCarousel() {
       </BannerWrapper>
       <BannerWrapper animate={list[(count + 2) % 3]}>
         <Image
-          src="/assets/images/banner.png"
+          src="/assets/images/banner3.jpg"
           alt="banner"
           fill
           style={{

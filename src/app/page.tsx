@@ -6,6 +6,7 @@ import KyberDAO from "components/Home/KyberDAO";
 import Platform from "components/Home/Platforms";
 import Security from "components/Home/Security";
 import Solutions from "components/Home/Solutions";
+import Stars from "components/Home/Stars";
 import Support from "components/Home/Support";
 import Wallets from "components/Home/Wallets";
 import Image from "next/image";
@@ -47,15 +48,29 @@ export default function Home() {
         <Spacer height={{ base: "60px", md: "200px" }} />
         <KyberDAO />
         <Spacer height={{ base: "60px", md: "200px" }} />
-        <Security />
-        <Spacer height={{ base: "60px", md: "200px" }} />
-        <Wallets />
-        <Spacer height={{ base: "60px", md: "200px" }} />
-        <Support />
-        <Spacer height={{ base: "60px", md: "200px" }} />
-        <FirstToKnow />
-        <Spacer height={{ base: "60px", md: "200px" }} />
       </Container>
+      <Box bg="linear-gradient(180deg, #0A1C23 0%, #0F0F0F 100%)">
+        <Container>
+          <Security />
+          <Spacer height={{ base: "60px", md: "200px" }} />
+          <Wallets />
+          <Spacer height={{ base: "60px", md: "200px" }} />
+          <Support />
+          <Spacer height={{ base: "60px", md: "200px" }} />
+        </Container>
+        <Stars />
+      </Box>
+      <Box
+        position="relative"
+        bg="conic-gradient(from 180deg, rgba(75, 70, 229, 0.20) 40deg, rgba(110, 231, 195, 0.20) 120deg, rgba(4, 143, 137, 0.20) 240deg,rgba(75, 70, 229, 0.20) 360deg)"
+      >
+        <Container>
+          <Spacer height={{ base: "60px", md: "200px" }} />
+          <FirstToKnow />
+          <Spacer height={{ base: "60px", md: "200px" }} />
+        </Container>
+        <Stars />
+      </Box>
     </Box>
   );
 }

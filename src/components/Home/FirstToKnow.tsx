@@ -19,7 +19,7 @@ export default function FirstToKnow() {
       <Heading size="2xl" lineHeight="normal">
         Be the first to know
       </Heading>
-      <Text color="whiteAlpha.600" fontSize="lg">
+      <Text color="whiteAlpha.600" fontSize="lg" fontWeight="normal">
         Get alpha from our channels & community
       </Text>
       <Stack direction="row" gap="20px">

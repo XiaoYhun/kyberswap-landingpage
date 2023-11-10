@@ -10,7 +10,15 @@ export default function KyberDAO() {
           <Image src="/assets/images/kyberDAO.png" alt="kyberDAO" fill style={{ objectFit: "contain" }} />
         </Box>
       </Center>
-      <Flex flex={6} p={{ base: "12px", md: 0 }} justify="center" align="start" direction="column" gap="16px">
+      <Flex
+        flex={6}
+        p={{ base: "12px", md: 0 }}
+        justify="center"
+        align="start"
+        direction="column"
+        gap="16px"
+        order={{ base: 1, md: 2 }}
+      >
         <Heading size="2xl" lineHeight="normal">
           KyberDAO & KNC
         </Heading>
