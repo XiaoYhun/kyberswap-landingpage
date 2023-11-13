@@ -1,9 +1,11 @@
-import { Box, Button, Card, CardBody, Flex, Heading, Stack, Text } from "@chakra-ui/react";
+"use client";
+import { Box, Button, Card, CardBody, Flex, Heading, Stack, Text, useCallbackRef } from "@chakra-ui/react";
 import { MotionBox } from "components/motion";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "react-feather";
 import Slider from "./components/Slider";
-import { HighlightGroup, HighlighterItem } from "components/motion/Highlighter";
+import { useEffect, useRef, useState, useCallback } from "react";
+import { PanInfo, useAnimate } from "framer-motion";
 const FEATURES = [
   {
     imageUrl: "/assets/images/features/dex.png",
@@ -78,19 +80,63 @@ const FEATURES = [
 ];
 
 export default function Solutions() {
-  // const [step, setStep] = useState(FEATURES.length);
-  // const itemWidth = document?.getElementById("feature-card-0")?.clientWidth || 0;
   const gap = 24;
-  // const animationControls = useAnimationControls();
+  const itemsInView = 3;
+  const ref = useRef<HTMLDivElement>(null);
+  const [scope, animate] = useAnimate();
+  const [clientWidth, setClientWidth] = useState(0);
+  const [step, setStep] = useState<number>(0);
 
-  // useEffect(() => {
-  //   animationControls.start({ x: step * (itemWidth + gap) * -1 }).then(() => {
-  //     if (step === 0 || step === 2 * FEATURES.length) {
-  //       setStep(FEATURES.length);
-  //       animationControls.set({ x: FEATURES.length * (itemWidth + gap) * -1 });
-  //     }
-  //   });
-  // }, [step, itemWidth]);
+  const nextStep = useCallback(() => {
+    if (step + 1 + itemsInView > FEATURES.length) {
+      setStep(0);
+    } else {
+      setStep(step + 1);
+    }
+  }, [step]);
+
+  const prevStep = () => {
+    if (step - 1 <= 0) {
+      setStep(0);
+    } else {
+      setStep(step - 1);
+    }
+  };
+
+  const snapAnimate = (stepToSnap: number) => {
+    animate(scope.current, { x: -stepToSnap * (clientWidth + gap) }, { type: "spring", damping: 40, stiffness: 200 });
+  };
+
+  useEffect(() => {
+    setClientWidth(ref.current ? ref.current.children[0].clientWidth : 0);
+  }, []);
+
+  useEffect(() => {
+    snapAnimate(step);
+  }, [step]);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      nextStep();
+    }, 10_000);
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [nextStep]);
+
+  const handleDragEnd = (e: PointerEvent, info: PanInfo) => {
+    e.stopPropagation();
+    const stepOffset =
+      info.velocity.x > 100
+        ? Math.ceil(info.offset.x / (clientWidth + gap))
+        : Math.round(info.offset.x / (clientWidth + gap));
+    if (stepOffset === 0) {
+      snapAnimate(step);
+    } else {
+      setStep((prev) => prev - stepOffset);
+    }
+  };
+
   return (
     <Flex gap="48px" direction="column">
       <Flex justify="space-between" align="center">
@@ -102,25 +148,33 @@ export default function Solutions() {
           A Solution For Your Every Need
         </Heading>
         <Stack direction="row" display={{ base: "none", md: "flex" }}>
-          <Button variant="secondary" p="0.5rem">
+          <Button variant="secondary" p="0.5rem" onClick={prevStep}>
             <ChevronLeft />
           </Button>
-          <Button variant="secondary" p="0.5rem">
+          <Button variant="secondary" p="0.5rem" onClick={nextStep}>
             <ChevronRight />
           </Button>
         </Stack>
       </Flex>
       <Box width="100%" overflowX="hidden">
-        <MotionBox drag="x" dragSnapToOrigin>
-          <HighlightGroup
-            display="flex"
+        <MotionBox ref={scope} drag="x" dragMomentum={false} onDragEnd={handleDragEnd}>
+          <Flex
+            ref={ref}
             gap={`${gap}px`}
-            sx={{ ">div": { width: { base: "90%", md: `calc(33.33% - (2 * ${gap}px / 3))` }, flexShrink: 0 } }}
+            sx={{
+              ">div": {
+                width: {
+                  base: "90%",
+                  md: `calc(100% / ${itemsInView} - ((${itemsInView - 1}) * ${gap}px / ${itemsInView}))`,
+                },
+                flexShrink: 0,
+              },
+            }}
           >
             {FEATURES.map((item, index) => {
               return <FeatureCard item={item} key={index} index={index} />;
             })}
-          </HighlightGroup>
+          </Flex>
         </MotionBox>
         <Slider />
       </Box>
@@ -130,52 +184,50 @@ export default function Solutions() {
 
 const FeatureCard = ({ item, index }: { item: (typeof FEATURES)[number]; index: number }) => {
   return (
-    <HighlighterItem opacity={0.6}>
-      <Card rounded="2xl" bg="whiteAlpha.100" color="white" id={`feature-card-${index}`}>
-        <CardBody>
-          <Flex direction="column" height="100%">
-            <Box
-              w="calc(100% + 40px)"
-              height="210px"
-              position="relative"
-              mt="-20px"
-              ml="-20px"
-              mr="-20px"
-              userSelect="none"
-            >
-              <Image src={item.imageUrl} alt="Dex aggregator" fill style={{ objectFit: "cover" }} draggable={false} />
-            </Box>
-            <Stack mt="6" spacing="4" flex={1}>
-              <Heading size="lg">{item.title}</Heading>
-              <Text color="whiteAlpha.600" mb="1" flex={1}>
-                {item.desc}
-              </Text>
-              <Flex direction="column" gap="4">
-                <>
-                  {item.btns.map((btn, index) => {
-                    return (
-                      <Button
-                        key={index}
-                        variant={btn.type}
-                        as="a"
-                        href={btn.href ?? "#"}
-                        target={btn.target ?? "_self"}
-                        fontSize="lg"
-                        p="10px 16px"
-                        rounded="2xl"
-                        w="fit-content"
-                        _hover={{ transform: "translateY(-2px)", boxShadow: "0 2px 3px 3px #00000015" }}
-                      >
-                        {btn.text} <ArrowUpRight />
-                      </Button>
-                    );
-                  })}
-                </>
-              </Flex>
-            </Stack>
-          </Flex>
-        </CardBody>
-      </Card>
-    </HighlighterItem>
+    <Card rounded="2xl" bg="whiteAlpha.100" color="white" id={`feature-card-${index}`} backdropFilter="blur(12px)">
+      <CardBody>
+        <Flex direction="column" height="100%">
+          <Box
+            w="calc(100% + 40px)"
+            height="210px"
+            position="relative"
+            mt="-20px"
+            ml="-20px"
+            mr="-20px"
+            userSelect="none"
+          >
+            <Image src={item.imageUrl} alt="Dex aggregator" fill style={{ objectFit: "cover" }} draggable={false} />
+          </Box>
+          <Stack mt="6" spacing="4" flex={1}>
+            <Heading size="lg">{item.title}</Heading>
+            <Text color="whiteAlpha.600" mb="1" flex={1} fontWeight="normal">
+              {item.desc}
+            </Text>
+            <Flex direction="column" gap="4">
+              <>
+                {item.btns.map((btn, index) => {
+                  return (
+                    <Button
+                      key={index}
+                      variant={btn.type}
+                      as="a"
+                      href={btn.href ?? "#"}
+                      target={btn.target ?? "_self"}
+                      fontSize="lg"
+                      p="10px 16px"
+                      rounded="2xl"
+                      w="fit-content"
+                      sx={{ ":hover": { transform: "translateY(-2px)", boxShadow: "0 2px 3px 3px #00000015" } }}
+                    >
+                      {btn.text} <ArrowUpRight />
+                    </Button>
+                  );
+                })}
+              </>
+            </Flex>
+          </Stack>
+        </Flex>
+      </CardBody>
+    </Card>
   );
 };
