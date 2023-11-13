@@ -7,6 +7,7 @@ import Slider from "./components/Slider";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { PanInfo, useAnimate } from "framer-motion";
 import BoxInViewMotion from "components/motion/BoxInViewMotion";
+import AutoScrollMotion from "components/motion/AutoScrollMotion";
 const FEATURES = [
   {
     imageUrl: "/assets/images/features/dex.png",

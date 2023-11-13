@@ -1,7 +1,7 @@
 "use client";
 import { Box } from "@chakra-ui/react";
-import { motion, stagger, useAnimate, useInView } from "framer-motion";
-import { ReactNode, useEffect, useRef } from "react";
+import { stagger, useAnimate, useInView } from "framer-motion";
+import { ReactNode, useEffect } from "react";
 
 export default function BoxInViewMotion({ delay = 0, children }: { delay?: number; children: ReactNode }) {
   const [scope, animate] = useAnimate();
