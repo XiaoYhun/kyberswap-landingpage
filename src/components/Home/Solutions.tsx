@@ -87,13 +87,17 @@ export default function Solutions() {
   const [clientWidth, setClientWidth] = useState(0);
   const [step, setStep] = useState<number>(0);
 
-  const nextStep = useCallback(() => {
-    if (step + 1 + itemsInView > FEATURES.length) {
-      setStep(0);
-    } else {
-      setStep(step + 1);
-    }
-  }, [step]);
+  const nextStep = useCallback(
+    (increase: number | undefined = 1) => {
+      if (step + increase + itemsInView > FEATURES.length || step + increase < 0) {
+        setStep(0);
+        snapAnimate(0);
+      } else {
+        setStep(step + increase);
+      }
+    },
+    [step]
+  );
 
   const prevStep = () => {
     if (step - 1 <= 0) {
@@ -108,7 +112,12 @@ export default function Solutions() {
   };
 
   useEffect(() => {
-    setClientWidth(ref.current ? ref.current.children[0].clientWidth : 0);
+    if (!ref.current) return () => {};
+    const observer = new ResizeObserver((entries) => {
+      setClientWidth(entries[0].contentRect.width);
+    });
+    observer.observe(ref.current.children[0]);
+    return () => ref.current && observer.unobserve(ref.current.children[0]);
   }, []);
 
   useEffect(() => {
@@ -127,13 +136,13 @@ export default function Solutions() {
   const handleDragEnd = (e: PointerEvent, info: PanInfo) => {
     e.stopPropagation();
     const stepOffset =
-      info.velocity.x > 100
+      info.velocity.x > 80
         ? Math.ceil(info.offset.x / (clientWidth + gap))
         : Math.round(info.offset.x / (clientWidth + gap));
     if (stepOffset === 0) {
       snapAnimate(step);
     } else {
-      setStep((prev) => prev - stepOffset);
+      nextStep(-stepOffset);
     }
   };
 
@@ -151,7 +160,7 @@ export default function Solutions() {
           <Button variant="secondary" p="0.5rem" onClick={prevStep}>
             <ChevronLeft />
           </Button>
-          <Button variant="secondary" p="0.5rem" onClick={nextStep}>
+          <Button variant="secondary" p="0.5rem" onClick={() => nextStep()}>
             <ChevronRight />
           </Button>
         </Stack>
@@ -164,7 +173,7 @@ export default function Solutions() {
             sx={{
               ">div": {
                 width: {
-                  base: "90%",
+                  base: "360px",
                   md: `calc(100% / ${itemsInView} - ((${itemsInView - 1}) * ${gap}px / ${itemsInView}))`,
                 },
                 flexShrink: 0,
