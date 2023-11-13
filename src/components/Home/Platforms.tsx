@@ -87,7 +87,16 @@ export default async function Platform() {
         </>
       </Stack>
       <Center>
-        <Button variant="outline" p="16px 24px" h="fit-content" rounded="2xl" lineHeight="24px" fontSize="18px">
+        <Button
+          variant="outline"
+          p="16px 24px"
+          h="fit-content"
+          rounded="2xl"
+          lineHeight="24px"
+          fontSize="18px"
+          as="a"
+          href="/ecosystem"
+        >
           <Flex gap="12px">
             Explore our Ecosystem <ArrowUpRight />
           </Flex>

@@ -129,16 +129,20 @@ const WalletCard = ({ wallet }: { wallet: (typeof WALLETS)[number] }) => {
       role="group"
       _before={{
         content: "''",
-        h: "50px",
-        w: "50px",
+        h: "60px",
+        w: "60px",
         rounded: "full",
+        transform: "translateY(-50%)",
         position: "absolute",
         bgColor: "#4670e5",
-        transition: "all  0.5s ease",
+        transition: "all 0.5s ease",
+        opacity: 0.6,
+        zIndex: -1,
       }}
       _hover={{
-        _before: { bgColor: "#e7640d" },
+        _before: { bgColor: "#e7640d", opacity: 1 },
       }}
+      zIndex={1}
     >
       <Flex
         position="absolute"
@@ -149,7 +153,7 @@ const WalletCard = ({ wallet }: { wallet: (typeof WALLETS)[number] }) => {
         w="64px"
         align="center"
         justify="center"
-        zIndex={2}
+        zIndex={3}
       >
         <Flex
           h="64px"
@@ -191,7 +195,7 @@ const WalletCard = ({ wallet }: { wallet: (typeof WALLETS)[number] }) => {
         backdropFilter="blur(32px)"
         bg="greyAlpha.50"
         p="40px 24px 24px 24px"
-        zIndex={1}
+        zIndex={2}
       >
         <Text mb="12px">{wallet.title}</Text>
         <Text fontSize="sm" color="whiteAlpha.600">

@@ -92,7 +92,7 @@ export default function Header() {
   return (
     <Box as="header" backdropFilter="blur(32px)" bgColor="blackAlpha.50" position="fixed" width="100%" zIndex={2}>
       <Flex color="whiteAlpha.600" minH="60px" py={{ base: 2 }} px={{ base: 4 }} justify="space-between">
-        <Flex grow={1} shrink={0} justify={{ base: "end" }} cursor="pointer">
+        <Flex grow={1} shrink={0} justify={{ base: "end" }} cursor="pointer" as="a" href="/">
           <motion.div whileHover={{ rotate: "-4deg" }}>
             <Image src="/assets/images/logo-dark.svg" alt="Kyberswap logo" width={140} height={46} />
           </motion.div>
