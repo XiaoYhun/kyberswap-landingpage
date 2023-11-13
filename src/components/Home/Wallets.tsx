@@ -166,6 +166,7 @@ const WalletCard = ({ wallet }: { wallet: (typeof WALLETS)[number] }) => {
           _groupHover={{
             _before: {
               backgroundPositionX: "100%",
+              transform: "rotate(180deg)",
             },
           }}
         >
@@ -174,7 +175,6 @@ const WalletCard = ({ wallet }: { wallet: (typeof WALLETS)[number] }) => {
           </Box>
         </Flex>
       </Flex>
-
       <Text mb="12px">{wallet.title}</Text>
       <Text fontSize="sm" color="whiteAlpha.600">
         {wallet.desc}

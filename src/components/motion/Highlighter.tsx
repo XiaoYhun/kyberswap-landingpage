@@ -68,7 +68,11 @@ export const HighlightGroup: React.FC<HighlightGroupProps & HTMLChakraProps<"div
   };
 
   return (
-    <Box ref={containerRef} role="group" {...rest}>
+    <Box
+      ref={containerRef}
+      {...rest}
+      _hover={{ ".highlight-item": { _after: { opacity: 0.4 }, _before: { opacity: 0.2 } } }}
+    >
       {children}
     </Box>
   );
@@ -86,6 +90,7 @@ export const HighlighterItem: React.FC<PropsWithChildren<HighlighterItemProps>> 
       rounded="xl"
       overflow="hidden"
       userSelect="none"
+      className="highlight-item"
       sx={{
         _before: {
           content: "''",
@@ -117,10 +122,6 @@ export const HighlighterItem: React.FC<PropsWithChildren<HighlighterItemProps>> 
           bg: "radial-gradient(circle closest-side, #ffffff40, transparent)",
           transform: "translate(-50%,-50%)",
           zIndex: -10,
-        },
-        _groupHover: {
-          _after: { opacity: 0.4 * opacity },
-          _before: { opacity: 0.2 * opacity },
         },
       }}
     >
