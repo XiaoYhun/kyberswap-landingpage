@@ -48,7 +48,15 @@ const SocialButton = ({ children, label, href }: { children: ReactNode; label: s
 
 export default function LargeWithAppLinksAndSocial() {
   return (
-    <Box as="footer" bg="grey.900" color="white" position="relative" zIndex={2}>
+    <Box
+      as="footer"
+      bg="grey.900"
+      color="white"
+      position="relative"
+      zIndex={2}
+      borderTopWidth="1px"
+      borderTopColor="greyAlpha.200"
+    >
       <Container as={Stack} maxW={"6xl"} py={{ base: 6, md: 14 }} sx={{ a: { _hover: { color: "green.400" } } }}>
         <SimpleGrid columns={{ base: 2, md: 5 }} p={{ base: "16px", md: 0 }} spacing={8}>
           <Stack align={"flex-start"} gap={3}>

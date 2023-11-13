@@ -15,7 +15,7 @@ import { ArrowUpRight } from "react-feather";
 
 export default function Home() {
   return (
-    <Box as="main" minH="100vh" position="relative" zIndex={1}>
+    <>
       <Box
         as="video"
         playsInline
@@ -71,6 +71,6 @@ export default function Home() {
         </Container>
         <Stars />
       </Box>
-    </Box>
+    </>
   );
 }

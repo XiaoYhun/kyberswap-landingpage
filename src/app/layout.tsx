@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "./Providers";
 import Header from "components/Header";
 import Footer from "components/Footer";
+import { Box } from "@chakra-ui/react";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +17,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Providers>
           <Header />
-          {children}
+          <Box as="main" minH="100vh" position="relative" zIndex={1}>
+            {children}
+          </Box>
           <Footer />
         </Providers>
       </body>

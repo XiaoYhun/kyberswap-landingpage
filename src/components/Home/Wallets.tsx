@@ -14,9 +14,7 @@ import {
   SimpleGrid,
   Text,
 } from "@chakra-ui/react";
-import { HighlightGroup, HighlighterItem } from "components/motion/Highlighter";
 import Image from "next/image";
-import { ChevronDown } from "react-feather";
 
 const WALLETS = [
   {
@@ -126,11 +124,21 @@ const WalletCard = ({ wallet }: { wallet: (typeof WALLETS)[number] }) => {
       rounded="3xl"
       borderWidth={1}
       borderColor="greyAlpha.200"
-      bg="greyAlpha.50"
-      p="40px 24px 24px 24px"
       position="relative"
       w="280px"
       role="group"
+      _before={{
+        content: "''",
+        h: "50px",
+        w: "50px",
+        rounded: "full",
+        position: "absolute",
+        bgColor: "#4670e5",
+        transition: "all  0.5s ease",
+      }}
+      _hover={{
+        _before: { bgColor: "#e7640d" },
+      }}
     >
       <Flex
         position="absolute"
@@ -141,6 +149,7 @@ const WalletCard = ({ wallet }: { wallet: (typeof WALLETS)[number] }) => {
         w="64px"
         align="center"
         justify="center"
+        zIndex={2}
       >
         <Flex
           h="64px"
@@ -175,13 +184,23 @@ const WalletCard = ({ wallet }: { wallet: (typeof WALLETS)[number] }) => {
           </Box>
         </Flex>
       </Flex>
-      <Text mb="12px">{wallet.title}</Text>
-      <Text fontSize="sm" color="whiteAlpha.600">
-        {wallet.desc}
-      </Text>
-      <Badge variant="secondary" position="absolute" top="6px" right="8px">
-        Wallet
-      </Badge>
+      <Flex
+        direction="column"
+        align="center"
+        rounded="3xl"
+        backdropFilter="blur(32px)"
+        bg="greyAlpha.50"
+        p="40px 24px 24px 24px"
+        zIndex={1}
+      >
+        <Text mb="12px">{wallet.title}</Text>
+        <Text fontSize="sm" color="whiteAlpha.600">
+          {wallet.desc}
+        </Text>
+        <Badge variant="secondary" position="absolute" top="6px" right="8px">
+          Wallet
+        </Badge>
+      </Flex>
     </Flex>
   );
 };

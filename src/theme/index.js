@@ -12,6 +12,9 @@ const theme = extendTheme({
     heading: workSans.style.fontFamily,
     body: workSans.style.fontFamily,
   },
+  radii: {
+    "2xl": "20px",
+  },
   components: {
     Button: Button,
     Container: {
