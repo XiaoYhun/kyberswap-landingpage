@@ -14,6 +14,7 @@ import {
   SimpleGrid,
   Text,
 } from "@chakra-ui/react";
+import BoxInViewMotion from "components/motion/BoxInViewMotion";
 import Image from "next/image";
 
 const WALLETS = [
@@ -70,49 +71,53 @@ const WALLETS = [
 ];
 export default function Wallets() {
   return (
-    <Flex direction="column" align="center" justify="center" w="100%" gap="40px">
-      <Flex
-        direction="column"
-        gap="24px"
-        align="center"
-        p={{ base: "12px", md: "0" }}
-        textAlign={{ base: "center", md: "left" }}
-      >
-        <Heading size="2xl">Connect with Your Favorite Wallets</Heading>
-        <Text color="whiteAlpha.600" fontWeight="normal">
-          Plug and play your preferred Web3 wallets and get access to DeFi’s trading toolbox of choice.{" "}
-          <Link color="green.400" href="https://kyberswap.com/buy-crypto">
-            Get started!
-          </Link>
-        </Text>
+    <BoxInViewMotion>
+      <Flex direction="column" align="center" justify="center" w="100%" gap="40px">
+        <Flex
+          direction="column"
+          gap="24px"
+          align="center"
+          p={{ base: "12px", md: "0" }}
+          textAlign={{ base: "center", md: "left" }}
+        >
+          <Heading size="2xl" className="inViewChild">
+            Connect with Your Favorite Wallets
+          </Heading>
+          <Text color="whiteAlpha.600" fontWeight="normal" className="inViewChild">
+            Plug and play your preferred Web3 wallets and get access to DeFi’s trading toolbox of choice.{" "}
+            <Link color="green.400" href="https://kyberswap.com/buy-crypto">
+              Get started!
+            </Link>
+          </Text>
+        </Flex>
+        <SimpleGrid columns={[1, 1, 2, 3]} spacing="48px" className="inViewChild">
+          {WALLETS.slice(0, 3).map((wallet) => {
+            return <WalletCard key={wallet.title} wallet={wallet} />;
+          })}
+        </SimpleGrid>
+        <Accordion mt="-12px" allowToggle className="inViewChild" transitionDuration="2s">
+          <AccordionItem border="none" overflow="visible">
+            {({ isExpanded }) => (
+              <>
+                <AccordionPanel pt="36px">
+                  <SimpleGrid columns={[1, 1, 2, 3]} spacing="48px">
+                    {WALLETS.slice(3, WALLETS.length).map((wallet) => {
+                      return <WalletCard key={wallet.title} wallet={wallet} />;
+                    })}
+                  </SimpleGrid>
+                </AccordionPanel>
+                <AccordionButton border="none" as="div" display="flex" justifyContent="center" _hover={{}}>
+                  <Button variant="outline" rounded="3xl" p="16px 24px">
+                    {isExpanded ? "Show Less" : "View More"}
+                    <AccordionIcon />
+                  </Button>
+                </AccordionButton>
+              </>
+            )}
+          </AccordionItem>
+        </Accordion>
       </Flex>
-      <SimpleGrid columns={[1, 1, 2, 3]} spacing="48px">
-        {WALLETS.slice(0, 3).map((wallet) => {
-          return <WalletCard key={wallet.title} wallet={wallet} />;
-        })}
-      </SimpleGrid>
-      <Accordion mt="-12px" allowToggle>
-        <AccordionItem border="none" overflow="visible">
-          {({ isExpanded }) => (
-            <>
-              <AccordionPanel pt="36px">
-                <SimpleGrid columns={[1, 1, 2, 3]} spacing="48px">
-                  {WALLETS.slice(3, WALLETS.length).map((wallet) => {
-                    return <WalletCard key={wallet.title} wallet={wallet} />;
-                  })}
-                </SimpleGrid>
-              </AccordionPanel>
-              <AccordionButton border="none" as="div" display="flex" justifyContent="center" _hover={{}}>
-                <Button variant="outline" rounded="3xl" p="16px 24px">
-                  {isExpanded ? "Show Less" : "View More"}
-                  <AccordionIcon />
-                </Button>
-              </AccordionButton>
-            </>
-          )}
-        </AccordionItem>
-      </Accordion>
-    </Flex>
+    </BoxInViewMotion>
   );
 }
 

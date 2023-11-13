@@ -3,6 +3,7 @@
 import { Box, Center, Flex } from "@chakra-ui/react";
 import DropdownIcon from "components/SVG/DropdownIcon";
 import { MotionBox } from "components/motion";
+import BoxInViewMotion from "components/motion/BoxInViewMotion";
 import Image from "next/image";
 import { ReactNode, useState, useEffect } from "react";
 const BannerWrapper = ({ children, ...rest }: { children: ReactNode } & any) => {
@@ -68,81 +69,84 @@ export function BannerCarousel() {
   }, [count]);
 
   return (
-    <Flex
-      position="relative"
-      justify="center"
-      align="center"
-      height="auto"
-      aspectRatio={60 / 34}
-      w={{ base: "100%", md: "600px" }}
-    >
-      <BannerWrapper animate={list[count % 3]}>
-        <Image
-          src="/assets/images/banner1.jpg"
-          alt="banner"
-          fill
-          style={{
-            objectFit: "cover",
-          }}
-          quality={100}
-        />
-      </BannerWrapper>
-      <BannerWrapper animate={list[(count + 1) % 3]}>
-        <Image
-          src="/assets/images/banner2.jpg"
-          alt="banner"
-          fill
-          style={{
-            objectFit: "cover",
-          }}
-          quality={100}
-        />
-      </BannerWrapper>
-      <BannerWrapper animate={list[(count + 2) % 3]}>
-        <Image
-          src="/assets/images/banner3.jpg"
-          alt="banner"
-          fill
-          style={{
-            objectFit: "cover",
-          }}
-          quality={100}
-        />
-      </BannerWrapper>
-      <Center
-        zIndex={4}
-        position="absolute"
-        color="white"
-        bg="blackAlpha.600"
-        w="35px"
-        h="35px"
-        p="0"
-        rounded="full"
-        left="10px"
-        cursor="pointer"
-        _hover={{ bg: "blackAlpha.900" }}
-        sx={{ transform: "rotate(90deg)", transition: "0.2s all" }}
-        onClick={() => setCount((prev) => prev - 1)}
+    <BoxInViewMotion delay={0.5}>
+      <Flex
+        className="inViewChild"
+        position="relative"
+        justify="center"
+        align="center"
+        height="auto"
+        aspectRatio={60 / 34}
+        w={{ base: "100%", md: "600px" }}
       >
-        <DropdownIcon size={30} />
-      </Center>
-      <Center
-        zIndex={4}
-        position="absolute"
-        color="white"
-        bg="blackAlpha.600"
-        w="35px"
-        h="35px"
-        p="0"
-        rounded="full"
-        right="10px"
-        cursor="pointer"
-        _hover={{ bg: "blackAlpha.900" }}
-        sx={{ transform: "rotate(-90deg)", transition: "0.2s all" }}
-        onClick={() => setCount((prev) => prev + 1)}
-      >
-        <DropdownIcon size={30} />
-      </Center>
-    </Flex>
+        <BannerWrapper animate={list[count % 3]}>
+          <Image
+            src="/assets/images/banner1.jpg"
+            alt="banner"
+            fill
+            style={{
+              objectFit: "cover",
+            }}
+            quality={100}
+          />
+        </BannerWrapper>
+        <BannerWrapper animate={list[(count + 1) % 3]}>
+          <Image
+            src="/assets/images/banner2.jpg"
+            alt="banner"
+            fill
+            style={{
+              objectFit: "cover",
+            }}
+            quality={100}
+          />
+        </BannerWrapper>
+        <BannerWrapper animate={list[(count + 2) % 3]}>
+          <Image
+            src="/assets/images/banner3.jpg"
+            alt="banner"
+            fill
+            style={{
+              objectFit: "cover",
+            }}
+            quality={100}
+          />
+        </BannerWrapper>
+        <Center
+          zIndex={4}
+          position="absolute"
+          color="white"
+          bg="blackAlpha.600"
+          w="35px"
+          h="35px"
+          p="0"
+          rounded="full"
+          left="10px"
+          cursor="pointer"
+          _hover={{ bg: "blackAlpha.900" }}
+          sx={{ transform: "rotate(90deg)", transition: "0.2s all" }}
+          onClick={() => setCount((prev) => prev - 1)}
+        >
+          <DropdownIcon size={30} />
+        </Center>
+        <Center
+          zIndex={4}
+          position="absolute"
+          color="white"
+          bg="blackAlpha.600"
+          w="35px"
+          h="35px"
+          p="0"
+          rounded="full"
+          right="10px"
+          cursor="pointer"
+          _hover={{ bg: "blackAlpha.900" }}
+          sx={{ transform: "rotate(-90deg)", transition: "0.2s all" }}
+          onClick={() => setCount((prev) => prev + 1)}
+        >
+          <DropdownIcon size={30} />
+        </Center>
+      </Flex>
+    </BoxInViewMotion>
   );
 }

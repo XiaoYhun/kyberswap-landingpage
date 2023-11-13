@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight, ArrowUpRight } from "react-feather";
 import Slider from "./components/Slider";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { PanInfo, useAnimate } from "framer-motion";
+import BoxInViewMotion from "components/motion/BoxInViewMotion";
 const FEATURES = [
   {
     imageUrl: "/assets/images/features/dex.png",
@@ -147,47 +148,50 @@ export default function Solutions() {
   };
 
   return (
-    <Flex gap="48px" direction="column">
-      <Flex justify="space-between" align="center">
-        <Heading
-          fontSize={{ base: "24px", md: "48px" }}
-          textAlign={{ base: "center", md: "left" }}
-          px={{ base: "12px", md: "0" }}
-        >
-          A Solution For Your Every Need
-        </Heading>
-        <Stack direction="row" display={{ base: "none", md: "flex" }}>
-          <Button variant="secondary" p="0.5rem" onClick={prevStep}>
-            <ChevronLeft />
-          </Button>
-          <Button variant="secondary" p="0.5rem" onClick={() => nextStep()}>
-            <ChevronRight />
-          </Button>
-        </Stack>
-      </Flex>
-      <Box width="100%" overflowX="hidden">
-        <MotionBox ref={scope} drag="x" dragMomentum={false} onDragEnd={handleDragEnd}>
-          <Flex
-            ref={ref}
-            gap={`${gap}px`}
-            sx={{
-              ">div": {
-                width: {
-                  base: "360px",
-                  md: `calc(100% / ${itemsInView} - ((${itemsInView - 1}) * ${gap}px / ${itemsInView}))`,
-                },
-                flexShrink: 0,
-              },
-            }}
+    <BoxInViewMotion>
+      <Flex gap="48px" direction="column">
+        <Flex justify="space-between" align="center">
+          <Heading
+            fontSize={{ base: "24px", md: "48px" }}
+            textAlign={{ base: "center", md: "left" }}
+            px={{ base: "12px", md: "0" }}
+            className="inViewChild"
           >
-            {FEATURES.map((item, index) => {
-              return <FeatureCard item={item} key={index} index={index} />;
-            })}
-          </Flex>
-        </MotionBox>
-        <Slider />
-      </Box>
-    </Flex>
+            A Solution For Your Every Need
+          </Heading>
+          <Stack direction="row" display={{ base: "none", md: "flex" }} className="inViewChild">
+            <Button variant="secondary" p="0.5rem" onClick={prevStep}>
+              <ChevronLeft />
+            </Button>
+            <Button variant="secondary" p="0.5rem" onClick={() => nextStep()}>
+              <ChevronRight />
+            </Button>
+          </Stack>
+        </Flex>
+        <Box width="100%" overflowX="hidden" className="inViewChild">
+          <MotionBox ref={scope} drag="x" dragMomentum={false} onDragEnd={handleDragEnd}>
+            <Flex
+              ref={ref}
+              gap={`${gap}px`}
+              sx={{
+                ">div": {
+                  width: {
+                    base: "360px",
+                    md: `calc(100% / ${itemsInView} - ((${itemsInView - 1}) * ${gap}px / ${itemsInView}))`,
+                  },
+                  flexShrink: 0,
+                },
+              }}
+            >
+              {FEATURES.map((item, index) => {
+                return <FeatureCard item={item} key={index} index={index} />;
+              })}
+            </Flex>
+          </MotionBox>
+          <Slider />
+        </Box>
+      </Flex>
+    </BoxInViewMotion>
   );
 }
 

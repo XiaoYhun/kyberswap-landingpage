@@ -1,4 +1,5 @@
 import { Box, Flex, Heading, Stack, Text } from "@chakra-ui/react";
+import BoxInViewMotion from "components/motion/BoxInViewMotion";
 import Image from "next/image";
 
 const COMMUNITIES = [
@@ -15,21 +16,23 @@ const COMMUNITIES = [
 ];
 export default function FirstToKnow() {
   return (
-    <Flex align="center" direction="column" gap="16px">
-      <Heading size="2xl" lineHeight="normal">
-        Be the first to know
-      </Heading>
-      <Text color="whiteAlpha.600" fontSize="lg" fontWeight="normal">
-        Get alpha from our channels & community
-      </Text>
-      <Stack direction="row" gap="20px">
-        <>
-          {COMMUNITIES.map((c) => {
-            return <CommunityIcon key={c.alt} community={c} />;
-          })}
-        </>
-      </Stack>
-    </Flex>
+    <BoxInViewMotion>
+      <Flex align="center" direction="column" gap="16px">
+        <Heading size="2xl" lineHeight="normal" className="inViewChild">
+          Be the first to know
+        </Heading>
+        <Text color="whiteAlpha.600" fontSize="lg" fontWeight="normal" className="inViewChild">
+          Get alpha from our channels & community
+        </Text>
+        <Stack direction="row" gap="20px" className="inViewChild">
+          <>
+            {COMMUNITIES.map((c) => {
+              return <CommunityIcon key={c.alt} community={c} />;
+            })}
+          </>
+        </Stack>
+      </Flex>
+    </BoxInViewMotion>
   );
 }
 
