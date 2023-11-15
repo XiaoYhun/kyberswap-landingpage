@@ -21,42 +21,42 @@ import { Box3, Sphere, Vector3 } from "three";
 const IMAGES = [
   {
     imageSrc: "/assets/svg/wallets/metamask.svg",
-    scale: 1.5,
+    scale: 1.25,
     position: [5, 1, -0.5],
   },
   {
     imageSrc: "/assets/svg/wallets/rabby.svg",
-    scale: 1.5,
-    position: [4, 3, 1.5],
+    scale: 1.25,
+    position: [4, 3, 1.25],
   },
   {
     imageSrc: "/assets/svg/wallets/trustwallet.svg",
-    scale: 1.5,
-    position: [-5, 3, 1.5],
+    scale: 1.25,
+    position: [-5, 3, 1.25],
   },
   {
     imageSrc: "/assets/svg/wallets/blocto.svg",
-    scale: 1.5,
+    scale: 1.25,
     position: [-2, 4, 0.5],
   },
   {
     imageSrc: "/assets/svg/wallets/krystal.svg",
-    scale: 1.5,
+    scale: 1.25,
     position: [-3, -1, -2],
   },
   {
     imageSrc: "/assets/svg/wallets/wallet-connect.svg",
-    scale: 1.5,
+    scale: 1.25,
     position: [3, 2, 4],
   },
   {
     imageSrc: "/assets/svg/wallets/brave.svg",
-    scale: 1.5,
+    scale: 1.25,
     position: [2, -3.5, -4],
   },
   {
     imageSrc: "/assets/svg/wallets/safe.svg",
-    scale: 1.5,
+    scale: 1.25,
     position: [-3.5, -2, -1],
   },
   {
@@ -96,13 +96,12 @@ export default function SpinningEcosystem() {
     <Box
       ref={scope}
       w="100%"
-      h="1200px"
+      h="100%"
       bg="whiteAlpha.200"
       display="flex"
       position="relative"
       alignItems="center"
       justifyContent="center"
-      sx={{ perspective: "400px" }}
     >
       {/* <Canvas dpr={[1.5, 2]} linear shadows camera={{ position: [0, 0, 20], zoom: 2, far: 10000 }}>
         <fog attach="fog" args={["#272730", 16, 30]} />
@@ -158,7 +157,7 @@ export default function SpinningEcosystem() {
         <directionalLight position={[0, 5, 0]} intensity={3} />
         <color attach="background" args={["#191920"]} />
         <fog attach="fog" args={["#191920", 10, 50]} />
-        <group position={[0, 0, 0]}>
+        <group position={[10, -1, 0]}>
           <Float speed={4} rotationIntensity={1} floatIntensity={1}>
             <CanvasComponent />
             <Stars saturation={0} count={400} speed={0.5} />
