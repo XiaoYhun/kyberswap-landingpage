@@ -14,7 +14,7 @@ export default function Support() {
         </Box>
         <Flex flex={6} p={{ base: "12px", md: "0" }} direction="column" gap="16px">
           <Heading size="2xl" lineHeight="normal" className="inViewChild">
-            Always Here for You: <br /> 24/7 Customer Support
+            Always Here for You: <br /> 24/7 Support
           </Heading>
           <Text lineHeight="tall" color="whiteAlpha.600" fontWeight="normal" className="inViewChild">
             Our dedicated team of experts are available 24 hours a day to assist you with any queries, concerns, or

@@ -52,7 +52,7 @@ const IMAGES = [
   {
     imageSrc: "/assets/svg/wallets/brave.svg",
     scale: 1.25,
-    position: [2, -3.5, -4],
+    position: [2, -0.5, -4],
   },
   {
     imageSrc: "/assets/svg/wallets/safe.svg",
@@ -155,10 +155,10 @@ export default function SpinningEcosystem() {
       <Canvas camera={{ fov: 50, position: [0, 10, 20] }}>
         <ambientLight intensity={2} />
         <directionalLight position={[0, 5, 0]} intensity={3} />
-        <color attach="background" args={["#191920"]} />
-        <fog attach="fog" args={["#191920", 10, 50]} />
+        <color attach="background" args={["#111414"]} />
+        <fog attach="fog" args={["#111414", 10, 50]} />
         <group position={[10, -1, 0]}>
-          <Float speed={4} rotationIntensity={1} floatIntensity={1}>
+          <Float speed={3} rotationIntensity={1} floatIntensity={6}>
             <CanvasComponent />
             <Stars saturation={0} count={400} speed={0.5} />
           </Float>
@@ -222,7 +222,7 @@ const CanvasComponent = () => {
   const image = useRef<any>();
   const images = useRef<any>();
   useFrame((_, delta) => {
-    const rotationSpeed = delta * 1.5;
+    const rotationSpeed = delta * 1;
     ref.current.rotation.y += rotationSpeed;
     images.current?.map((r: any) => (r.rotation.y -= rotationSpeed));
   });

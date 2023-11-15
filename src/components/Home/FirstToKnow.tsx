@@ -3,7 +3,7 @@ import BoxInViewMotion from "components/motion/BoxInViewMotion";
 import Image from "next/image";
 
 const COMMUNITIES = [
-  { imageSrc: "/assets/svg/community/discord.svg", href: "https://discord.com/invite/NB3vc8J9uv", alt: "discord" },
+  { imageSrc: "/assets/svg/community/discord.svg", href: "https://discord.gg/kyberswap", alt: "discord" },
   { imageSrc: "/assets/svg/community/telegram.svg", href: "https://t.me/kybernetwork", alt: "telegram" },
   { imageSrc: "/assets/svg/community/twitter.svg", href: "https://twitter.com/KyberNetwork", alt: "twitter" },
   {

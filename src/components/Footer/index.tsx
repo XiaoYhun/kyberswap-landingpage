@@ -122,7 +122,7 @@ export default function LargeWithAppLinksAndSocial() {
               direction="row"
               sx={{ image: { height: "24px", width: "24px", _hover: { fill: "whiteAlpha.600" } }, cursor: "pointer" }}
             >
-              <Box as="a" href="https://discord.com/invite/NB3vc8J9uv" target="_blank">
+              <Box as="a" href="https://discord.gg/kyberswap" target="_blank">
                 <Image src="/assets/svg/community/mono/discord.svg" alt="discord" />
               </Box>
               <Box as="a" href="https://t.me/kybernetwork" target="_blank">
