@@ -1,5 +1,5 @@
 "use client";
-import { Box, Button, Card, CardBody, Flex, Heading, Stack, Text, useCallbackRef } from "@chakra-ui/react";
+import { Box, Button, Card, CardBody, Flex, Heading, Highlight, Stack, Text, useCallbackRef } from "@chakra-ui/react";
 import { MotionBox } from "components/motion";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "react-feather";
@@ -8,6 +8,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { PanInfo, useAnimate } from "framer-motion";
 import BoxInViewMotion from "components/motion/BoxInViewMotion";
 import AutoScrollMotion from "components/motion/AutoScrollMotion";
+import { HighlightGroup, HighlighterItem } from "components/motion/Highlighter";
 const FEATURES = [
   {
     imageUrl: "/assets/images/features/dex.png",
@@ -89,13 +90,24 @@ export default function Solutions() {
   const [clientWidth, setClientWidth] = useState(0);
   const [step, setStep] = useState<number>(0);
 
+  const timeoutRef = useRef<NodeJS.Timeout>();
   const nextStep = useCallback(
-    (increase: number | undefined = 1) => {
-      if (step + increase + itemsInView > FEATURES.length || step + increase < 0) {
-        setStep(0);
-        snapAnimate(0);
+    (increase: number | undefined = 1, resetOnExceed?: boolean) => {
+      if (step + increase + itemsInView > FEATURES.length) {
+        if (resetOnExceed) {
+          setStep(0);
+          snapAnimate(0);
+        } else {
+          setStep(FEATURES.length - itemsInView);
+          snapAnimate(FEATURES.length - itemsInView);
+        }
       } else {
-        setStep(step + increase);
+        if (step + increase < 0) {
+          setStep(0);
+          snapAnimate(0);
+        } else {
+          setStep(step + increase);
+        }
       }
     },
     [step]
@@ -103,7 +115,7 @@ export default function Solutions() {
 
   const prevStep = () => {
     if (step - 1 <= 0) {
-      setStep(0);
+      setStep(FEATURES.length - itemsInView);
     } else {
       setStep(step - 1);
     }
@@ -127,20 +139,22 @@ export default function Solutions() {
   }, [step]);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      nextStep();
+    timeoutRef.current = setTimeout(() => {
+      nextStep(1, true);
     }, 10_000);
     return () => {
-      clearTimeout(timeout);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
     };
   }, [nextStep]);
 
   const handleDragEnd = (e: PointerEvent, info: PanInfo) => {
-    e.stopPropagation();
-    const stepOffset =
-      info.velocity.x > 80
-        ? Math.ceil(info.offset.x / (clientWidth + gap))
-        : Math.round(info.offset.x / (clientWidth + gap));
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    const stepOffset = Math.round(info.offset.x / (clientWidth + gap));
     if (stepOffset === 0) {
       snapAnimate(step);
     } else {
@@ -164,30 +178,18 @@ export default function Solutions() {
             <Button variant="secondary" p="0.5rem" onClick={prevStep}>
               <ChevronLeft />
             </Button>
-            <Button variant="secondary" p="0.5rem" onClick={() => nextStep()}>
+            <Button variant="secondary" p="0.5rem" onClick={() => nextStep(1, true)}>
               <ChevronRight />
             </Button>
           </Stack>
         </Flex>
         <Box width="100%" overflowX="hidden" className="inViewChild">
           <MotionBox ref={scope} drag="x" dragMomentum={false} onDragEnd={handleDragEnd}>
-            <Flex
-              ref={ref}
-              gap={`${gap}px`}
-              sx={{
-                ">div": {
-                  width: {
-                    base: "360px",
-                    md: `calc(100% / ${itemsInView} - ((${itemsInView - 1}) * ${gap}px / ${itemsInView}))`,
-                  },
-                  flexShrink: 0,
-                },
-              }}
-            >
+            <HighlightGroup as={Flex} ref={ref} gap={`${gap}px`}>
               {FEATURES.map((item, index) => {
-                return <FeatureCard item={item} key={index} index={index} />;
+                return <FeatureCard item={item} itemsInView={itemsInView} gap={gap} key={index} index={index} />;
               })}
-            </Flex>
+            </HighlightGroup>
           </MotionBox>
           <Slider />
         </Box>
@@ -196,9 +198,31 @@ export default function Solutions() {
   );
 }
 
-const FeatureCard = ({ item, index }: { item: (typeof FEATURES)[number]; index: number }) => {
+const FeatureCard = ({
+  item,
+  itemsInView,
+  gap,
+  index,
+}: {
+  item: (typeof FEATURES)[number];
+  itemsInView: number;
+  gap: number;
+  index: number;
+}) => {
   return (
-    <Card rounded="2xl" bg="whiteAlpha.100" color="white" id={`feature-card-${index}`} backdropFilter="blur(12px)">
+    <HighlighterItem
+      as={Card}
+      rounded="2xl"
+      bg="whiteAlpha.100"
+      color="white"
+      id={`feature-card-${index}`}
+      backdropFilter="blur(12px)"
+      w={{
+        base: "360px",
+        md: `calc(100% / ${itemsInView} - ((${itemsInView - 1}) * ${gap}px / ${itemsInView}))`,
+      }}
+      flexShrink={0}
+    >
       <CardBody>
         <Flex direction="column" height="100%">
           <Box
@@ -242,6 +266,6 @@ const FeatureCard = ({ item, index }: { item: (typeof FEATURES)[number]; index: 
           </Stack>
         </Flex>
       </CardBody>
-    </Card>
+    </HighlighterItem>
   );
 };
