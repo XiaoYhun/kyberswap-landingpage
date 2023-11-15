@@ -9,11 +9,15 @@ export default function BoxInViewMotion({ delay = 0, children }: { delay?: numbe
 
   useEffect(() => {
     if (isInView) {
-      animate(
-        ".inViewChild",
-        { opacity: 1, transform: "translateY(0px)" },
-        { ease: [0.12, 0.55, 0.55, 1], duration: 1, delay: stagger(0.1, { startDelay: delay }) }
-      );
+      try {
+        animate(
+          ".inViewChild",
+          { opacity: 1, transform: "translateY(0px)" },
+          { ease: [0.12, 0.55, 0.55, 1], duration: 1, delay: stagger(0.1, { startDelay: delay }) }
+        );
+      } catch (e) {
+        console.log("Error: no valid child.");
+      }
     }
   }, [isInView]);
 
