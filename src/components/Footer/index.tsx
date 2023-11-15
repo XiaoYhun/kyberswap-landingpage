@@ -123,19 +123,19 @@ export default function LargeWithAppLinksAndSocial() {
               sx={{ image: { height: "24px", width: "24px", _hover: { fill: "whiteAlpha.600" } }, cursor: "pointer" }}
             >
               <Box as="a" href="https://discord.com/invite/NB3vc8J9uv" target="_blank">
-                <Image src="/assets/svg/community/mono/discord.svg" />
+                <Image src="/assets/svg/community/mono/discord.svg" alt="discord" />
               </Box>
               <Box as="a" href="https://t.me/kybernetwork" target="_blank">
-                <Image src="/assets/svg/community/mono/telegram.svg" />
+                <Image src="/assets/svg/community/mono/telegram.svg" alt="telegram" />
               </Box>
               <Box as="a" href="https://twitter.com/KyberNetwork" target="_blank">
-                <Image src="/assets/svg/community/mono/twitter.svg" />
+                <Image src="/assets/svg/community/mono/twitter.svg" alt="twitter" />
               </Box>
               <Box as="a" href="https://blog.kyberswap.com/" target="_blank">
-                <Image src="/assets/svg/community/mono/blog.svg" />
+                <Image src="/assets/svg/community/mono/blog.svg" alt="blog" />
               </Box>
               <Box as="a" href="https://debank.com/official-account/110644/stream" target="_blank">
-                <Image src="/assets/svg/community/mono/debank.svg" />
+                <Image src="/assets/svg/community/mono/debank.svg" alt="debank" />
               </Box>
             </Stack>
           </Stack>

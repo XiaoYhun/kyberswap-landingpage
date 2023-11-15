@@ -204,8 +204,8 @@ const SVGShape = ({ url, position, scale = 3 }: { url: string; position?: any; s
 
   return (
     <group ref={ref} scale={baseScale} position={position || [0, 0, 0]}>
-      {shapes.map((s: any) => (
-        <mesh rotation-y={Math.PI} rotation-z={Math.PI}>
+      {shapes.map((s: any, index: number) => (
+        <mesh key={index} rotation-y={Math.PI} rotation-z={Math.PI}>
           <meshPhongMaterial color={s.color} side={2} />
           <shapeGeometry args={[s.shape]} />
         </mesh>
@@ -234,9 +234,8 @@ const CanvasComponent = () => {
       <group ref={ref} position={[0, -2, 0]}>
         {IMAGES.map((image, index) => {
           return (
-            <Billboard follow position={image.position as any}>
+            <Billboard key={index} follow position={image.position as any}>
               <Image
-                key={index}
                 ref={(ref) => {
                   if (!images.current) images.current = [];
                   if (ref && images.current) {
