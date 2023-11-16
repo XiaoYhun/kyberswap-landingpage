@@ -1,3 +1,5 @@
+"use client";
+
 import { Button, Box, Container, Center, Stack, Flex, Heading, Text, Spacer, Divider } from "@chakra-ui/react";
 import { BannerCarousel } from "components/Home/Banner";
 import FirstToKnow from "components/Home/FirstToKnow";

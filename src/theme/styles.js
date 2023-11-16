@@ -1,9 +1,10 @@
 const styles = {
   global: {
     body: {
-      bgColor: "backgroundGreen",
+      bgColor: "grey.900",
       fontWeight: 500,
       color: "white",
+      margin: "0 !important",
     },
   },
   a: {

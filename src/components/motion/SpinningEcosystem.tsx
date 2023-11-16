@@ -1,7 +1,7 @@
 "use client";
 import { Box } from "@chakra-ui/react";
 import { useAnimate, useTime } from "framer-motion";
-import { useState, useLayoutEffect, useEffect, useRef, useMemo } from "react";
+import { useState, useLayoutEffect, useEffect, useRef, useMemo, Suspense } from "react";
 import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import {
   Billboard,
@@ -12,6 +12,7 @@ import {
   MeshReflectorMaterial,
   OrbitControls,
   PerspectiveCamera,
+  PresentationControls,
   Sparkles,
   SpotLight,
   Stars,
@@ -37,7 +38,7 @@ const IMAGES = [
   {
     imageSrc: "/assets/svg/wallets/blocto.svg",
     scale: 1.25,
-    position: [-2, 4, 0.5],
+    position: [-3, 3.4, 1.5],
   },
   {
     imageSrc: "/assets/svg/wallets/krystal.svg",
@@ -62,7 +63,7 @@ const IMAGES = [
   {
     imageSrc: "/assets/svg/wallets/coinbase.svg",
     scale: 1,
-    position: [5, -3, -3],
+    position: [5, -2.5, -3],
   },
   {
     imageSrc: "/assets/svg/wallets/coin98.svg",
@@ -97,7 +98,7 @@ export default function SpinningEcosystem() {
       ref={scope}
       w="100%"
       h="100%"
-      bg="whiteAlpha.200"
+      bg="#090a0a"
       display="flex"
       position="relative"
       alignItems="center"
@@ -152,35 +153,49 @@ export default function SpinningEcosystem() {
           far={1.6}
         />
       </Canvas> */}
-      <Canvas camera={{ fov: 50, position: [0, 10, 20] }}>
+      <Canvas camera={{ fov: 40, position: [0, -1, 30] }}>
         <ambientLight intensity={2} />
         <directionalLight position={[0, 5, 0]} intensity={3} />
         <color attach="background" args={["#111414"]} />
-        <fog attach="fog" args={["#111414", 10, 50]} />
-        <group position={[10, -1, 0]}>
-          <Float speed={3} rotationIntensity={1} floatIntensity={6}>
-            <CanvasComponent />
-            <Stars saturation={0} count={400} speed={0.5} />
-          </Float>
-          <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -3, 0]}>
-            <planeGeometry args={[100, 100]} />
-            <MeshReflectorMaterial
-              blur={[3000, 3000]}
-              resolution={4096}
-              mixBlur={100}
-              mixStrength={40}
-              roughness={1}
-              depthScale={1.2}
-              minDepthThreshold={0.4}
-              maxDepthThreshold={1.4}
-              color="#050505"
-              metalness={0.5}
-              mirror={0}
-            />
-          </mesh>
-        </group>
+        <fog attach="fog" args={["#111414", 10, 44]} />
+        <Suspense fallback={null}>
+          <group position={[10, -1, 0]}>
+            <PresentationControls
+              global
+              config={{ mass: 5, tension: 250, friction: 25 }}
+              snap={{ mass: 2, tension: 250, friction: 50 }}
+              zoom={1.25}
+              rotation={[0.1, -0.4, 0]}
+              polar={[-Math.PI / 20, Math.PI / 10]}
+              azimuth={[-Math.PI / 6, Math.PI / 6]}
+              cursor
+            >
+              <Float speed={3} rotationIntensity={1} floatIntensity={6}>
+                <CanvasComponent />
+                <Stars saturation={0} count={400} speed={0.1} />
+              </Float>
+              <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -3, 0]}>
+                <planeGeometry args={[100, 100]} />
+                <MeshReflectorMaterial
+                  blur={[3000, 3000]}
+                  resolution={2048}
+                  mixBlur={100}
+                  mixStrength={60}
+                  roughness={1}
+                  depthScale={1.2}
+                  minDepthThreshold={0.4}
+                  maxDepthThreshold={1.4}
+                  color="#050505"
+                  metalness={0.5}
+                  mirror={0}
+                />
+              </mesh>
+            </PresentationControls>
+          </group>
+        </Suspense>
+
         {/* <SpotLight position={[0, 0, 10]} lookAt={[0, 10, 0]} power={10} intensity={10} /> */}
-        <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} minPolarAngle={Math.PI / 2} />
+        {/* <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} minPolarAngle={Math.PI / 2} /> */}
       </Canvas>
     </Box>
   );
@@ -207,7 +222,7 @@ const SVGShape = ({ url, position, scale = 3 }: { url: string; position?: any; s
     <group ref={ref} scale={baseScale} position={position || [0, 0, 0]}>
       {shapes.map((s: any, index: number) => (
         <mesh key={index} rotation-y={Math.PI} rotation-z={Math.PI}>
-          <meshPhongMaterial color={s.color} side={2} />
+          <meshPhongMaterial color={s.color} side={2} shininess={100} isMaterial />
           <shapeGeometry args={[s.shape]} />
         </mesh>
       ))}
@@ -261,4 +276,10 @@ function Shape({ shape }: { shape: any }) {
       <shapeGeometry args={[shape]} />
     </mesh>
   );
+}
+
+function Rig() {
+  const { camera, mouse } = useThree();
+  const vec = new Vector3();
+  return useFrame(() => {});
 }

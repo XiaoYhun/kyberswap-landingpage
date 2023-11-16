@@ -1,7 +1,6 @@
 "use client";
 import { Box, Container, Flex, Spacer, Stack, Text, Button, Heading, Badge, SimpleGrid } from "@chakra-ui/react";
 import BoxInViewMotion from "components/motion/BoxInViewMotion";
-import SpinningEcosystem from "components/motion/SpinningEcosystem";
 import Image from "next/image";
 import { ArrowUpRight } from "react-feather";
 
@@ -58,14 +57,12 @@ const ECOSYSTEMS = [
   },
 ];
 
-export default function Test3D() {
+export default function Ecosystem() {
   return (
     <>
       <Box position="absolute" top="0" left="0" right="0" zIndex={-1} width="100%" h="640px">
-        {/* <Image src="/assets/images/background.png" alt="bg" fill style={{ objectFit: "cover", opacity: "50%" }} /> */}
-        <SpinningEcosystem />
+        <Image src="/assets/images/background.png" alt="bg" fill style={{ objectFit: "cover", opacity: "50%" }} />
       </Box>
-
       <BoxInViewMotion>
         <Container>
           <Spacer h="100px" />
@@ -100,8 +97,8 @@ export default function Test3D() {
                 </Button>
               </Flex>
             </Flex>
-            <Box flex={4} w="480px" h="440px" position="relative" className="inViewChild">
-              {/* <Image src="/assets/images/ecosystem.gif" alt="kyber-ecosystem" fill style={{ objectFit: "cover" }} /> */}
+            <Box flex={4} w="480px" h="480px" position="relative" className="inViewChild">
+              <Image src="/assets/images/ecosystem.gif" alt="kyber-ecosystem" fill style={{ objectFit: "cover" }} />
             </Box>
           </Flex>
           <Spacer h="100px" />
