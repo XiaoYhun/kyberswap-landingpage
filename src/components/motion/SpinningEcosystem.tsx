@@ -10,8 +10,6 @@ import {
   Float,
   Image,
   MeshReflectorMaterial,
-  OrbitControls,
-  PerspectiveCamera,
   PresentationControls,
   Sparkles,
   SpotLight,
@@ -154,10 +152,10 @@ export default function SpinningEcosystem() {
         />
       </Canvas> */}
       <Canvas camera={{ fov: 40, position: [0, -1, 30] }}>
-        <ambientLight intensity={2} />
+        <ambientLight intensity={1.6} />
         <directionalLight position={[0, 5, 0]} intensity={3} />
         <color attach="background" args={["#111414"]} />
-        <fog attach="fog" args={["#111414", 10, 44]} />
+        <fog attach="fog" args={["#111414", 30, 44]} />
         <Suspense fallback={null}>
           <group position={[10, -1, 0]}>
             <PresentationControls
@@ -247,6 +245,7 @@ const CanvasComponent = () => {
         <boxGeometry ref={ref} args={[2, 2, 2]} />
       </mesh> */}
       <SVGShape position={[1, 20, 0]} url={"/assets/images/logo-kyberswap.svg"} />
+
       <group ref={ref} position={[0, -2, 0]}>
         {IMAGES.map((image, index) => {
           return (
