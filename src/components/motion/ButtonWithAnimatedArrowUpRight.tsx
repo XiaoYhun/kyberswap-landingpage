@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "react-feather";
 import { useState } from "react";

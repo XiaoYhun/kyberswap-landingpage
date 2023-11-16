@@ -4,6 +4,7 @@ import { getChainsConfig } from "hooks/services/index";
 import { HighlightGroup, HighlighterItem } from "components/motion/Highlighter";
 import BoxInViewMotion from "components/motion/BoxInViewMotion";
 import ButtonWithAnimatedArrowUpRight from "components/motion/ButtonWithAnimatedArrowUpRight";
+import AnimatedCounter from "components/motion/AnimatedCounter";
 
 export default async function Platform() {
   const chains = await getChainsConfig();
@@ -35,21 +36,27 @@ export default async function Platform() {
               wrap={{ base: "wrap", md: "nowrap" }}
             >
               <Flex direction="column" align="center">
-                <Text fontSize={36}>$2.13B</Text>
+                <Flex fontSize={36} whiteSpace="nowrap" alignItems="center">
+                  $<AnimatedCounter fontSize={36} />B
+                </Flex>
                 <Text fontSize={14} color="whiteAlpha.600" textAlign="center">
                   Total Trading Volume
                 </Text>
               </Flex>
               <Divider orientation="vertical" h="24px" color="whiteAlpha.400" />
               <Flex direction="column" align="center">
-                <Text fontSize={36}>$2.13B</Text>
+                <Flex fontSize={36} whiteSpace="nowrap" alignItems="center">
+                  $<AnimatedCounter fontSize={36} value={231} />B
+                </Flex>
                 <Text fontSize={14} color="whiteAlpha.600" textAlign="center">
                   Total Transactions
                 </Text>
               </Flex>
               <Divider orientation="vertical" h="24px" color="whiteAlpha.400" display={{ base: "none", md: "block" }} />
               <Flex direction="column" align="center">
-                <Text fontSize={36}>$2.13B</Text>
+                <Flex fontSize={36} whiteSpace="nowrap" alignItems="center">
+                  $<AnimatedCounter fontSize={36} value={332} />B
+                </Flex>
                 <Text fontSize={14} color="whiteAlpha.600" textAlign="center">
                   Total Value Locked
                 </Text>
@@ -57,7 +64,9 @@ export default async function Platform() {
               <Divider orientation="vertical" h="24px" color="whiteAlpha.400" />
 
               <Flex direction="column" align="center">
-                <Text fontSize={36}>$2.13B</Text>
+                <Flex fontSize={36} whiteSpace="nowrap" alignItems="center">
+                  $<AnimatedCounter fontSize={36} value={242} />B
+                </Flex>
                 <Text fontSize={14} color="whiteAlpha.600" textAlign="center">
                   Rewards Distributed
                 </Text>

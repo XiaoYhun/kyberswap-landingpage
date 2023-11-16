@@ -7,9 +7,9 @@ export default function Support() {
   return (
     <BoxInViewMotion>
       <Flex direction={{ base: "column", md: "row" }}>
-        <Box flex={4} order={{ base: 2, md: 1 }} className="inViewChild">
+        <Box flex={4} className="inViewChild">
           <Box w="320px" h="320px" position="relative">
-            <Image src="/assets/images/support.png" alt="support 247" fill />
+            <Image src="/assets/images/support.png" alt="support 247" fill quality={100} />
           </Box>
         </Box>
         <Flex flex={6} p={{ base: "12px", md: "0" }} direction="column" gap="16px">

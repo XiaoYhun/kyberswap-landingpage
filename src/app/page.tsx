@@ -1,5 +1,3 @@
-"use client";
-
 import { Box, Container, Center, Spacer } from "@chakra-ui/react";
 import { BannerCarousel } from "components/Home/Banner";
 import FirstToKnow from "components/Home/FirstToKnow";
@@ -11,7 +9,6 @@ import Solutions from "components/Home/Solutions";
 import Stars from "components/Home/Stars";
 import Support from "components/Home/Support";
 import Wallets from "components/Home/Wallets";
-import AnimatedCounter from "components/motion/AnimatedCounter";
 
 export default function Home() {
   return (
