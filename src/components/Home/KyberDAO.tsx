@@ -10,7 +10,7 @@ export default function KyberDAO() {
       <Flex gap={{ base: 0, md: "24px" }} direction={{ base: "column", md: "row" }}>
         <Center flex={4} order={{ base: 2, md: 1 }} className="inViewChild">
           <Box width="100%" height={{ base: "300px", md: "400px" }} position="relative">
-            <Image src="/assets/images/kyberDAO.png" alt="kyberDAO" fill style={{ objectFit: "contain" }} />
+            <Image src="/assets/images/kyberdao.png" alt="kyberDAO" fill style={{ objectFit: "contain" }} />
           </Box>
         </Center>
         <Flex
