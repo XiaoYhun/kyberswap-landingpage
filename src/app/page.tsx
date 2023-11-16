@@ -11,6 +11,7 @@ import Solutions from "components/Home/Solutions";
 import Stars from "components/Home/Stars";
 import Support from "components/Home/Support";
 import Wallets from "components/Home/Wallets";
+import AnimatedCounter from "components/motion/AnimatedCounter";
 import Image from "next/image";
 import { ReactNode } from "react";
 import { ArrowUpRight } from "react-feather";
@@ -45,6 +46,7 @@ export default function Home() {
         </Center>
         <Spacer height={{ base: "60px", md: "200px" }} />
         <Platform />
+        <AnimatedCounter />
         <Spacer height={{ base: "60px", md: "200px" }} />
         <Solutions />
         <Spacer height={{ base: "60px", md: "200px" }} />

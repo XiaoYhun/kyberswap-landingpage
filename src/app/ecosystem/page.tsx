@@ -1,5 +1,4 @@
 "use client";
-
 import {
   Box,
   Container,
@@ -287,9 +286,8 @@ const ECOSYSTEMS = [
   },
 ];
 
-export default function Test3D() {
-  const defaultItemCount = useBreakpointValue([6, 12, 18], { ssr: false });
-  console.log("🚀 ~ file: page.tsx:293 ~ Test3D ~ defaultItemCount:", defaultItemCount);
+export default function Ecosystem() {
+  const defaultItemCount = useBreakpointValue([6, 12, 18], { fallback: "md" });
 
   const [openModal, setOpenModal] = useState(false);
   const [selectedWallet, setSelectedWallet] = useState<(typeof ECOSYSTEMS)[number]>();

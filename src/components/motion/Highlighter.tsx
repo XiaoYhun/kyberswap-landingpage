@@ -23,10 +23,10 @@ export const HighlightGroup = forwardRef<HTMLDivElement, HighlightGroupProps & H
 
     useEffect(() => {
       initContainer();
-      window.addEventListener("resize", initContainer);
+      window?.addEventListener("resize", initContainer);
 
       return () => {
-        window.removeEventListener("resize", initContainer);
+        window?.removeEventListener("resize", initContainer);
       };
     }, [setBoxes]);
 
