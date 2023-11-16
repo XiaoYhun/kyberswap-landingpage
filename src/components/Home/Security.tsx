@@ -1,7 +1,7 @@
-import { Box, Button, Center, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, Heading, Text } from "@chakra-ui/react";
 import BoxInViewMotion from "components/motion/BoxInViewMotion";
+import ButtonWithAnimatedArrowUpRight from "components/motion/ButtonWithAnimatedArrowUpRight";
 import Image from "next/image";
-import { ArrowUpRight } from "react-feather";
 
 export default function Security() {
   return (
@@ -15,7 +15,7 @@ export default function Security() {
             KyberSwap security fund, smart contract audits, bug bounty programs and other best practices are in place to
             ensure the highest security levels.
           </Text>
-          <Button
+          <ButtonWithAnimatedArrowUpRight
             variant="outline"
             rounded="2xl"
             fontSize="lg"
@@ -25,8 +25,8 @@ export default function Security() {
             target="_blank"
             className="inViewChild"
           >
-            Learn More <ArrowUpRight />
-          </Button>
+            Learn More
+          </ButtonWithAnimatedArrowUpRight>
         </Flex>
         <Center flex={4} className="inViewChild">
           <Box width="100%" height={{ base: "300px", md: "400px" }} position="relative">

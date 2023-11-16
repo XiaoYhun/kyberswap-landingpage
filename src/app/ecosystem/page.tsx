@@ -324,7 +324,7 @@ export default function Ecosystem() {
                   target="_blank"
                   className="inViewChild"
                 >
-                  Bussiness Enquiries
+                  Business Enquiries
                 </Button>
                 <ButtonWithAnimatedArrowUpRight variant="outline" p="16px 24px" rounded="2xl" className="inViewChild">
                   Docs
@@ -357,14 +357,14 @@ export default function Ecosystem() {
         <Container p="36px 0" display="flex" flexDirection="column" alignItems="center" gap="24px">
           <LayoutGroup>
             <SimpleGrid columns={[1, 1, 2, 3]} rowGap="48px" columnGap="30px">
-              {ECOSYSTEMS.slice(0, defaultItemCount).map((wallet) => {
+              {ECOSYSTEMS.slice(0, defaultItemCount).map((item) => {
                 return (
-                  <WalletCard
-                    key={wallet.title}
-                    wallet={wallet}
+                  <ItemCard
+                    key={item.title}
+                    item={item}
                     onClick={() => {
                       setOpenModal(true);
-                      setSelectedWallet(wallet);
+                      setSelectedWallet(item);
                     }}
                   />
                 );
@@ -378,9 +378,9 @@ export default function Ecosystem() {
                       <SimpleGrid columns={[1, 1, 2, 3]} rowGap="48px" columnGap="30px">
                         {ECOSYSTEMS.slice(defaultItemCount, ECOSYSTEMS.length).map((wallet) => {
                           return (
-                            <WalletCard
+                            <ItemCard
                               key={wallet.title}
-                              wallet={wallet}
+                              item={wallet}
                               onClick={() => {
                                 setOpenModal(true);
                                 setSelectedWallet(wallet);
@@ -403,7 +403,7 @@ export default function Ecosystem() {
             <Modal isOpen={openModal} onClose={() => setOpenModal(false)} isCentered>
               <ModalOverlay />
               <ModalContent bg="transparent" boxShadow="none" transition="none">
-                <ModalBody>{selectedWallet && <WalletCard wallet={selectedWallet} inModal />}</ModalBody>
+                <ModalBody>{selectedWallet && <ItemCard item={selectedWallet} inModal />}</ModalBody>
               </ModalContent>
             </Modal>
           </LayoutGroup>
@@ -414,12 +414,12 @@ export default function Ecosystem() {
   );
 }
 
-const WalletCard = ({
-  wallet,
+const ItemCard = ({
+  item,
   inModal,
   onClick,
 }: {
-  wallet: (typeof ECOSYSTEMS)[number];
+  item: (typeof ECOSYSTEMS)[number];
   inModal?: boolean;
   onClick?: () => void;
 }) => {
@@ -492,7 +492,7 @@ const WalletCard = ({
           }}
         >
           <Box position="relative" w="36px" h="36px">
-            <Image src={wallet.imageSrc} fill alt={wallet.title} />
+            <Image src={item.imageSrc} fill alt={item.title} />
           </Box>
         </Flex>
       </Flex>
@@ -510,10 +510,10 @@ const WalletCard = ({
         transition="0.2s all ease"
         gap="12px"
       >
-        <Text>{wallet.title}</Text>
-        {inModal && wallet.url && (
-          <Link href={wallet.url} target="_blank">
-            {wallet.url}
+        <Text>{item.title}</Text>
+        {inModal && item.url && (
+          <Link fontSize="14px" href={item.url} target="_blank">
+            {item.url}
           </Link>
         )}
         <Text
@@ -532,17 +532,17 @@ const WalletCard = ({
                 }
           }
         >
-          {wallet.desc}
+          {item.desc}
         </Text>
         <Badge
           variant="secondary"
           position="absolute"
           top="6px"
           right="8px"
-          color={Categories[wallet.category].color}
-          bg={Categories[wallet.category].color + "32"}
+          color={Categories[item.category].color}
+          bg={Categories[item.category].color + "32"}
         >
-          {Categories[wallet.category].name}
+          {Categories[item.category].name}
         </Badge>
       </Flex>
     </Flex>

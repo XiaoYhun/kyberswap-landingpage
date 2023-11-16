@@ -11,6 +11,7 @@ import Solutions from "components/Home/Solutions";
 import Stars from "components/Home/Stars";
 import Support from "components/Home/Support";
 import Wallets from "components/Home/Wallets";
+import AnimatedCounter from "components/motion/AnimatedCounter";
 
 export default function Home() {
   return (
@@ -31,7 +32,7 @@ export default function Home() {
         height="900px"
         objectFit="cover"
       >
-        <source src="/assets/videos/-0a3e-454e-8eed-471f6f5f18fd.mp4" type="video/webm"></source>
+        <source src="/assets/videos/reverse.mp4" type="video/webm"></source>
       </Box>
       <Spacer height={{ base: "100px", md: "160px" }} />
       <Container>
@@ -41,6 +42,7 @@ export default function Home() {
           <BannerCarousel />
         </Center>
         <Spacer height={{ base: "60px", md: "200px" }} />
+
         <Platform />
         <Spacer height={{ base: "60px", md: "200px" }} />
         <Solutions />

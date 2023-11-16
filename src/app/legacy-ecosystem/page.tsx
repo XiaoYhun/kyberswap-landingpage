@@ -90,7 +90,7 @@ export default function Ecosystem() {
                   target="_blank"
                   className="inViewChild"
                 >
-                  Bussiness Enquiries
+                  Business Enquiries
                 </Button>
                 <ButtonWithAnimatedArrowUpRight variant="outline" p="16px 24px" rounded="2xl" className="inViewChild">
                   Docs
