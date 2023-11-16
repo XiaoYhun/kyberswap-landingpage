@@ -127,6 +127,7 @@ export const HighlighterItem: React.FC<PropsWithChildren<HighlighterItemProps & 
           bg: "radial-gradient(circle closest-side, #ffffff40, transparent)",
           transform: "translate(-50%,-50%)",
           zIndex: -10,
+          filter: "blur(10px)",
         },
       }}
       {...rest}

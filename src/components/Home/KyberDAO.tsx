@@ -1,8 +1,7 @@
-import { Box, Button, Center, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, Heading, Text } from "@chakra-ui/react";
 import BoxInViewMotion from "components/motion/BoxInViewMotion";
 import ButtonWithAnimatedArrowUpRight from "components/motion/ButtonWithAnimatedArrowUpRight";
 import Image from "next/image";
-import { ArrowUpRight } from "react-feather";
 
 export default function KyberDAO() {
   return (

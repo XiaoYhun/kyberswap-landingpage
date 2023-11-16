@@ -234,7 +234,14 @@ const FeatureCard = ({
             mr="-20px"
             userSelect="none"
           >
-            <Image src={item.imageUrl} alt="Dex aggregator" fill style={{ objectFit: "cover" }} draggable={false} />
+            <Image
+              src={item.imageUrl}
+              alt="Dex aggregator"
+              fill
+              style={{ objectFit: "cover" }}
+              draggable={false}
+              loading="eager"
+            />
           </Box>
           <Stack mt="6" spacing="4" flex={1}>
             <Heading size="lg">{item.title}</Heading>
