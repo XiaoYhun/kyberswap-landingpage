@@ -1,5 +1,6 @@
 import { Box, Button, Center, Flex, Heading, Text } from "@chakra-ui/react";
 import BoxInViewMotion from "components/motion/BoxInViewMotion";
+import ButtonWithAnimatedArrowUpRight from "components/motion/ButtonWithAnimatedArrowUpRight";
 import Image from "next/image";
 import { ArrowUpRight } from "react-feather";
 
@@ -27,10 +28,15 @@ export default function KyberDAO() {
           <Text color="whiteAlpha.600" lineHeight="24px" mb="16px" fontWeight="normal" className="inViewChild">
             Join KyberDAO to shape the future of KyberSwap. Stake KNC, Vote, and Earn rewards!
           </Text>
-          <Button variant="outline" rounded="2xl" fontSize="lg" p="16px 24px" className="inViewChild">
+          <ButtonWithAnimatedArrowUpRight
+            variant="outline"
+            rounded="2xl"
+            fontSize="lg"
+            p="16px 24px"
+            className="inViewChild"
+          >
             Learn More
-            <ArrowUpRight />
-          </Button>
+          </ButtonWithAnimatedArrowUpRight>
         </Flex>
       </Flex>
     </BoxInViewMotion>

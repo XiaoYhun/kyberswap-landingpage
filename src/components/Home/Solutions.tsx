@@ -1,14 +1,14 @@
 "use client";
-import { Box, Button, Card, CardBody, Flex, Heading, Highlight, Stack, Text, useCallbackRef } from "@chakra-ui/react";
+import { Box, Button, Card, CardBody, Flex, Heading, Highlight, Stack, Text } from "@chakra-ui/react";
 import { MotionBox } from "components/motion";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, ArrowUpRight } from "react-feather";
+import { ChevronLeft, ChevronRight } from "react-feather";
 import Slider from "./components/Slider";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { PanInfo, useAnimate } from "framer-motion";
 import BoxInViewMotion from "components/motion/BoxInViewMotion";
-import AutoScrollMotion from "components/motion/AutoScrollMotion";
 import { HighlightGroup, HighlighterItem } from "components/motion/Highlighter";
+import ButtonWithAnimatedArrowUpRight from "components/motion/ButtonWithAnimatedArrowUpRight";
 const FEATURES = [
   {
     imageUrl: "/assets/images/features/dex.png",
@@ -245,7 +245,7 @@ const FeatureCard = ({
               <>
                 {item.btns.map((btn, index) => {
                   return (
-                    <Button
+                    <ButtonWithAnimatedArrowUpRight
                       key={index}
                       variant={btn.type}
                       as="a"
@@ -257,8 +257,8 @@ const FeatureCard = ({
                       w="fit-content"
                       sx={{ ":hover": { transform: "translateY(-2px)", boxShadow: "0 2px 3px 3px #00000015" } }}
                     >
-                      {btn.text} <ArrowUpRight />
-                    </Button>
+                      {btn.text}
+                    </ButtonWithAnimatedArrowUpRight>
                   );
                 })}
               </>

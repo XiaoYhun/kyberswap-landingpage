@@ -1,6 +1,7 @@
 "use client";
 import { Box, Container, Flex, Spacer, Stack, Text, Button, Heading, Badge, SimpleGrid } from "@chakra-ui/react";
 import BoxInViewMotion from "components/motion/BoxInViewMotion";
+import ButtonWithAnimatedArrowUpRight from "components/motion/ButtonWithAnimatedArrowUpRight";
 import Image from "next/image";
 import { ArrowUpRight } from "react-feather";
 
@@ -91,10 +92,9 @@ export default function Ecosystem() {
                 >
                   Bussiness Enquiries
                 </Button>
-                <Button variant="outline" p="16px 24px" rounded="2xl" className="inViewChild">
+                <ButtonWithAnimatedArrowUpRight variant="outline" p="16px 24px" rounded="2xl" className="inViewChild">
                   Docs
-                  <ArrowUpRight />
-                </Button>
+                </ButtonWithAnimatedArrowUpRight>
               </Flex>
             </Flex>
             <Box flex={4} w="480px" h="480px" position="relative" className="inViewChild">

@@ -1,9 +1,9 @@
-import { ArrowUpRight } from "react-feather";
-import { Box, Button, Center, Divider, Flex, Heading, Stack, Text } from "@chakra-ui/react";
+import { Box, Center, Divider, Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { getChainsConfig } from "hooks/services/index";
 import { HighlightGroup, HighlighterItem } from "components/motion/Highlighter";
 import BoxInViewMotion from "components/motion/BoxInViewMotion";
+import ButtonWithAnimatedArrowUpRight from "components/motion/ButtonWithAnimatedArrowUpRight";
 
 export default async function Platform() {
   const chains = await getChainsConfig();
@@ -90,7 +90,7 @@ export default async function Platform() {
           </>
         </Stack>
         <Center>
-          <Button
+          <ButtonWithAnimatedArrowUpRight
             variant="outline"
             p="16px 24px"
             h="fit-content"
@@ -101,10 +101,8 @@ export default async function Platform() {
             href="/ecosystem"
             className="inViewChild"
           >
-            <Flex gap="12px">
-              Explore our Ecosystem <ArrowUpRight />
-            </Flex>
-          </Button>
+            Explore our Ecosystem
+          </ButtonWithAnimatedArrowUpRight>
         </Center>
       </Stack>
     </BoxInViewMotion>

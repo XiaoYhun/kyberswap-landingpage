@@ -25,9 +25,9 @@ import {
 import BoxInViewMotion from "components/motion/BoxInViewMotion";
 import SpinningEcosystem from "components/motion/SpinningEcosystem";
 import Image from "next/image";
-import { ArrowUpRight } from "react-feather";
 import { useState } from "react";
-import { LayoutGroup, motion } from "framer-motion";
+import { LayoutGroup } from "framer-motion";
+import ButtonWithAnimatedArrowUpRight from "components/motion/ButtonWithAnimatedArrowUpRight";
 enum CategoryType {
   Blockchain,
   LiquidStaking,
@@ -328,10 +328,9 @@ export default function Test3D() {
                 >
                   Bussiness Enquiries
                 </Button>
-                <Button variant="outline" p="16px 24px" rounded="2xl" className="inViewChild">
+                <ButtonWithAnimatedArrowUpRight variant="outline" p="16px 24px" rounded="2xl" className="inViewChild">
                   Docs
-                  <ArrowUpRight />
-                </Button>
+                </ButtonWithAnimatedArrowUpRight>
               </Flex>
             </Flex>
             <Box flex={4} w="480px" h="440px" position="relative" className="inViewChild" pointerEvents="none">
@@ -393,14 +392,7 @@ export default function Test3D() {
                         })}
                       </SimpleGrid>
                     </AccordionPanel>
-                    <AccordionButton
-                      border="none"
-                      as="div"
-                      display="flex"
-                      justifyContent="center"
-                      _hover={{}}
-                      mt="12px"
-                    >
+                    <AccordionButton border="none" as="div" display="flex" justifyContent="center" mt="12px">
                       <Button variant="outline" rounded="3xl" p="16px 24px">
                         {isExpanded ? "Show Less" : "View More"}
                         <AccordionIcon />

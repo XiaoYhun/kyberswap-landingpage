@@ -1,7 +1,7 @@
-import { Box, Button, Flex, Heading, Stack, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import Image from "next/image";
-import { ArrowUpRight } from "react-feather";
 import BoxInViewMotion from "components/motion/BoxInViewMotion";
+import ButtonWithAnimatedArrowUpRight from "components/motion/ButtonWithAnimatedArrowUpRight";
 export default function Hero() {
   return (
     <BoxInViewMotion>
@@ -17,7 +17,7 @@ export default function Hero() {
                 to DeFi
               </Text>{" "}
             </Heading>
-            <Button
+            <ButtonWithAnimatedArrowUpRight
               rounded="3xl"
               color="grey.900"
               colorScheme="green"
@@ -30,9 +30,10 @@ export default function Hero() {
               href="https://kyberswap.com/swap/ethereum"
               target="_blank"
               className="inViewChild"
+              arrowSize={24}
             >
-              Start Now <ArrowUpRight size="24px" />
-            </Button>
+              Start Now
+            </ButtonWithAnimatedArrowUpRight>
           </Stack>
         </Flex>
         <Flex flex={5} direction="column" gap="24px">

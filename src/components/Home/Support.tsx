@@ -1,7 +1,7 @@
-import { Box, Button, Flex, Heading, Stack, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import BoxInViewMotion from "components/motion/BoxInViewMotion";
+import ButtonWithAnimatedArrowUpRight from "components/motion/ButtonWithAnimatedArrowUpRight";
 import Image from "next/image";
-import { ArrowUpRight } from "react-feather";
 
 export default function Support() {
   return (
@@ -21,7 +21,7 @@ export default function Support() {
             technical issues you might encounter.
           </Text>
           <Stack direction="row" gap="16px" mt="16px" wrap="wrap">
-            <Button
+            <ButtonWithAnimatedArrowUpRight
               variant="outline"
               rounded="2xl"
               padding="16px 24px"
@@ -32,12 +32,16 @@ export default function Support() {
               className="inViewChild"
             >
               Contact Support
-              <ArrowUpRight />
-            </Button>
-            <Button variant="outline" rounded="2xl" padding="16px 24px" flexShrink={0} className="inViewChild">
+            </ButtonWithAnimatedArrowUpRight>
+            <ButtonWithAnimatedArrowUpRight
+              variant="outline"
+              rounded="2xl"
+              padding="16px 24px"
+              flexShrink={0}
+              className="inViewChild"
+            >
               View Docs
-              <ArrowUpRight />
-            </Button>
+            </ButtonWithAnimatedArrowUpRight>
           </Stack>
         </Flex>
       </Flex>
