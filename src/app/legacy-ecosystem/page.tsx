@@ -1,9 +1,7 @@
-"use client";
 import { Box, Container, Flex, Spacer, Stack, Text, Button, Heading, Badge, SimpleGrid } from "@chakra-ui/react";
 import BoxInViewMotion from "components/motion/BoxInViewMotion";
 import ButtonWithAnimatedArrowUpRight from "components/motion/ButtonWithAnimatedArrowUpRight";
 import Image from "next/image";
-import { ArrowUpRight } from "react-feather";
 
 const ECOSYSTEMS = [
   {
