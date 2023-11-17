@@ -90,6 +90,7 @@ export default function PartnersList() {
                   const categoryName = CategoryFilters[key as unknown as CategoryType];
                   return (
                     <MenuItem
+                      key={key}
                       minH="40px"
                       bg="grey.800"
                       fontSize="14px"
