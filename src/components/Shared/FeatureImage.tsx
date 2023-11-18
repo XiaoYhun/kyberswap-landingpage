@@ -10,7 +10,7 @@ export default function FeatureImage({ src, alt }: { src: string; alt: string })
       h={{ base: "280px", md: "320px" }}
       className="inViewChild"
     >
-      <Image src={src} alt={alt} fill style={{ objectFit: "contain" }} />
+      <Image src={src} alt={alt} fill style={{ objectFit: "contain" }} quality={100} />
     </Box>
   );
 }

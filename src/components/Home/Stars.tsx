@@ -59,7 +59,7 @@ export default function Stars() {
                   width: "24px",
                 }}
               >
-                <Image src={url} height="24px" width="24px" />
+                <Image src={url} height="24px" width="24px" alt="star" />
               </motion.div>
             );
           })}

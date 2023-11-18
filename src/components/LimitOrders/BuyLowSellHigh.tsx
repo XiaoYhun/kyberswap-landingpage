@@ -10,7 +10,7 @@ export default function BuyLowSellHigh() {
             Buy Low, Sell High At Your Desired Price
           </Heading>
           <Text color="white" fontWeight="normal" className="inViewChild">
-            Trade at your preferred price, gas-free. Explore KyberSwap's Limit Orders now.
+            Trade at your preferred price, gas-free. Explore KyberSwap&apos;s Limit Orders now.
           </Text>
         </Stack>
       </Container>

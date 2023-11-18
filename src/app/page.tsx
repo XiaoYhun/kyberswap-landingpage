@@ -26,29 +26,32 @@ export default function Home() {
         right="0"
         zIndex={-1}
         width="100%"
-        height="900px"
+        height={{ base: "1200px", md: "900px" }}
         objectFit="cover"
       >
         <source src="/assets/videos/reverse.mp4" type="video/webm"></source>
       </Box>
       <Spacer height={{ base: "100px", md: "160px" }} />
-      <Container>
-        <Hero />
-        <Spacer height={{ base: "50px", md: "100px" }} />
-        <Center>
-          <BannerCarousel />
-        </Center>
-        <Spacer height={{ base: "60px", md: "200px" }} />
-
-        <Platform />
-        <Spacer height={{ base: "60px", md: "200px" }} />
-        <Solutions />
-        <Spacer height={{ base: "60px", md: "200px" }} />
-        <KyberDAO />
-        <Spacer height={{ base: "60px", md: "200px" }} />
-      </Container>
+      <Hero />
+      <Spacer height={{ base: "100px", md: "160px" }} />
       <Box bg="linear-gradient(180deg, #0A1C23 0%, #0F0F0F 100%)">
         <Container>
+          <Spacer height={{ base: "50px", md: "100px" }} />
+          <Center mt={{ base: "0", md: "-180px" }}>
+            <BannerCarousel />
+          </Center>
+          <Spacer height={{ base: "60px", md: "200px" }} />
+          <Platform />
+          <Spacer height={{ base: "60px", md: "200px" }} />
+          <Solutions />
+          <Spacer height={{ base: "60px", md: "200px" }} />
+          <KyberDAO />
+          <Spacer height={{ base: "60px", md: "200px" }} />
+        </Container>
+      </Box>
+      <Box bg="linear-gradient(180deg, #0A1C23 0%, #0F0F0F 100%)">
+        <Container>
+          <Spacer height={{ base: "60px", md: "200px" }} />
           <Security />
           <Spacer height={{ base: "60px", md: "200px" }} />
           <Wallets />

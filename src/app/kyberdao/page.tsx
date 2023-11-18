@@ -9,23 +9,23 @@ import Vote from "components/KyberDAO/Vote";
 export default function KyberDAO() {
   return (
     <>
-      <Spacer height={{ base: "100px", md: "160px" }} />
+      <Spacer height={{ base: "100px", md: "200px" }} />
       <Hero />
-      <Spacer height={{ base: "100px", md: "160px" }} />
+      <Spacer height={{ base: "100px", md: "200px" }} />
       <KyberDAOStats />
       <Box bg="linear-gradient(180deg, #0A1C23 0%, #0F0F0F 100%)">
-        <Spacer height={{ base: "100px", md: "160px" }} />
+        <Spacer height={{ base: "100px", md: "200px" }} />
         <Stake />
-        <Spacer height={{ base: "100px", md: "160px" }} />
+        <Spacer height={{ base: "100px", md: "200px" }} />
         <Vote />
-        <Spacer height={{ base: "100px", md: "160px" }} />
+        <Spacer height={{ base: "100px", md: "200px" }} />
       </Box>
       <Box bg="linear-gradient(180deg, #0A1C23 0%, #0F0F0F 100%)">
-        <Spacer height={{ base: "100px", md: "160px" }} />
+        <Spacer height={{ base: "100px", md: "200px" }} />
         <KNCUtility />
-        <Spacer height={{ base: "100px", md: "160px" }} />
+        <Spacer height={{ base: "100px", md: "200px" }} />
         <FeatureRequest />
-        <Spacer height={{ base: "100px", md: "160px" }} />
+        <Spacer height={{ base: "100px", md: "200px" }} />
       </Box>
     </>
   );

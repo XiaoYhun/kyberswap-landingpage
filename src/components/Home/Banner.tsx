@@ -38,7 +38,7 @@ const BannerWrapper = ({ children, ...rest }: { children: ReactNode } & any) => 
       transition={{ type: "spring", damping: 60, stiffness: 400 }}
       rounded={{ base: "none", md: "2xl" }}
       overflow="hidden"
-      w={{ base: "100%", md: "600px" }}
+      w={{ base: "100vw", md: "600px" }}
       aspectRatio={60 / 34}
       h={{
         base: "auto",
@@ -77,7 +77,8 @@ export function BannerCarousel() {
         align="center"
         height="auto"
         aspectRatio={60 / 34}
-        w={{ base: "100%", md: "600px" }}
+        w={{ base: "100vw", md: "600px" }}
+        overflow={{ base: "hidden", md: "visible" }}
       >
         <BannerWrapper animate={list[count % 3]}>
           <Image
@@ -85,7 +86,7 @@ export function BannerCarousel() {
             alt="banner"
             fill
             style={{
-              objectFit: "cover",
+              objectFit: "contain",
             }}
             quality={100}
           />
@@ -96,7 +97,7 @@ export function BannerCarousel() {
             alt="banner"
             fill
             style={{
-              objectFit: "cover",
+              objectFit: "contain",
             }}
             quality={100}
           />
@@ -107,7 +108,7 @@ export function BannerCarousel() {
             alt="banner"
             fill
             style={{
-              objectFit: "cover",
+              objectFit: "contain",
             }}
             quality={100}
           />
