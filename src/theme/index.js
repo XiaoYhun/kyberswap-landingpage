@@ -15,12 +15,26 @@ const theme = extendTheme({
   radii: {
     "2xl": "20px",
   },
+  textStyles: {
+    sub: {
+      color: "whiteAlpha.600",
+      fontWeight: "normal",
+    },
+  },
   components: {
     Button: Button,
+    Text: {
+      varitants: {
+        subText: {
+          color: "whiteAlpha.600",
+          fontWeight: "normal",
+        },
+      },
+    },
     Container: {
       baseStyle: {
         maxW: "1024px",
-        padding: "0",
+        padding: ["0px 16px", null, "0"],
       },
     },
     Flex: {
@@ -61,6 +75,7 @@ const theme = extendTheme({
       sizes: {
         "2xl": {
           fontSize: ["28px", "36px", "48px"],
+          lineHeight: 1.2,
         },
       },
     },

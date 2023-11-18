@@ -1,9 +1,13 @@
 "use client";
-import { Box } from "@chakra-ui/react";
+import { Box, HTMLChakraProps } from "@chakra-ui/react";
 import { stagger, useAnimate, useInView } from "framer-motion";
 import { ReactNode, useEffect } from "react";
 
-export default function BoxInViewMotion({ delay = 0, children }: { delay?: number; children: ReactNode }) {
+export default function BoxInViewMotion({
+  delay = 0,
+  children,
+  ...rest
+}: { delay?: number; children: ReactNode } & HTMLChakraProps<"div">) {
   const [scope, animate] = useAnimate();
   const isInView = useInView(scope, { once: true, margin: "40px" });
 
@@ -22,7 +26,7 @@ export default function BoxInViewMotion({ delay = 0, children }: { delay?: numbe
   }, [isInView]);
 
   return (
-    <Box ref={scope} sx={{ ".inViewChild": { opacity: 0, transform: "translateY(50px)" } }}>
+    <Box ref={scope} sx={{ ".inViewChild": { opacity: 0, transform: "translateY(50px)" } }} {...rest}>
       {children}
     </Box>
   );

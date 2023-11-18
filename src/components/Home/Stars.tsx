@@ -18,11 +18,18 @@ export default function Stars() {
   const ref = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    if (ref.current) {
-      setWidth(ref.current.clientWidth);
-      setHeight(ref.current.clientHeight);
-    }
-  });
+    const resizeHandler = () => {
+      if (ref.current) {
+        setWidth(ref.current.clientWidth);
+        setHeight(ref.current.clientHeight);
+      }
+    };
+
+    window?.addEventListener("resize", resizeHandler);
+    return () => {
+      window?.removeEventListener("resize", resizeHandler);
+    };
+  }, []);
 
   const starsWithPosition = useMemo(() => {
     return stars.map((url) => {
@@ -36,7 +43,7 @@ export default function Stars() {
   }, []);
 
   return (
-    <Box position="absolute" inset="0" zIndex={-1}>
+    <Box position="absolute" inset="0" zIndex={-1} maxW="100vw">
       <Box position="relative" h="100%" w="100%" ref={ref}>
         {!!width &&
           !!height &&

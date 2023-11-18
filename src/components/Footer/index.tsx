@@ -61,26 +61,26 @@ export default function LargeWithAppLinksAndSocial() {
         <SimpleGrid columns={{ base: 2, md: 5 }} p={{ base: "16px", md: 0 }} spacing={8}>
           <Stack align={"flex-start"} gap={3}>
             <ListHeader>Solutions</ListHeader>
-            <Box as="a" href="#">
+            <Box as="a" href="/dex-aggregator">
               DEX Aggregator
             </Box>
-            <Box as="a" href="#">
+            <Box as="a" href="/liquidity protocols">
               Liquidity Protocols
             </Box>
-            <Box as="a" href="#">
+            <Box as="a" href="/kyberai">
               KyberAI
             </Box>
-            <Box as="a" href="#">
+            <Box as="a" href="/limit-orders">
               Limit Orders
             </Box>
           </Stack>
 
           <Stack align={"flex-start"} gap={3}>
             <ListHeader>Governance</ListHeader>
-            <Box as="a" href="#">
+            <Box as="a" href="/kyberdao">
               KyberDAO
             </Box>
-            <Box as="a" href="#">
+            <Box as="a" href="/knc">
               KNC token
             </Box>
           </Stack>

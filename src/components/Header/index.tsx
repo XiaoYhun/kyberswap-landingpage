@@ -21,7 +21,6 @@ import Image from "next/image";
 import DropdownIcon from "components/SVG/DropdownIcon";
 interface NavItem {
   label: string;
-  subLabel?: string;
   children?: Array<NavItem>;
   href?: string;
   target?: string;
@@ -33,23 +32,19 @@ const NAV_ITEMS: Array<NavItem> = [
     children: [
       {
         label: "DEX Aggregator",
-        subLabel: "",
-        href: "#",
+        href: "/dex-aggregator",
       },
       {
         label: "Liquidity Protocols",
-        subLabel: "Up-and-coming Designers",
-        href: "#",
+        href: "/liquidity-protocols",
       },
       {
         label: "KyberAI",
-        subLabel: "Up-and-coming Designers",
-        href: "#",
+        href: "/kyberai",
       },
       {
         label: "Limit Orders",
-        subLabel: "Up-and-coming Designers",
-        href: "#",
+        href: "/limit-orders",
       },
     ],
   },
@@ -58,13 +53,11 @@ const NAV_ITEMS: Array<NavItem> = [
     children: [
       {
         label: "KyberDAO",
-        subLabel: "Find your dream design job",
-        href: "#",
+        href: "/kyberdao",
       },
       {
         label: "KNC",
-        subLabel: "An exclusive list for contract work",
-        href: "#",
+        href: "/knc",
       },
     ],
   },
@@ -74,7 +67,7 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Developers",
-    href: "#",
+    href: "/developers",
   },
   {
     label: "Blog",
@@ -160,11 +153,11 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+const DesktopSubNav = ({ label, href }: NavItem) => {
   return (
     <Box display={"block"} p={2} rounded={"md"} _hover={{ color: "green.400" }}>
       <Stack direction={"row"} align={"center"}>
-        <Box>
+        <Box as="a" href={href}>
           <Text transition={"all .3s ease"} fontWeight={500}>
             {label}
           </Text>

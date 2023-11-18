@@ -3,7 +3,6 @@ import { Box, Button, Card, CardBody, Flex, Heading, Highlight, Stack, Text } fr
 import { MotionBox } from "components/motion";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "react-feather";
-import Slider from "./components/Slider";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { PanInfo, useAnimate } from "framer-motion";
 import BoxInViewMotion from "components/motion/BoxInViewMotion";
@@ -191,7 +190,6 @@ export default function Solutions() {
               })}
             </HighlightGroup>
           </MotionBox>
-          <Slider />
         </Box>
       </Flex>
     </BoxInViewMotion>

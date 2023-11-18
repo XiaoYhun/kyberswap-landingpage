@@ -164,7 +164,7 @@ export default function SpinningEcosystem() {
               snap={{ mass: 2, tension: 250, friction: 50 }}
               zoom={1.25}
               rotation={[0.1, -0.4, 0]}
-              polar={[-Math.PI / 20, Math.PI / 10]}
+              polar={[0, Math.PI / 10]}
               azimuth={[-Math.PI / 6, Math.PI / 6]}
               cursor
             >
@@ -269,16 +269,3 @@ const CanvasComponent = () => {
     </group>
   );
 };
-function Shape({ shape }: { shape: any }) {
-  return (
-    <mesh>
-      <shapeGeometry args={[shape]} />
-    </mesh>
-  );
-}
-
-function Rig() {
-  const { camera, mouse } = useThree();
-  const vec = new Vector3();
-  return useFrame(() => {});
-}

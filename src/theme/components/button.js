@@ -7,11 +7,24 @@ const Button = {
     color: "black",
     borderRadius: "99px",
     p: "0.5rem 1rem",
+    w: "fit-content",
+  },
+  sizes: {
+    lg: {
+      p: ["10px 16px", null, "16px 24px"],
+      fontSize: "lg",
+      lineHeight: "normal",
+      rounded: "2xl",
+      height: "fit-content",
+    },
   },
   variants: {
     solid: {
       color: "black",
       fontWeight: "medium",
+      bg: "green.400",
+      _hover: { bg: "green.500" },
+      _active: { bg: "green.600" },
     },
     secondary: {
       color: "green.400",
