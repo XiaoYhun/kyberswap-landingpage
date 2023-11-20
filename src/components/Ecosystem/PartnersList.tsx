@@ -468,6 +468,7 @@ const ItemCard = ({
       w={inModal ? "100%" : "320px"}
       role="group"
       cursor="pointer"
+      transition="0.2s all ease"
       _before={{
         content: "''",
         h: "60px",
@@ -482,6 +483,10 @@ const ItemCard = ({
       }}
       _hover={{
         _before: { bgColor: "#e7640d", opacity: 1 },
+        boxShadow:
+          "0 3px 4px rgba(0,0,0,.12), 0 7px 9px rgba(0,0,0,.18), 0 12px 32px rgba(0,0,0,.2), 0 20px 80px rgba(0,0,0,.25);",
+        borderColor: "whiteAlpha.400",
+        zIndex: 4,
       }}
       zIndex={1}
       onClick={() => onClick?.()}
@@ -501,7 +506,7 @@ const ItemCard = ({
           h="64px"
           w="64px"
           rounded="full"
-          boxShadow="0px 1px 2px 0px rgba(0, 0, 0, 0.32), 0px 0px 1px 0px rgba(40, 41, 61, 0.08)"
+          boxShadow="0px 1px 2px 0px rgba(0, 0, 0, 0.32), 0px 0px 4px 0px rgba(40, 41, 61, 0.08)"
           background="grey.800"
           align="center"
           justify="center"
@@ -543,6 +548,7 @@ const ItemCard = ({
         minH="140px"
         transition="0.2s all ease"
         gap="12px"
+        _groupHover={{}}
       >
         <Text>{item.title}</Text>
         {inModal && item.url && (

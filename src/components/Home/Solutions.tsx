@@ -222,7 +222,7 @@ const FeatureCard = ({
       flexShrink={0}
     >
       <CardBody>
-        <Flex direction="column" height="100%">
+        <Flex direction="column" height="100%" role="group">
           <Box
             w="calc(100% + 40px)"
             height="210px"

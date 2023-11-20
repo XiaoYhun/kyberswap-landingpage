@@ -5,10 +5,12 @@ import KNCUtility from "components/KyberDAO/KNCUtility";
 import KyberDAOStats from "components/KyberDAO/KyberDAOStats";
 import Stake from "components/KyberDAO/Stake";
 import Vote from "components/KyberDAO/Vote";
+import CrystalsBackground from "components/Shared/CrystalsBackground";
 
 export default function KyberDAO() {
   return (
     <>
+      <CrystalsBackground />
       <Spacer height={{ base: "100px", md: "200px" }} />
       <Hero />
       <Spacer height={{ base: "100px", md: "200px" }} />

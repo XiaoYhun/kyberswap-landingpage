@@ -14,6 +14,7 @@ const ButtonWithAnimatedArrowUpRight = forwardRef<{ arrowSize?: number } & Butto
         ref={ref}
         onMouseEnter={() => setOnHover(true)}
         onMouseLeave={() => setOnHover(false)}
+        gap="12px"
       >
         <>
           {children}

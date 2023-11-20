@@ -1,34 +1,25 @@
 import { Container, Flex, Heading, Stack, Text } from "@chakra-ui/react";
-import FeatureImage from "components/Shared/FeatureImage";
 import BoxInViewMotion from "components/motion/BoxInViewMotion";
 import ButtonWithAnimatedArrowUpRight from "components/motion/ButtonWithAnimatedArrowUpRight";
-export default function Hero() {
+import FeatureImage from "components/Shared/FeatureImage";
+export default function DynamicTradeRoutes() {
   return (
     <BoxInViewMotion>
       <Container>
         <Stack alignItems={{ base: "left", md: "center" }} direction={{ base: "column", md: "row" }} gap="16px">
-          <Flex flex={5} align={"center"} justify={"left"}>
+          <Flex flex={6} direction="column" gap="24px">
+            <FeatureImage src="/assets/images/aggregator/routes.png" alt="routes" />
+          </Flex>
+          <Flex flex={4} align={"center"} justify={"left"}>
             <Stack spacing="16px" w={"full"}>
-              <Heading fontSize="xl" fontWeight="semibold" className="inViewChild">
-                DEX Aggregator
-              </Heading>
               <Heading size="2xl" lineHeight="normal" fontWeight="semibold" className="inViewChild">
-                Instantly Trade Your Tokens With KyberSwap
+                Dynamic Trade Routes
               </Heading>
               <Text color="whiteAlpha.600" lineHeight="24px" fontWeight="normal" className="inViewChild">
-                A great trading experience with seamless swaps, excellent rates and low gas fees.
+                Experience cutting-edge technology and get superior rates when you swap. Optimize trades and maximize
+                gains with KyberSwap!
               </Text>
               <Flex gap="16px" mt="16px" direction={{ base: "column", md: "row" }} alignItems="flex-start">
-                <ButtonWithAnimatedArrowUpRight
-                  variant="solid"
-                  size="lg"
-                  as="a"
-                  href="https://kyberswap.com/swap/ethereum"
-                  target="_blank"
-                  className="inViewChild"
-                >
-                  Trade Now
-                </ButtonWithAnimatedArrowUpRight>
                 <ButtonWithAnimatedArrowUpRight
                   variant="outline"
                   size="lg"
@@ -41,12 +32,6 @@ export default function Hero() {
                 </ButtonWithAnimatedArrowUpRight>
               </Flex>
             </Stack>
-          </Flex>
-          <Flex flex={3} direction="column">
-            <Text fontSize="24px" lineHeight="normal" className="inViewChild">
-              Top Traded Tokens
-            </Text>
-            <FeatureImage src="/assets/images/table1.png" alt="top traded tokens" />
           </Flex>
         </Stack>
       </Container>
