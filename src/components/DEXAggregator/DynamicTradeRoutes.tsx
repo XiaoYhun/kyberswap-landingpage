@@ -24,7 +24,7 @@ export default function DynamicTradeRoutes() {
                   variant="outline"
                   size="lg"
                   as="a"
-                  href="https://docs.kyberswap.com/kyberswap-solutions/kyberswap-aggregator"
+                  href="https://docs.kyberswap.com/kyberswap-solutions/kyberswap-aggregator/concepts/dynamic-trade-routing"
                   target="_blank"
                   className="inViewChild"
                 >

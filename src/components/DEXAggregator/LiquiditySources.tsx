@@ -43,7 +43,13 @@ export default function LiquiditySources() {
           </>
         </SimpleGrid>
         <Center>
-          <ButtonWithAnimatedArrowUpRight variant="outline" as="a" href="" size="lg" className="inViewChild">
+          <ButtonWithAnimatedArrowUpRight
+            variant="outline"
+            as="a"
+            href="https://docs.kyberswap.com/getting-started/supported-exchanges-and-networks"
+            size="lg"
+            className="inViewChild"
+          >
             View More
           </ButtonWithAnimatedArrowUpRight>
         </Center>
