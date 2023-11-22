@@ -88,7 +88,7 @@ export default async function Platform() {
                   gap="6px"
                 >
                   <Box rounded="full" h="48px" w="48px" position="relative">
-                    <Image src={chain.logoUrl} fill alt="token" />
+                    <Image src={chain.logoUrl} fill alt={chain.displayName} />
                   </Box>
                   <Text color="whiteAlpha.600" textAlign="center" fontSize={{ base: "14px", md: "16px" }}>
                     {chain.displayName}

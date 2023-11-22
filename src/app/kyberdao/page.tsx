@@ -10,12 +10,14 @@ import CrystalsBackground from "components/Shared/CrystalsBackground";
 export default function KyberDAO() {
   return (
     <>
-      <CrystalsBackground />
-      <Spacer height={{ base: "100px", md: "200px" }} />
-      <Hero />
-      <Spacer height={{ base: "100px", md: "200px" }} />
-      <KyberDAOStats />
+      <Box position="relative">
+        <CrystalsBackground />
+        <Spacer height={{ base: "100px", md: "200px" }} />
+        <Hero />
+        <Spacer height={{ base: "100px", md: "200px" }} />
+      </Box>
       <Box bg="linear-gradient(180deg, #0A1C23 0%, #0F0F0F 100%)">
+        <KyberDAOStats />
         <Spacer height={{ base: "100px", md: "200px" }} />
         <Stake />
         <Spacer height={{ base: "100px", md: "200px" }} />
