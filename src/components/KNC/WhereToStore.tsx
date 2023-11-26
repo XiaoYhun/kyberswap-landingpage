@@ -76,8 +76,8 @@ export default function WhereToStore() {
         </Heading>
         <Flex gap="48px" wrap="wrap" align="center" justify="space-around" className="inViewChild">
           <>
-            {PARTNERS.map((p) => {
-              return <Logo {...p} />;
+            {PARTNERS.map((p, index) => {
+              return <Logo key={index} {...p} />;
             })}
           </>
         </Flex>

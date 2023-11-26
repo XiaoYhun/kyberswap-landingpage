@@ -44,7 +44,7 @@ export default async function Hero() {
                   {KNC_Eligible_Chains.map((chainId: number) => {
                     const chain = chains.find((c: any) => c.chainId === chainId.toString());
                     return (
-                      <Box rounded="full" h="36px" w="36px" position="relative">
+                      <Box rounded="full" h="36px" w="36px" position="relative" key={chainId}>
                         <Image src={chain.logoUrl} fill alt={chain.displayName} />
                       </Box>
                     );

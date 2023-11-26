@@ -1,9 +1,11 @@
-import { extendTheme } from "@chakra-ui/react";
+import { cssVar, extendTheme } from "@chakra-ui/react";
 import styles from "./styles";
 import colors from "./foundations/colors";
 import Button from "./components/button";
 import { Work_Sans } from "next/font/google";
 const workSans = Work_Sans({ subsets: ["latin"] });
+const $startColor = cssVar("skeleton-start-color");
+const $endColor = cssVar("skeleton-end-color");
 
 const theme = extendTheme({
   styles: styles,
@@ -77,6 +79,13 @@ const theme = extendTheme({
           fontSize: ["28px", "36px", "48px"],
           lineHeight: 1.2,
         },
+      },
+    },
+    Skeleton: {
+      baseStyle: {
+        rounded: "full",
+        [$startColor.variable]: "colors.whiteAlpha.100", //changing startColor to red.100
+        [$endColor.variable]: "colors.whiteAlpha.400",
       },
     },
   },

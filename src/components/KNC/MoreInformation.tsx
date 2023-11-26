@@ -22,6 +22,7 @@ export default function MoreInformation() {
             {LINKS.map((l) => {
               return (
                 <Center
+                  key={l.alt}
                   h="152px"
                   rounded="xl"
                   bg="whiteAlpha.100"

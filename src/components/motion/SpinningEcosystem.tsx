@@ -3,18 +3,7 @@ import { Box } from "@chakra-ui/react";
 import { useAnimate, useTime } from "framer-motion";
 import { useState, useLayoutEffect, useEffect, useRef, useMemo, Suspense } from "react";
 import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
-import {
-  Billboard,
-  ContactShadows,
-  Environment,
-  Float,
-  Image,
-  MeshReflectorMaterial,
-  PresentationControls,
-  Sparkles,
-  SpotLight,
-  Stars,
-} from "@react-three/drei";
+import { Billboard, Float, Image, MeshReflectorMaterial, PresentationControls, Stars } from "@react-three/drei";
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
 import { Box3, Sphere, Vector3 } from "three";
 const IMAGES = [
