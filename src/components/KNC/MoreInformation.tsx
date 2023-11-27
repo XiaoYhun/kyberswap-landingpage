@@ -31,7 +31,7 @@ export default function MoreInformation() {
                   href={l.url}
                   target="_blank"
                   transition="all 0.2s ease"
-                  _hover={{ bg: "whiteAlpha.200" }}
+                  _hover={{ bg: "whiteAlpha.200", boxShadow: "0 5px 10px 5px #00000015" }}
                   className="inViewChild"
                 >
                   <Image src={l.src} alt={l.alt} />

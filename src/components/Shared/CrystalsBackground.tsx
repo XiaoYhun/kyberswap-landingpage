@@ -20,15 +20,14 @@ export default function CrystalsBackground() {
         bgPos="bottom"
         bgSize="cover"
         bgColor="grey.800"
-        transform="rotate(180deg)"
         opacity="0.15"
         zIndex={-1}
-      ></Box>
+      />
       <Box w="full" position="absolute" left="0" right="0" top="0" h={"700px"}>
         <motion.div
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 2.5, type: "ease" }}
+          transition={{ delay: 1, duration: 2.5, type: "ease" }}
           style={{ position: "relative", width: "100%", height: "100%" }}
         >
           <FloatingImage src={crystal1} right="25%" bottom="14%" />

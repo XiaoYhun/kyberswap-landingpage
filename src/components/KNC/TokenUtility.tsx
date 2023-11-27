@@ -1,5 +1,5 @@
 import { Container, Flex, Heading, Text } from "@chakra-ui/react";
-import CardFeature from "components/Shared/CardFeature";
+import FeatureCard from "components/Shared/FeatureCard";
 import BoxInViewMotion from "components/motion/BoxInViewMotion";
 import ButtonWithAnimatedArrowUpRight from "components/motion/ButtonWithAnimatedArrowUpRight";
 
@@ -55,7 +55,7 @@ export default function TokenUtility() {
           >
             <>
               {FEATURES.map((item, index) => (
-                <CardFeature {...item} key={index} />
+                <FeatureCard {...item} key={index} />
               ))}
             </>
           </Flex>

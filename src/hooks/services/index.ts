@@ -15,3 +15,13 @@ export async function getDaoRewardStats() {
   const data = await res.json();
   return data.data.rewardStats;
 }
+
+export async function getKNCPrice() {
+  const res = await fetch("https://price.kyberswap.com/ethereum/api/v1/prices", {
+    method: "POST",
+    body: JSON.stringify({ ids: "0xdefa4e8a7bcba345f687a2f1456f5edd9ce97202" }),
+  });
+  const data = await res.json();
+
+  return data?.data?.prices[0]?.marketPrice || 0;
+}

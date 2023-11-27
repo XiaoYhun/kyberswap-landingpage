@@ -3,7 +3,7 @@ import BoxInViewMotion from "components/motion/BoxInViewMotion";
 import Image from "next/image";
 import farmsTable from "assets/images/table-big-2.png";
 import ButtonWithAnimatedArrowUpRight from "components/motion/ButtonWithAnimatedArrowUpRight";
-import CardFeature from "components/Shared/CardFeature";
+import FeatureCard from "components/Shared/FeatureCard";
 const FEATURES = [
   {
     logoSrc: "/assets/svg/liquidity-protocols/feature-1.svg",
@@ -40,7 +40,7 @@ export default function Farms() {
           </Flex>
           <SimpleGrid columns={3} gap="32px" zIndex={1} className="inViewChild">
             {FEATURES.map((item, index) => (
-              <CardFeature {...item} key={index} />
+              <FeatureCard {...item} key={index} />
             ))}
           </SimpleGrid>
           <Flex gap="24px" direction="column">

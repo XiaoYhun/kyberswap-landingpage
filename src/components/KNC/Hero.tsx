@@ -2,12 +2,12 @@ import { Box, Button, Container, Flex, Heading, Stack, Text } from "@chakra-ui/r
 import BoxInViewMotion from "components/motion/BoxInViewMotion";
 import FeatureImage from "components/Shared/FeatureImage";
 import { SwapIcon } from "components/SVG/SwapIcon";
-import { getChainsConfig } from "hooks/services";
+import { getChainsConfig, getKNCPrice } from "hooks/services";
 import Image from "next/image";
 
 const KNC_Eligible_Chains = [1, 137, 1101, 56, 199, 42161, 10, 324, 59144, 8453, 534352];
 export default async function Hero() {
-  const chains = await getChainsConfig();
+  const [chains, kncPrice] = await Promise.all([getChainsConfig(), getKNCPrice()]);
   return (
     <BoxInViewMotion>
       <Container>
@@ -28,17 +28,28 @@ export default async function Hero() {
                   KyberSwap.
                 </Text>
               </Flex>
-              <Button
-                variant="solid"
-                size="lg"
-                className="inViewChild"
-                mt="16px"
-                as="a"
-                href="https://kyberswap.com/swap/ethereum/knc-to-usdt"
-                target="_blank"
-              >
-                Trade Now <SwapIcon />
-              </Button>
+              <Flex align="center" gap="48px" mt="16px">
+                <Button
+                  variant="solid"
+                  size="lg"
+                  className="inViewChild"
+                  as="a"
+                  href="https://kyberswap.com/swap/ethereum/knc-to-usdt"
+                  target="_blank"
+                >
+                  Trade Now <SwapIcon />
+                </Button>
+                <Flex align="center" gap="12px" fontSize="18px" className="inViewChild">
+                  <Box rounded="full" h="24px" w="24px" position="relative">
+                    <Image
+                      src="https://raw.githubusercontent.com/KyberNetwork/kyberswap-interface/develop/src/assets/images/KNC.svg"
+                      fill
+                      alt="KNC logo"
+                    />
+                  </Box>
+                  KNC = ${kncPrice.toPrecision(4)}
+                </Flex>
+              </Flex>
               <Stack gap="16px" direction="row" className="inViewChild">
                 <>
                   {KNC_Eligible_Chains.map((chainId: number) => {
