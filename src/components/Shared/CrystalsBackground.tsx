@@ -1,8 +1,7 @@
 "use client";
 import { Box } from "@chakra-ui/react";
 import Image, { StaticImageData } from "next/image";
-import backgroundImage from "assets/images/background.png";
-import { motion, useMotionValue, useTime, useTransform } from "framer-motion";
+import { motion, useTime, useTransform } from "framer-motion";
 import crystal1 from "assets/images/crystals/crystals-1.png";
 import crystal2 from "assets/images/crystals/crystals-2.png";
 import crystal3 from "assets/images/crystals/crystals-3.png";
@@ -26,13 +25,18 @@ export default function CrystalsBackground() {
         zIndex={-1}
       ></Box>
       <Box w="full" position="absolute" left="0" right="0" top="0" h={"700px"}>
-        <Box position="relative" w="full" h="full">
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 2.5, type: "ease" }}
+          style={{ position: "relative", width: "100%", height: "100%" }}
+        >
           <FloatingImage src={crystal1} right="25%" bottom="14%" />
           <FloatingImage src={crystal2} right="50%" top="30%" />
           <FloatingImage src={crystal3} right="22%" top="20%" />
           <FloatingImage src={crystal4} left="23%" bottom="16%" />
           <FloatingImage src={crystal5} left="25%" top="20%" />
-        </Box>
+        </motion.div>
       </Box>
     </>
   );

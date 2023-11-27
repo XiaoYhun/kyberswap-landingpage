@@ -2,11 +2,21 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 import BoxWithGradientBorder from "./BoxWithGradientBorder";
 import Image from "next/image";
 
-const CardFeature = ({ logoSrc, title, desc }: { logoSrc: string; title: string; desc?: string }) => {
+const CardFeature = ({
+  logoSrc,
+  title,
+  desc,
+  className,
+}: {
+  logoSrc: string;
+  title: string;
+  desc?: string | JSX.Element;
+  className?: string;
+}) => {
   return (
     <BoxWithGradientBorder
       rounded="3xl"
-      h="220px"
+      minH="220px"
       w="full"
       backgroundImage="url(/assets/images/background.png)"
       backgroundPosition="center"
@@ -19,14 +29,12 @@ const CardFeature = ({ logoSrc, title, desc }: { logoSrc: string; title: string;
       userSelect="none"
     >
       <Box
-        position="absolute"
-        inset="70px 0 0 0"
         bg="blackAlpha.800"
         rounded="inherit"
-        margin="-1px"
+        margin="70px -1px -1px -1px"
         border="0.3px solid rgba(98, 116, 110, 0.1)"
         backdropFilter="blur(2px)"
-        p="36px 24px 24px 24px"
+        p="40px 24px 24px 24px"
         transform="translate3d(0, 0, 15px)"
       >
         <Flex direction="column" h="full" align="center" justify="center" gap="8px">
@@ -34,13 +42,13 @@ const CardFeature = ({ logoSrc, title, desc }: { logoSrc: string; title: string;
             {title}
           </Text>
           {desc && (
-            <Text textStyle="sub" fontSize="14px" lineHeight="tall">
+            <Text textStyle="sub" fontSize="14px" lineHeight="tall" textAlign="center">
               {desc}
             </Text>
           )}
         </Flex>
       </Box>
-      <Box position="absolute" left="50%" transform="translate3d(-50%, 40px, 30px)">
+      <Box position="absolute" left="50%" top="0" transform="translate3d(-50%, 40px, 30px)">
         <BoxWithGradientBorder
           w="64px"
           h="64px"

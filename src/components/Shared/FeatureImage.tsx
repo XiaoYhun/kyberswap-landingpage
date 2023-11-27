@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import Image from "next/image";
 
-export default function FeatureImage({ src, alt }: { src: string; alt: string }) {
+export default function FeatureImage({ src, alt, objectFit }: { src: string; alt: string; objectFit?: any }) {
   return (
     <Box
       position="relative"
@@ -10,7 +10,13 @@ export default function FeatureImage({ src, alt }: { src: string; alt: string })
       h={{ base: "280px", md: "320px" }}
       className="inViewChild"
     >
-      <Image src={src} alt={alt} fill style={{ objectFit: "contain" }} quality={100} />
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        style={{ objectFit: objectFit || "contain", overflow: "visible" }}
+        quality={100}
+      />
     </Box>
   );
 }

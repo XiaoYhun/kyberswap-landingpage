@@ -31,7 +31,7 @@ export default function LiquiditySources() {
             Integrated Liquidity Sources
           </Heading>
           <Text textStyle="sub" maxW="460px" textAlign="center" className="inViewChild">
-            Access the deepest liquidity for trading in defi with 100+ liquidity sources across multiple chains.
+            Access the deepest liquidity for trading in defi with 300+ liquidity sources across multiple chains.
           </Text>
         </Flex>
         <Spacer height="80px" />
