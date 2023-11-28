@@ -88,6 +88,17 @@ const theme = extendTheme({
         [$endColor.variable]: "colors.whiteAlpha.400",
       },
     },
+    Table: {
+      parts: ["th", "tr"],
+      baseStyle: {
+        tr: {
+          borderColor: "whiteAlpha.500",
+        },
+        th: {
+          borderColor: "whiteAlpha.500",
+        },
+      },
+    },
   },
 });
 export default theme;

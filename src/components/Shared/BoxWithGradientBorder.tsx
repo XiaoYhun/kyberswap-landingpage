@@ -12,7 +12,6 @@ export default function BoxWithGradientBorder({
       h="full"
       w="full"
       position="relative"
-      // border={`${borderSize}px solid transparent`}
       _before={{
         content: "''",
         position: "absolute",
@@ -23,7 +22,6 @@ export default function BoxWithGradientBorder({
         zIndex: -1,
       }}
       {...rest}
-      // backgroundClip="padding-box"
     >
       {children}
     </Box>

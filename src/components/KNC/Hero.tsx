@@ -1,9 +1,9 @@
-import { Box, Button, Container, Flex, Heading, Stack, Text } from "@chakra-ui/react";
+import { Button, Container, Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import BoxInViewMotion from "components/motion/BoxInViewMotion";
 import FeatureImage from "components/Shared/FeatureImage";
+import TokenLogo from "components/Shared/TokenLogo";
 import { SwapIcon } from "components/SVG/SwapIcon";
 import { getChainsConfig, getKNCPrice } from "hooks/services";
-import Image from "next/image";
 
 const KNC_Eligible_Chains = [1, 137, 1101, 56, 199, 42161, 10, 324, 59144, 8453, 534352];
 export default async function Hero() {
@@ -40,13 +40,10 @@ export default async function Hero() {
                   Trade Now <SwapIcon />
                 </Button>
                 <Flex align="center" gap="12px" fontSize="18px" className="inViewChild">
-                  <Box rounded="full" h="24px" w="24px" position="relative">
-                    <Image
-                      src="https://raw.githubusercontent.com/KyberNetwork/kyberswap-interface/develop/src/assets/images/KNC.svg"
-                      fill
-                      alt="KNC logo"
-                    />
-                  </Box>
+                  <TokenLogo
+                    src="https://raw.githubusercontent.com/KyberNetwork/kyberswap-interface/develop/src/assets/images/KNC.svg"
+                    alt="KNC logo"
+                  />
                   KNC = ${kncPrice.toPrecision(4)}
                 </Flex>
               </Flex>
@@ -55,9 +52,9 @@ export default async function Hero() {
                   {KNC_Eligible_Chains.map((chainId: number) => {
                     const chain = chains.find((c: any) => c.chainId === chainId.toString());
                     return (
-                      <Box rounded="full" h="36px" w="36px" position="relative" key={chainId}>
-                        <Image src={chain.logoUrl} fill alt={chain.displayName} />
-                      </Box>
+                      <span key={chainId}>
+                        <TokenLogo size={36} src={chain.logoUrl} alt={chain.displayName} />
+                      </span>
                     );
                   })}
                 </>

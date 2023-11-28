@@ -4,6 +4,8 @@ import Image from "next/image";
 import farmsTable from "assets/images/table-big-2.png";
 import ButtonWithAnimatedArrowUpRight from "components/motion/ButtonWithAnimatedArrowUpRight";
 import FeatureCard from "components/Shared/FeatureCard";
+
+import TopFarmsTable from "components/Shared/TopFarmsTable";
 const FEATURES = [
   {
     logoSrc: "/assets/svg/liquidity-protocols/feature-1.svg",
@@ -22,7 +24,7 @@ const FEATURES = [
   },
 ];
 
-export default function Farms() {
+export default async function Farms() {
   return (
     <BoxInViewMotion>
       <Container>
@@ -51,6 +53,7 @@ export default function Farms() {
               </Text>
             </Text>
             <Image alt="top farms" src={farmsTable} className="inViewChild" />
+            <TopFarmsTable />
             <ButtonWithAnimatedArrowUpRight
               size="lg"
               variant="secondary"

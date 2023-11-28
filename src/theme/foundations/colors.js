@@ -40,6 +40,9 @@ const colors = {
     500: "rgba(169, 169, 169, 0.50)",
   },
   backgroundGreen: "#0A1C23",
+  red: {
+    400: "#FF537B",
+  },
 };
 
 export default colors;

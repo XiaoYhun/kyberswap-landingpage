@@ -25,3 +25,43 @@ export async function getKNCPrice() {
 
   return data?.data?.prices[0]?.marketPrice || 0;
 }
+
+export async function getTopFarms() {
+  const res = await fetch(
+    "https://pool-farm.dev.kyberengineering.io/all-chain/api/v1/farm-pools?chainNames=arbitrum,bsc,ethereum,optimism,polygon&page=1&perPage=3&sortBy=tvl&sortType=desc"
+  );
+  const data = await res.json();
+
+  return data?.data?.farmPools || [];
+}
+export async function getTokens() {
+  const res = await fetch("https://ks-setting.kyberswap.com/api/v1/tokens?page=1&pageSize=100&isWhitelisted=true");
+  const data = await res.json();
+
+  const pages = Math.ceil(data?.data?.pagination.totalItems / 100) - 1;
+
+  const datas = await Promise.all(
+    new Array(pages).map(async (_, index) => {
+      const res = await fetch(
+        `https://ks-setting.kyberswap.com/api/v1/tokens?page=${index + 2}&pageSize=100&isWhitelisted=true`
+      );
+      const data = await res.json();
+      console.log("🚀 ~ file: index.ts:49 ~ newArray ~ data:", data);
+      return data?.data?.tokens;
+    })
+  );
+
+  console.log("🚀 ~ file: index.ts:40 ~ getTokens ~ data:", datas);
+
+  return data?.data?.tokens || [];
+}
+
+export async function getTop3KyberAI(type: "bullish" | "bearish" | "trending") {
+  try {
+    const res = await fetch("https://common-service.dev.kyberengineering.io/api/v1/assets/" + type);
+    const data = await res.json();
+    return data?.data?.assets || [];
+  } catch {
+    return [];
+  }
+}

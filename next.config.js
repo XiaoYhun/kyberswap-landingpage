@@ -7,6 +7,16 @@ const nextConfig = {
         hostname: "storage.googleapis.com",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "s2.coinmarketcap.com",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "assets.coingecko.com",
+        port: "",
+      },
     ],
   },
 };
