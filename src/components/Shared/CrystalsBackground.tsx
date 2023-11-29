@@ -60,7 +60,16 @@ const FloatingImage = ({
   const rotate = useTransform(time, [0, 30_000], [0, 360 * rotateSpeed], { clamp: false });
 
   return (
-    <Box position="absolute" left={left} top={top} right={right} bottom={bottom} w="fit-content" h="fit-content">
+    <Box
+      position="absolute"
+      left={left}
+      top={top}
+      right={right}
+      bottom={bottom}
+      w="fit-content"
+      h="fit-content"
+      userSelect="none"
+    >
       <motion.div style={{ rotate }}>
         <Image src={src} alt="crystal" />
       </motion.div>

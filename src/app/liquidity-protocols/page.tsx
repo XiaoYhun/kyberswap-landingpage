@@ -4,6 +4,13 @@ import Farms from "components/LiquidityProtocols/Farms";
 import Hero from "components/LiquidityProtocols/Hero";
 import Pools from "components/LiquidityProtocols/Pools";
 import CrystalsBackground from "components/Shared/CrystalsBackground";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Liquidity Protocols",
+  description:
+    "Earn More From Your Crypto - KyberSwap's capital efficient liquidity protocols help you earn trading fees and rewards from your crypto permissionlessly.",
+};
 
 export default function LiquidityProtocols() {
   return (

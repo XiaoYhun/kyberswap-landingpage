@@ -5,6 +5,13 @@ import TokenUtility from "components/KNC/TokenUtility";
 import WhereToBuy from "components/KNC/WhereToBuy";
 import WhereToStore from "components/KNC/WhereToStore";
 import CrystalsBackground from "components/Shared/CrystalsBackground";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Kyber Network Crystal",
+  description:
+    "KNC is a utility and governance token and an integral part of Kyber Network and its flagship product KyberSwap.",
+};
 
 export default function KNC() {
   return (

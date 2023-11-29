@@ -6,6 +6,13 @@ import GasFreeTrades from "components/LimitOrders/GasFreeTrades";
 import GaslessCancellations from "components/LimitOrders/GaslessCancellations";
 import Hero from "components/LimitOrders/Hero";
 import CrystalsBackground from "components/Shared/CrystalsBackground";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Limit Orders",
+  description:
+    "Trade Flawlessly On Your Terms - Use Limit Orders to trade at the price you set while enjoying gasless, slippage free trades.",
+};
 
 export default function LimitOrder() {
   return (

@@ -53,11 +53,11 @@ const NAV_ITEMS: Array<NavItem> = [
     children: [
       {
         label: "KyberDAO",
-        href: "/kyberdao",
+        href: "/about/kyberdao",
       },
       {
         label: "KNC",
-        href: "/knc",
+        href: "/about/knc",
       },
     ],
   },

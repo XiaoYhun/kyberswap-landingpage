@@ -1,11 +1,16 @@
 import { Box, Spacer } from "@chakra-ui/react";
-import Stars from "components/Home/Stars";
-import Farms from "components/LiquidityProtocols/Farms";
 import Hero from "components/KyberAI/Hero";
 import CrystalsBackground from "components/Shared/CrystalsBackground";
 import KyberAITables from "components/KyberAI/KyberAITables";
 import Introduce from "components/KyberAI/Introduce";
 import MoreSignal from "components/KyberAI/MoreSignal";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "KyberAI",
+  description:
+    "Get Alpha Before It Happens - KyberAI helps you Ape Smart when trading crypto, the first AI-powered tool of its kind.",
+};
 
 export default function KyberAI() {
   return (

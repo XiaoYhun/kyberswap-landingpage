@@ -7,6 +7,13 @@ import PennySaved from "components/DEXAggregator/PennySaved";
 import SwapNow from "components/DEXAggregator/SwapNow";
 import TrustedByTopDefi from "components/DEXAggregator/TrustedByTopDefi";
 import CrystalsBackground from "components/Shared/CrystalsBackground";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "DEX Aggregator",
+  description:
+    "Instantly Trade Your Tokens With KyberSwap - A great trading experience with seamless swaps, excellent rates and low gas fees.",
+};
 
 export default function DEXAggregator() {
   return (

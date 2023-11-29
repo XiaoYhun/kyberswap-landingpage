@@ -7,7 +7,7 @@ import BoxInViewMotion from "components/motion/BoxInViewMotion";
 import Image from "next/image";
 import { ReactNode, useState, useEffect } from "react";
 
-export function BannerCarousel({ banners }: { banners: any[] }) {
+export default function BannerCarousel({ banners }: { banners: any[] }) {
   const [count, setCount] = useState(999999);
   const list = ["center", "right", "left"];
 
@@ -40,7 +40,7 @@ export function BannerCarousel({ banners }: { banners: any[] }) {
           .slice(0, 3)
           .map((banner: any, index: number) => {
             return (
-              <BannerWrapper animate={list[(count + index) % 3]}>
+              <BannerWrapper animate={list[(count + index) % 3]} key={index}>
                 <Box as="a" href={banner.ctaUrl} target="_blank">
                   <Image
                     src={banner.url}

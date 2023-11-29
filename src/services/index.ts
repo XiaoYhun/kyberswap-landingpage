@@ -57,8 +57,6 @@ export async function getTokens() {
     })
   );
 
-  console.log("🚀 ~ file: index.ts:40 ~ getTokens ~ data:", datas);
-
   return data?.data?.tokens || [];
 }
 

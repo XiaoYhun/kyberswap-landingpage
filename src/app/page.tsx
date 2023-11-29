@@ -1,15 +1,21 @@
 import { Box, Container, Center, Spacer } from "@chakra-ui/react";
-import { BannerCarousel } from "components/Home/BannerCarousel";
 import FirstToKnow from "components/Home/FirstToKnow";
 import Hero from "components/Home/Hero";
 import KyberDAO from "components/Home/KyberDAO";
 import Platform from "components/Home/Platforms";
 import Security from "components/Home/Security";
-import Solutions from "components/Home/Solutions";
 import Stars from "components/Home/Stars";
 import Support from "components/Home/Support";
 import Wallets from "components/Home/Wallets";
+import dynamic from "next/dynamic";
 import { getBanners } from "services";
+
+const BannerCarousel = dynamic(() => import("components/Home/BannerCarousel"), {
+  ssr: false,
+});
+const Solutions = dynamic(() => import("components/Home/Solutions"), {
+  ssr: false,
+});
 
 export default async function Home() {
   const banners = await getBanners();

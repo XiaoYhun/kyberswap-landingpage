@@ -2,6 +2,13 @@ import { Box, Container, Spacer } from "@chakra-ui/react";
 import SpinningEcosystem from "components/motion/SpinningEcosystem";
 import PartnersList from "components/Ecosystem/PartnersList";
 import Hero from "components/Ecosystem/Hero";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Ecosystem",
+  description:
+    "Explore the KyberSwap ecosystem of partners, integrations and stakeholders. We have a growing network of over 100 dApps building on top of our protocols to offer users superior rates and higher earnings!",
+};
 
 export default function Ecosystem() {
   return (

@@ -1,48 +1,12 @@
 import { ReactNode } from "react";
-import {
-  Box,
-  Container,
-  Stack,
-  SimpleGrid,
-  Text,
-  VisuallyHidden,
-  chakra,
-  Image,
-  Flex,
-  Divider,
-  Tooltip,
-  Button,
-} from "@chakra-ui/react";
+import { Box, Container, Stack, SimpleGrid, Text, Image, Flex, Divider, Tooltip } from "@chakra-ui/react";
+import Link from "next/link";
 
 const ListHeader = ({ children }: { children: ReactNode }) => {
   return (
     <Text lineHeight={6} fontWeight={"500"} fontSize="sm" mb={1} color="whiteAlpha.600">
       {children}
     </Text>
-  );
-};
-
-const SocialButton = ({ children, label, href }: { children: ReactNode; label: string; href: string }) => {
-  return (
-    <chakra.button
-      bg={"whiteAlpha.100"}
-      rounded={"full"}
-      w={8}
-      h={8}
-      cursor={"pointer"}
-      as={"a"}
-      href={href}
-      display={"inline-flex"}
-      alignItems={"center"}
-      justifyContent={"center"}
-      transition={"background 0.3s ease"}
-      _hover={{
-        bg: "whiteAlpha.200",
-      }}
-    >
-      <VisuallyHidden>{label}</VisuallyHidden>
-      {children}
-    </chakra.button>
   );
 };
 
@@ -61,60 +25,47 @@ export default function LargeWithAppLinksAndSocial() {
         <SimpleGrid columns={{ base: 2, md: 5 }} p={{ base: "16px", md: 0 }} spacing={8}>
           <Stack align={"flex-start"} gap={3}>
             <ListHeader>Solutions</ListHeader>
-            <Box as="a" href="/dex-aggregator">
-              DEX Aggregator
-            </Box>
-            <Box as="a" href="/liquidity protocols">
-              Liquidity Protocols
-            </Box>
-            <Box as="a" href="/kyberai">
-              KyberAI
-            </Box>
-            <Box as="a" href="/limit-orders">
-              Limit Orders
-            </Box>
+            <Link href="/dex-aggregator">DEX Aggregator</Link>
+            <Link href="/liquidity protocols">Liquidity Protocols</Link>
+            <Link href="/kyberai">KyberAI</Link>
+            <Link href="/limit-orders">Limit Orders</Link>
           </Stack>
 
           <Stack align={"flex-start"} gap={3}>
             <ListHeader>Governance</ListHeader>
-            <Box as="a" href="/kyberdao">
-              KyberDAO
-            </Box>
-            <Box as="a" href="/knc">
-              KNC token
-            </Box>
+            <Link href="/kyberdao">KyberDAO</Link>
+            <Link href="/knc">KNC token</Link>
           </Stack>
 
           <Stack align={"flex-start"} gap={3}>
             <ListHeader>Developers</ListHeader>
-            <Box as="a" target="_blank" href="#">
+            <Link target="_blank" href="#">
               Docs
-            </Box>
-            <Box as="a" target="_blank" href="#">
+            </Link>
+            <Link target="_blank" href="#">
               APIs
-            </Box>
-            <Box as="a" target="_blank" href="#">
+            </Link>
+            <Link target="_blank" href="#">
               GitHub
-            </Box>
-            <Box as="a" target="_blank" href="#">
+            </Link>
+            <Link target="_blank" href="#">
               Bug Bounty
-            </Box>
+            </Link>
           </Stack>
           <Stack align={"flex-start"} gap={3}>
             <ListHeader>Contact Us</ListHeader>
-            <Box as="a" target="_blank" href={"https://forms.gle/ouU3WrwrxESfaVRe8"}>
+            <Link target="_blank" href={"https://forms.gle/ouU3WrwrxESfaVRe8"}>
               Business Enquiries
-            </Box>
-            <Box as="a" target="_blank" href={"https://support.kyberswap.com/hc/en-us"}>
+            </Link>
+            <Link target="_blank" href={"https://support.kyberswap.com/hc/en-us"}>
               Customer Support
-            </Box>
-            <Box
-              as="a"
+            </Link>
+            <Link
               target="_blank"
               href={"https://kybernetwork.notion.site/Kyber-Network-Press-Kit-4ceaad9056d146aa83ef78dc49cfe72f"}
             >
               Press Kit
-            </Box>
+            </Link>
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>Community</ListHeader>
@@ -122,21 +73,21 @@ export default function LargeWithAppLinksAndSocial() {
               direction="row"
               sx={{ image: { height: "24px", width: "24px", _hover: { fill: "whiteAlpha.600" } }, cursor: "pointer" }}
             >
-              <Box as="a" href="https://discord.gg/kyberswap" target="_blank">
+              <Link href="https://discord.gg/kyberswap" target="_blank">
                 <Image src="/assets/svg/community/mono/discord.svg" alt="discord" />
-              </Box>
-              <Box as="a" href="https://t.me/kybernetwork" target="_blank">
+              </Link>
+              <Link href="https://t.me/kybernetwork" target="_blank">
                 <Image src="/assets/svg/community/mono/telegram.svg" alt="telegram" />
-              </Box>
-              <Box as="a" href="https://twitter.com/KyberNetwork" target="_blank">
+              </Link>
+              <Link href="https://twitter.com/KyberNetwork" target="_blank">
                 <Image src="/assets/svg/community/mono/twitter.svg" alt="twitter" />
-              </Box>
-              <Box as="a" href="https://blog.kyberswap.com/" target="_blank">
+              </Link>
+              <Link href="https://blog.kyberswap.com/" target="_blank">
                 <Image src="/assets/svg/community/mono/blog.svg" alt="blog" />
-              </Box>
-              <Box as="a" href="https://debank.com/official-account/110644/stream" target="_blank">
+              </Link>
+              <Link href="https://debank.com/official-account/110644/stream" target="_blank">
                 <Image src="/assets/svg/community/mono/debank.svg" alt="debank" />
-              </Box>
+              </Link>
             </Stack>
           </Stack>
         </SimpleGrid>
@@ -152,11 +103,11 @@ export default function LargeWithAppLinksAndSocial() {
           justify={{ md: "space-between" }}
           align={{ md: "center" }}
         >
-          <Flex align="center" gap="12px" fontSize="12px" color="greyAlpha.500" fontWeight="light">
+          <Flex align="center" gap="12px" fontSize="12px" color="greyAlpha.500" fontWeight="light" h="42px">
             <Flex align="center" gap="6px" color="greyAlpha.500">
               <div>Powered By</div>
               <a target="_blank" rel="noopener noreferrer" href="https://kyber.network">
-                <img src="/assets/svg/footer-kybernetwork.svg" alt="chain-security" width="40px" />
+                <Image src="/assets/svg/footer-kybernetwork.svg" alt="chain-security" width="48px" height="30px" />
               </a>
             </Flex>
             <Divider orientation="vertical" height="16px" borderColor="greyAlpha.500" />
@@ -167,7 +118,7 @@ export default function LargeWithAppLinksAndSocial() {
                 rel="noopener noreferrer"
                 href="https://chainsecurity.com/security-audit/kyberswap-elastic"
               >
-                <img src="/assets/svg/chain-security.svg" alt="chain-security" width="98px" />
+                <Image src="/assets/svg/chain-security.svg" alt="chain-security" width="98px" height="20px" />
               </a>
               <span>
                 <div>

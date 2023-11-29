@@ -40,6 +40,7 @@ export default async function Introduce() {
           className="inViewChild"
         >
           <iframe
+            loading="lazy"
             src="https://www.youtube.com/embed/ZKJuZQqWsHs?rel=0&controls=0"
             title="Meet KyberAI | Now In Beta | KyberSwap"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

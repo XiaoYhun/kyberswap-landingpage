@@ -6,6 +6,13 @@ import KyberDAOStats from "components/KyberDAO/KyberDAOStats";
 import Stake from "components/KyberDAO/Stake";
 import Vote from "components/KyberDAO/Vote";
 import CrystalsBackground from "components/Shared/CrystalsBackground";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "KyberDAO",
+  description:
+    "KyberSwap is governed by the community through KyberDAO. As a KNC holder, you can stake your tokens to vote on proposals that shape KyberSwap’s future and earn a portion of trading fees in return, along with other exciting benefits.",
+};
 
 export default function KyberDAO() {
   return (
