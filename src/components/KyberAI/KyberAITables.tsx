@@ -25,7 +25,7 @@ import KyberScoreMeter, { calculateValueToColor } from "components/Shared/KyberS
 import TokenLogo from "components/Shared/TokenLogo";
 import BoxInViewMotion from "components/motion/BoxInViewMotion";
 import ButtonWithAnimatedArrowUpRight from "components/motion/ButtonWithAnimatedArrowUpRight";
-import { getTop3KyberAI } from "hooks/services";
+import { getTop3KyberAI } from "services";
 
 export default async function KyberAITables() {
   const bullish = await getTop3KyberAI("bullish");

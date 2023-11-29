@@ -1,5 +1,5 @@
 import { Box, Container, Center, Spacer } from "@chakra-ui/react";
-import { BannerCarousel } from "components/Home/Banner";
+import { BannerCarousel } from "components/Home/BannerCarousel";
 import FirstToKnow from "components/Home/FirstToKnow";
 import Hero from "components/Home/Hero";
 import KyberDAO from "components/Home/KyberDAO";
@@ -9,8 +9,11 @@ import Solutions from "components/Home/Solutions";
 import Stars from "components/Home/Stars";
 import Support from "components/Home/Support";
 import Wallets from "components/Home/Wallets";
+import { getBanners } from "services";
 
-export default function Home() {
+export default async function Home() {
+  const banners = await getBanners();
+
   return (
     <>
       <Box
@@ -38,7 +41,7 @@ export default function Home() {
         <Container>
           <Spacer height={{ base: "50px", md: "100px" }} />
           <Center mt={{ base: "0", md: "-180px" }}>
-            <BannerCarousel />
+            <BannerCarousel banners={banners} />
           </Center>
           <Spacer height={{ base: "60px", md: "200px" }} />
           <Platform />

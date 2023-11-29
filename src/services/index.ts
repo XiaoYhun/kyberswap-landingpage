@@ -1,3 +1,9 @@
+export async function getBanners() {
+  const res = await fetch("https://common-service.dev.kyberengineering.io/api/v1/banners");
+  const data = await res.json();
+  return data?.data?.banners;
+}
+
 export async function getChainsConfig() {
   const res = await fetch("https://ks-setting.kyberswap.com/api/v1/configurations/fetch?serviceCode=chains");
   const data = await res.json();

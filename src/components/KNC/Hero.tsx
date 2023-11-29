@@ -3,7 +3,7 @@ import BoxInViewMotion from "components/motion/BoxInViewMotion";
 import FeatureImage from "components/Shared/FeatureImage";
 import TokenLogo from "components/Shared/TokenLogo";
 import { SwapIcon } from "components/SVG/SwapIcon";
-import { getChainsConfig, getKNCPrice } from "hooks/services";
+import { getChainsConfig, getKNCPrice } from "services";
 
 const KNC_Eligible_Chains = [1, 137, 1101, 56, 199, 42161, 10, 324, 59144, 8453, 534352];
 export default async function Hero() {

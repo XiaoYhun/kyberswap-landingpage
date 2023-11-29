@@ -1,7 +1,7 @@
 import { Badge, Box, Flex, Table, TableContainer, Tbody, Td, Text, Th, Thead, Tr } from "@chakra-ui/react";
 import TokenLogo from "./TokenLogo";
 import MoneyBag from "components/SVG/MoneyBag";
-import { getTokens, getTopFarms } from "hooks/services";
+import { getTokens, getTopFarms } from "services";
 
 export default async function TopFarmsTable() {
   const farms = await getTopFarms();

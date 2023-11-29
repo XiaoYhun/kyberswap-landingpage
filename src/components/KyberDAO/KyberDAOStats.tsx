@@ -1,7 +1,7 @@
 import { Box, Container, Divider, Flex, Text } from "@chakra-ui/react";
 import BoxWithGradientBorder from "components/Shared/BoxWithGradientBorder";
 import BoxInViewMotion from "components/motion/BoxInViewMotion";
-import { getDaoInfo, getDaoRewardStats } from "hooks/services";
+import { getDaoInfo, getDaoRewardStats } from "services";
 
 export default async function KyberDAOStats() {
   const [daoStats, rewardStats] = await Promise.all([getDaoInfo(), getDaoRewardStats()]);

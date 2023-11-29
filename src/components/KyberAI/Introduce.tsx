@@ -1,6 +1,6 @@
 import { Box, Container, Flex, Heading, Spacer, Text } from "@chakra-ui/react";
 import BoxInViewMotion from "components/motion/BoxInViewMotion";
-import { getChainsConfig } from "hooks/services";
+import { getChainsConfig } from "services";
 import Image from "next/image";
 
 const KyberAI_Eligible_Chains = [1, 42161, 137, 10, 56, 43114, 250];

@@ -1,6 +1,6 @@
 import { Box, Center, Divider, Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import Image from "next/image";
-import { getChainsConfig } from "hooks/services/index";
+import { getChainsConfig } from "services/index";
 import { HighlightGroup, HighlighterItem } from "components/motion/Highlighter";
 import BoxInViewMotion from "components/motion/BoxInViewMotion";
 import ButtonWithAnimatedArrowUpRight from "components/motion/ButtonWithAnimatedArrowUpRight";
